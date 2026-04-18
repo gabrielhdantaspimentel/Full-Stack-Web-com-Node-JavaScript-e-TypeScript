@@ -1,0 +1,8 @@
+O protocolo HTTP define que 
+
+O cliente precisa fazer uma requisição 
+
+E o servidor depois de receber a requisição tem que dar uma resposta
+
+(A resposta vem semre com criptografia)
+

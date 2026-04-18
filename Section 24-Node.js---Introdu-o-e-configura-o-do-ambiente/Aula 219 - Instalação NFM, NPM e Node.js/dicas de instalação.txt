@@ -1,0 +1,6 @@
+Caminho da instalação
+
+C:\Program Files\PowerShell\
+
+
+C:\Users\gabri\OneDrive\Documentos

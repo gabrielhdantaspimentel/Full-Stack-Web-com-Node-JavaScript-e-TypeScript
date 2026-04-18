@@ -1,0 +1,51 @@
+/* flex container */
+header {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+/* Nav é um Flex item do header e é um flex container na própria tag */
+nav {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+ul a:link, ul a:visited {
+    padding: 10px;
+    text-decoration: none;
+    color: #484848;
+}
+
+ul a:hover {
+    padding: 10px;
+    text-decoration: none;
+    color: #0b5cff;
+}
+
+.botao {
+    text-decoration: none;
+    color: #0b5cff;
+    border: 2px solid #0b5cff;
+    border-radius: 25px;
+    padding: 5px 20px;
+}
+
+.botao:hover {
+    background-color: #d2e1ff;
+}
+
+.botao.destaque {
+    background-color: #0b5cff;
+    color: white;
+}
+
+.botao.destaque:hover {
+    background-color: #2d73ff;
+}

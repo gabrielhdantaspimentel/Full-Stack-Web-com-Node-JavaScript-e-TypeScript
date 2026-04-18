@@ -1,0 +1,3 @@
+Node.js é um ambiente de configuração JS 
+
+O ambiente Node.js é composto pelo motor V8, que traduz o código JavaScript para linguagem de máquina, e pela biblioteca libuv, que gerencia o sistema de arquivos, rede e concorrência através do Event Loop. Essa estrutura permite que o Node.js funcione de forma assíncrona, tratando operações de entrada e saída sem interromper a execução do fluxo principal. O ecossistema é complementado pelo NPM, que organiza as dependências do projeto, permitindo a construção de aplicações escaláveis, como servidores web e ferramentas de automação, utilizando uma arquitetura baseada em eventos que prioriza a baixa latência e a eficiência de recursos.

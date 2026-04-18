@@ -1,0 +1,3 @@
+Node.js foi criado fazendo uma aplicação instalável capaz de rodar javascript só que fora do contexto de navegadores.
+
+Node.js é um ambiente de execução de código JS

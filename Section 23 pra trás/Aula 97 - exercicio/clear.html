@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear</title>
+    <style>
+        #principal{
+            width: 920px;
+            margin: 0 auto;
+            border: solid 1px red;
+            background-color: orange;
+        }
+
+        #principal::after{
+            content: " ";
+            clear: both;
+            display: table;
+            border: solid 1px red;
+        }
+
+        .noticia{
+            background-color: #e5e5e5;
+            padding: 5px;
+            width: 280px;
+            margin: 7px;
+            float: left;
+        }
+
+        .item-galeria{
+            border: 1px solid gray;
+            padding: 0.5em;
+            background-color: white;
+            width: 200px;
+            float: left;
+        }
+
+        .limpar{
+            clear: both;
+        }
+
+        #rodape{
+            /* border: 1px solid orange; */
+            width: 920px;
+            margin: 0 auto;
+            background-color: gray;
+            color: black;
+        }
+
+        span {
+            border: solid red 1px;
+        }
+
+        .mudar-exibicao{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    
+    
+    <div id="principal">
+
+        <!-- 
+        <img class="item-galeria" width="2000px" style="float: left;" src="img/celular1.png">
+        <img class="item-galeria" width="300px" style="float: right;" src="img/celular1.png">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum voluptatibus at, quas sint, similique sequi sit mollitia voluptate dolorum omnis laudantium amet quis, dignissimos culpa aut dolorem nulla adipisci natus?
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum voluptatibus at, quas sint, similique sequi sit mollitia voluptate dolorum omnis laudantium amet quis, dignissimos culpa aut dolorem nulla adipisci natus?
+        </p>
+
+        <p class="limpar">
+            ULTIMO
+            Lorem ips
+        </p>
+        -->
+        
+
+        
+        <div class="noticia">
+            <h2>Lorem ipsum, dolor sit amet 3</h2>
+            <p>
+                consectetur adipisicing elit. Sit, temporibus fugiat dolore adipisci ipsam quos. Fugiat inventore debitis, ea commodi veniam itaque blanditiis iste harum beatae ullam soluta expedita quibusdam.
+            </p>
+        </div>
+
+        <div class="noticia">
+            <h2>Lorem ipsum, dolor sit amet 3</h2>
+            <p>
+                consectetur adipisicing elit. Sit, temporibus fugiat dolore adipisci ipsam quos. Fugiat inventore debitis, ea commodi veniam itaque blanditiis iste harum beatae ullam soluta expedita quibusdam.
+            </p>
+        </div>
+
+        <div class="noticia">
+            <h2>Lorem ipsum, dolor sit amet 3</h2>
+            <p>
+                consectetur adipisicing elit. Sit, temporibus fugiat dolore adipisci ipsam quos. Fugiat inventore debitis, ea commodi veniam itaque blanditiis iste harum beatae ullam soluta expedita quibusdam.
+            </p>
+        </div>
+
+    
+    </div>
+    
+    
+    <div id="rodape">
+        <h3 class="mudar-exibicao">todos os direitos reservados</h3>
+        <span class="mudar-exibicao">Conteúdo de teste</span>
+        <span class="mudar-exibicao">Conteúdo de teste 2</span>
+    </div>
+     
+
+</body>
+</html>

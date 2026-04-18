@@ -1,0 +1,21 @@
+{
+  "name": "mockserver",
+  "version": "0.2.0",
+  "description": "Servidor simulado para pratica do protocolo de comunicação HTTP (arquitetura de rede CLient-Server)",
+  "license": "ISC",
+  "author": "Gabriel Pimentel",
+  "type": "module",
+  "main": "index.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx serve -p 3000 ./dist"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "serve": "^14.2.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  }
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mais sobre seletores (prática)</title>
+
+    <style>
+
+        /* Seletor universal 
+        * {
+            border: 1px solid red;
+        }*/
+
+        /* Seletor de texto 
+        h1, p, h2 {
+            border: 1px solid red;
+        }*/
+
+        /* Seletor de classe 
+        p.destaque {
+            background: purple;
+        }
+
+        h1.destaque {
+            background: red;
+        }
+
+        .titulo {
+            color: white;
+        }*/
+
+        /* Seletor de id 
+        div#promocao {
+           background-color: purple; 
+        }
+
+        span#promocao {
+           background-color: green; 
+        }*/
+
+        /* Seletor de filho 
+        div>h1 {
+            background-color: orange;
+        }
+
+        li>a{
+           color: brown;
+           text-decoration: none; 
+        }*/
+
+        /* Seletor de descendente 
+        div h1 {
+            background-color: orange;
+        }
+
+        li a{
+           color: brown;
+           text-decoration: none; 
+        }*/
+
+        /* Seletor irmão adjacente 
+        h1+p {
+            color: brown;
+            border: 1px solid brown;
+        }*/
+
+        /* Seletor irmão geral 
+        p~a {
+            color: brown;
+            border: 1px solid brown;
+        }*/
+        
+        h1{
+            color: green;
+        }
+
+        h1+p{
+            border-top: 3px solid grey;
+            padding-top: 10px;;
+        }
+
+        p.destaque{
+            color: purple;
+        }
+
+        p>a{
+            background-color: purple;
+            color: white;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Título da página</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi expedita 
+        dignissimos quaerat assumenda saepe. Fuga, tempora? 
+        Molestias est cumque maxime nobis quae ipsam dignissimos, 
+        repellat iure ut! <br>
+        <a href="">Leia mais</a> - 
+        <a href="">Gostei(10)</a>
+    </p>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi expedita
+    </p>
+
+    <h2>Subtítulo da página</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi expedita 
+        dignissimos quaerat assumenda saepe. Fuga, tempora? 
+        Molestias est cumque maxime nobis quae ipsam dignissimos, 
+        repellat iure ut!
+    </p>
+
+    <p class="destaque">
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi expedita 
+        dignissimos quaerat assumenda saepe. Fuga, tempora? 
+        Molestias est cumque maxime nobis quae ipsam dignissimos, 
+        repellat iure ut!
+    </p>
+
+    <!--
+    <p>Teste</p>
+    <a href="">Link de teste</a>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi expedita 
+        dignissimos quaerat assumenda saepe. Fuga, tempora? 
+        Molestias est cumque maxime nobis quae ipsam dignissimos, 
+        repellat iure ut!
+    </p>
+
+    <h1>Seletor de irmão (adjacente e geral)</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi 
+    </p>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi expedita 
+        dignissimos quaerat assumenda saepe. Fuga, tempora? 
+        Molestias est cumque maxime nobis quae ipsam dignissimos, 
+        repellat iure ut!
+    </p>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi 
+    </p>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi 
+    </p>
+
+
+    <div style="border: 1px solid black;">
+        <h1 class="titulo destaque">Título da página</h1>
+        <span style="background-color: grey;">
+            <h1 class="titulo destaque">Título da página</h1>
+        </span>
+    </div>
+
+    <ul>
+        <li>
+            <a href="">HOme</a>
+            <span><a href="">Outro link</a></span>
+        </li>
+        <li>
+            <a href="">SObre</a>
+        </li>
+    </ul>
+    
+    <h2>Subtítulo da página</h2>
+    <p class="destaque">
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi expedita 
+        dignissimos quaerat assumenda saepe. Fuga, tempora? 
+        Molestias est cumque maxime nobis quae ipsam dignissimos, 
+        repellat iure ut!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi expedita 
+        dignissimos quaerat assumenda saepe. Fuga, tempora? 
+        Molestias est cumque maxime nobis quae ipsam dignissimos, 
+        repellat iure ut!
+    </p>
+
+    <h2>Subtítulo da página</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Recusandae animi corrupti quasi expedita 
+        dignissimos quaerat assumenda saepe. Fuga, tempora? 
+        Molestias est cumque maxime nobis quae ipsam dignissimos, 
+        repellat iure ut!
+    </p>
+
+    <div id="promocao">
+        <h2>Promoção</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing 
+            elit. Recusandae animi corrupti quasi expedita 
+            dignissimos quaerat assumenda saepe. Fuga, tempora? 
+            Molestias est cumque maxime nobis quae ipsam dignissimos, 
+            repellat iure ut!
+        </p>
+    </div>
+
+    <span>
+        teste
+    </span>
+    -->
+
+</body>
+</html>
