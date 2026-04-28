@@ -1,0 +1,4 @@
+Ultima aula que acabei foi a 264 "type array"
+
+Aula 265 começa em 00:09:34 
+"union types"
