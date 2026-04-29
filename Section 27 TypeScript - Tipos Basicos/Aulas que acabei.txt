@@ -1,4 +1,4 @@
-Ultima aula que acabei foi a 264 "type array"
+Ultima aula que acabei foi a 264 "Union Type"
 
-Aula 265 começa em 00:09:34 
-"union types"
+Próx Aula 265 - Tipo Tuple 
+00:19:23
