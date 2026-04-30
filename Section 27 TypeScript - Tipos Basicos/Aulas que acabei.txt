@@ -1,7 +1,7 @@
 Ultima aula que acabei foi:
-267 - Tipo Object - Inferência e Anotação de tipo
-
-Próx Aula:
 268 - Type Alias
 
-00:44:05
+Próx Aula:
+269 - Tipo Object - Index Signature
+
+00:50:37
