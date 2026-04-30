@@ -1,4 +1,7 @@
-Ultima aula que acabei foi a 264 "Union Type"
+Ultima aula que acabei foi:
+267 - Tipo Object - Inferência e Anotação de tipo
 
-Próx Aula 265 - Tipo Tuple 
-00:19:23
+Próx Aula:
+268 - Type Alias
+
+00:44:05
