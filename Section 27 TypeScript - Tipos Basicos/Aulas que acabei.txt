@@ -1,8 +1,9 @@
 Ultima aula que acabei foi:
-272 - Let vs Const
+273 - Tipo Any
+
 
 Próx Aula:
-273 - Tipo Any
+274 - Const no Contexto de Objetos
 
 
 Última minutagem do vídeo no notebook
