@@ -1,8 +1,8 @@
 Ultima aula que acabei foi:
-271 - Literal Types
+272 - Let vs Const
 
 Próx Aula:
-272 - Let vs Const
+273 - Tipo Any
 
 
 Última minutagem do vídeo no notebook
