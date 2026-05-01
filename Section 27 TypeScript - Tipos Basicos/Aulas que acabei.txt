@@ -1,9 +1,9 @@
 Ultima aula que acabei foi:
-275 - Função - Tipo void
+276 Função - Tipo return
 
 
 Próx Aula:
-276 Função - Tipo return
+277 função - Typer Annotation
 
 
 Última minutagem do vídeo no notebook
