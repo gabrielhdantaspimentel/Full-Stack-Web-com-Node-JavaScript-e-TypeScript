@@ -1,9 +1,9 @@
 Ultima aula que acabei foi:
-273 - Tipo Any
+274 - Const no Contexto de Objetos
 
 
 Próx Aula:
-274 - Const no Contexto de Objetos
+275 - Função - Tipo void
 
 
 Última minutagem do vídeo no notebook
