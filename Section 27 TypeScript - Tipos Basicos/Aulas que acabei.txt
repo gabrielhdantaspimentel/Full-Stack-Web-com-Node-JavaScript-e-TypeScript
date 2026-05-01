@@ -1,7 +1,9 @@
 Ultima aula que acabei foi:
-268 - Type Alias
+271 - Literal Types
 
 Próx Aula:
-269 - Tipo Object - Index Signature
+272 - Let vs Const
 
+
+Última minutagem do vídeo no notebook
 00:50:37
