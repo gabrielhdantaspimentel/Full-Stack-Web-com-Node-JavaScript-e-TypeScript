@@ -1,10 +1,10 @@
 Ultima aula que acabei foi:
-276 Função - Tipo return
+277 função - Type Annotation
 
 
 Próx Aula:
-277 função - Typer Annotation
+278 Função - Type Annotation em Callbacks
 
 
 Última minutagem do vídeo no notebook
-00:50:37
+01:54:55
