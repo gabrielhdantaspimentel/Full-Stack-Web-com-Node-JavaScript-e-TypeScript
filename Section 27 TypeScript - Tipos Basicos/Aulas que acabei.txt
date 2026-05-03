@@ -1,9 +1,9 @@
 Ultima aula que acabei foi:
-277 função - Type Annotation
+278 Função - Type Annotation em Callbacks
 
 
 Próx Aula:
-278 Função - Type Annotation em Callbacks
+279 Executando os scripts compilados no Browser
 
 
 Última minutagem do vídeo no notebook
