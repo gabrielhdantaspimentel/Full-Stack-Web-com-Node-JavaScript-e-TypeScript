@@ -22,8 +22,8 @@ type ShoppingCart = {
 const shoppingCart: ShoppingCart = {
   cartItems: [
     { id: 1000, price: 200 },
-    { id: 1546, price: 254 },
-    { id: 7894, price: 987 },
+    { id: 1546, price: 300 },
+    { id: 7894, price: 500},
   ],
 };
 
