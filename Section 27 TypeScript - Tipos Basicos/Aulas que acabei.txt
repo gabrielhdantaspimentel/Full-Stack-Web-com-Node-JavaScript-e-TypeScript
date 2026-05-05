@@ -1,9 +1,11 @@
 Ultima aula que acabei foi:
-278 Função - Type Annotation em Callbacks
+279 Executando os scripts compilados no Browser
+
+Não ta funcionando o console.log do JS, tem que ver o que ta acontecendo
 
 
 Próx Aula:
-279 Executando os scripts compilados no Browser
+
 
 
 Última minutagem do vídeo no notebook
