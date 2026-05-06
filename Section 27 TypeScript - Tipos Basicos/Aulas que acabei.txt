@@ -1,11 +1,9 @@
 Ultima aula que acabei foi:
-279 Executando os scripts compilados no Browser
-
-Não ta funcionando o console.log do JS, tem que ver o que ta acontecendo
+280 Compilação automática
 
 
 Próx Aula:
-
+281
 
 
 Última minutagem do vídeo no notebook
