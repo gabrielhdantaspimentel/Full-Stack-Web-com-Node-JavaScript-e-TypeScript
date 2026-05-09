@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+
   "devDependencies": {
     "copyfiles": "^2.4.1",
     "prettier": "3.8.3",
