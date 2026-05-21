@@ -1,4 +1,4 @@
-function Acomodacao(){
+export function Acomodacao(){
     return (
         // EXEMPLO DE TAG VAZIA QUE O CÓDIGO JSX ACEITA
          <> 
