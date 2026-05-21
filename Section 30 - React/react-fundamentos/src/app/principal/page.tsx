@@ -1,21 +1,12 @@
-export function Acomodacao(){
-    return (
-        // EXEMPLO DE TAG VAZIA QUE O CÓDIGO JSX ACEITA
-         <> 
-            <span>IMAGEM ACOMODAÇÃO</span>
-            <h1>São Roque, Brasil</h1>
-            <p>Desc: Perto de Vinícola Goes</p>
-        </>
-    )
-}
+import { Acomodacao, Cabecalho, Menu } from "@/component/interface"
 
-export default function Page(){
+export default function Pagina(){
     const nome = 'Gabriel'
 
     return (
         <div>
-            {Acomodacao()}
-            <hr />
+            {Cabecalho()}
+            <hr /> 
             {Acomodacao()}
             <hr />
             {nome}
