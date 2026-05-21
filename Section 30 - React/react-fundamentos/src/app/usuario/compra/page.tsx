@@ -1,4 +1,4 @@
-import { Acomodacao } from "@/component/interface"
+import { Acomodacao } from "@/components/interface"
 
 export default function Compra(){
     return Acomodacao()
