@@ -7,14 +7,14 @@ export default function Pagina(){
         <div>
             <Cabecalho 
             titulo="Airbnb"
-            subtitulo="Inicio"
+            subtitulo="Minhas acomodações"
             />
 
             <Menu />
 
             <Conteudo titulo="Página Início">
-                <h1>Página de início</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eum</p>
+                <h1>Página de Acomodações</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit explicabo quibusdam autem fuga cumque, dolorem debitis ipsam ducimus iste ullam natus? Quas distinctio consequatur nobis maxime ratione impedit minima architecto?</p>
             </Conteudo>
 
             <Rodape />
