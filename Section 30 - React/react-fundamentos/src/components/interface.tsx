@@ -41,7 +41,7 @@ export function Cabecalho( props: any ){
 export function Rodape(){
     return (
         <div className="bg-blue-300">
-            <p>Rodape</p>
+            <p>Rodapé</p>
         </div>
     )
 }
@@ -49,7 +49,7 @@ export function Rodape(){
 export function Conteudo( props: any ){
     console.log(props)
     return (
-        <div className="bg-gray-300">
+        <div className="bg-gray-200">
             {props.children}
         </div>
     )

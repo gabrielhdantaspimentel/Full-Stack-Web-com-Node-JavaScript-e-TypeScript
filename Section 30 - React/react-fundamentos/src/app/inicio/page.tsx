@@ -10,11 +10,12 @@ export default function Pagina(){
             subtitulo="Inicio"
             />
 
-            <Menu />
-
             <Conteudo titulo="Página Início">
                 <h1>Página de início</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eum</p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eum, praesentium illum tempora minus incidunt molestiae sunt sed
+                    </p>
+                    
             </Conteudo>
 
             <Rodape />
