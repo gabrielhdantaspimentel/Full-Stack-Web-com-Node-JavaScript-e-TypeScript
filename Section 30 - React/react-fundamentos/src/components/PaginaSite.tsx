@@ -11,7 +11,7 @@ export default function PaginaSite( props:any ){
 
             <Menu />
 
-            <Conteudo titulo="teste">
+            <Conteudo>
                 {props.children}
             </Conteudo>
 
