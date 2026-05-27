@@ -2,12 +2,11 @@ import Link from "next/link"
 
 export function Acomodacao(){
     return (
-        // EXEMPLO DE TAG VAZIA QUE O CÓDIGO JSX e TSX ACEITA
-         <> 
+        <div>
             <span>IMAGEM ACOMODAÇÃO</span>
             <h1>São Roque, Brasil</h1>
-            <p>Desc: Perto de Vinícola Goes</p>
-        </>
+            <p>Desc. Perto da vinícola Góes</p>
+        </div>
     )
 }
 
@@ -23,15 +22,16 @@ export function Menu(){
 
 export function MenuItem( props: any ){
     return (
-        <Link href={props.url} className="p-2" >
+        <Link href={props.url} className="p-2">
             {props.texto}
         </Link>
     )
 }
 
 export function Cabecalho( props: any ){
+    const classe = props.className ?? ""
     return (
-        <div className="bg-blue-300">
+        <div className={"p-3 " + classe }>
             <p>{props.titulo}</p>
             <p>{props.subtitulo}</p>
         </div>
@@ -40,17 +40,16 @@ export function Cabecalho( props: any ){
 
 export function Rodape(){
     return (
-        <div className="bg-blue-300">
+        <div className="bg-blue-200">
             <p>Rodapé</p>
         </div>
     )
 }
 
-export function Conteudo( props: any ){
-    console.log(props)
+export function Conteudo( props:any ){
     return (
         <div className="bg-gray-200">
-            {props.children}
+           {props.children}
         </div>
     )
-}
+} 
