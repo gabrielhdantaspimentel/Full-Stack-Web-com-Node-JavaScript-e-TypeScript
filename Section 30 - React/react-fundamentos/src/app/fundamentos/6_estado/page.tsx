@@ -22,15 +22,10 @@ export default function Page(){
 
     return (
         <div>
-            <h1>Estados</h1>
+            <h1 className="meuTexto">Estados</h1>
             <button 
             onClick={incrementar}
-            className="
-            bg-blue-200
-            text-black
-            rounded
-            p-2
-            ">
+            className="bg-blue-200 text-black rounded p-2">
                 Incrementar
             </button> 
 
@@ -38,9 +33,7 @@ export default function Page(){
 
             <button 
             onClick={decrementar}
-            className="
-            bg-red-200 text-black mt-1 rounded p-2
-            ">
+            className="bg-red-200 text-black mt-1 rounded p-2">
                 Decrementar
             </button> 
 
