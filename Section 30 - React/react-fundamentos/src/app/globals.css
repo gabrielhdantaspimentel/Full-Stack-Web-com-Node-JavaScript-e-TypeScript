@@ -12,12 +12,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* DESATIVANDO A RENDERIZAÇÃO DE CORES DO SISTEMA OPERACIONAL
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+*/
 
 body {
   background: var(--background);
@@ -28,4 +30,10 @@ body {
 .meuTexto {
   @apply bg-blue-500 p-5;
   @apply hover:bg-purple-500;
+}
+
+.campo-texto {
+  
+  @apply bg-gray-200 p-1;
+  @apply rounded-md;
 }
