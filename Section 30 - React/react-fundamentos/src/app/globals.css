@@ -33,7 +33,13 @@ body {
 }
 
 .campo-texto {
-  
+
   @apply bg-gray-200 p-1;
   @apply rounded-md;
+}
+
+.botao {
+  
+  @apply bg-blue-200 p-1;
+  @apply rounded-md hover:bg-green-200 hover:text-green-700;
 }
