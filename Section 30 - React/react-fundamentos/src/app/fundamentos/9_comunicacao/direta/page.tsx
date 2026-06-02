@@ -1,6 +1,6 @@
 'use client'
 
-import AbaDireta from "./componentes/abaDireta"
+import AbaDireta from "./componentes/AbaDireta"
 
 export default function Direta(){
     return (
