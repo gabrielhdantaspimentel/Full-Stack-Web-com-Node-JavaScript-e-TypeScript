@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
+
+/* tive que dar o apply px e py em todos porque a 
+versão do tailwind atual ta mais restritiva
+com utilização de classes customizadas */
+@layer components {
+  .btn {
+  @apply px-4 py-2 rounded-md;
+  }
+
+  .btn-sucesso{
+    @apply px-4 py-2 rounded-md;
+    @apply bg-green-500 text-white hover:bg-green-400;
+  }
+  
+  .btn-info{
+    @apply px-4 py-2 rounded-md;
+    @apply bg-orange-500 text-white hover:bg-orange-400;
+  }
+
+  .btn-erro{
+    @apply px-4 py-2 rounded-md;
+    @apply bg-red-500 text-white hover:bg-red-400;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -37,7 +62,7 @@ body {
   @apply rounded-md;
 }
 
-button {
+/* button {
   @apply bg-blue-200 p-1;
   @apply rounded-md hover:bg-green-200 hover:text-green-700;
-}
+} */
