@@ -1,0 +1,8 @@
+Essa aula provavelmente tava dentro do módulo de tailwind
+mas colocaram como ultima dentro do modulo de react vai saber por que...
+E por esse motivo tem duas pastas "7_blablabla" 
+
+A original do módulo de react é a 7_entrada
+Deixei essa 7_components aqui porque acredito que ele irá criar outro 
+projeto só com todos os módulos de tailwind e como vou precisar montar outra pasta
+vai ficar tudo certinho separado em pastas diferentes 
