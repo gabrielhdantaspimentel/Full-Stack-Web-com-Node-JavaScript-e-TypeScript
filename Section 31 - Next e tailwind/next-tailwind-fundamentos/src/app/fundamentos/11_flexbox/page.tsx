@@ -2,10 +2,11 @@ export default function Aplicacao(){
     return (
 
     // flex flex-row-reverse flex-wrap
-    <div className='border-4 flex flex-row gap-2'>
-        <div className="caixa basis-64">Caixa 1</div>
-        <div className="caixa basis-96">Caixa 2</div>
-        <div className="caixa basis-64">Caixa 3</div>
+    // order-2 grow justify-between
+    <div className='border-4 p-3 h-screen flex flex-row gap-2 justify-evenly items-start'>
+        <div className="caixa h-36">Caixa 1</div>
+        <div className="caixa">Caixa 2</div>
+        <div className="caixa">Caixa 3</div>
     </div>
     )
 }
