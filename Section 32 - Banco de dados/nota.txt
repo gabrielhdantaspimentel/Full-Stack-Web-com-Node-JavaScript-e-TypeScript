@@ -1,1 +1,4 @@
 Banco de dados configurado no notebook
+
+Aula 360 - O que é SQL
+Foi só um resumo da linguagem e aplicações
