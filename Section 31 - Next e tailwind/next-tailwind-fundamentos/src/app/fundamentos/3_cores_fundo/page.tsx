@@ -1,10 +1,8 @@
-import Image from "next/image"
-
 export default function Aplicacao(){
     return (
         <div className="bg-black">
             <h1 className="text-orange-300">Cores</h1>
-            <h1 className="text-orange-300/100">Cores</h1>
+            <h1 className="text-orange-300/99">Cores</h1>
             <h1 className="text-orange-300/75">Cores</h1>
             <h1 className="text-orange-300/50">Cores</h1>
             <h1 className="text-orange-300/25">Cores</h1>
@@ -18,7 +16,7 @@ export default function Aplicacao(){
             bg-[url(/img/nuvem.png)]
             bg-pink-300
             bg-no-repeat
-            bg-left-top
+            bg-top-left
             ">Fundo imagem</h1>
         </div>
     ) 
