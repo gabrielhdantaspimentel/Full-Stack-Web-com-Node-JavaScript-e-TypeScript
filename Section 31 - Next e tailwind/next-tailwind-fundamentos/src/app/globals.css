@@ -38,6 +38,22 @@ body {
   }
 
   .btn {
-    @apply px-4 py-2 rounded-md;
+  @apply px-4 py-2 rounded-md;
   }
+
+  .btn-sucesso{
+    @apply px-4 py-2 rounded-md;
+    @apply bg-green-500 text-white hover:bg-green-400;
+  }
+  
+  .btn-info{
+    @apply px-4 py-2 rounded-md;
+    @apply bg-orange-500 text-white hover:bg-orange-400;
+  }
+
+  .btn-erro{
+    @apply px-4 py-2 rounded-md;
+    @apply bg-red-500 text-white hover:bg-red-400;
+  }
+
 }
