@@ -25,7 +25,18 @@ CREATE TABLE usuarios
 INSERT INTO usuarios ( email, senha )
 			VALUES ( 'gabriel@email.com', '12345' );
 
-*/
+
 
 TRUNCATE TABLE usuarios;
+
+DROP TABLE pessoas;
+*/
+
+CREATE TABLE pessoas
+(
+	numero INT
+);
+
+INSERT INTO pessoas (numero) VALUES (505156);
+DROP TABLE pessoas;
 
