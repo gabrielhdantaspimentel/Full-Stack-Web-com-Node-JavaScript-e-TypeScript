@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 /* tive que dar o apply px e py em todos porque a 
 versão do tailwind atual ta mais restritiva
 com utilização de classes customizadas */
