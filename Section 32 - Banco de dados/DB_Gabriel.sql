@@ -30,13 +30,22 @@ INSERT INTO usuarios ( email, senha )
 TRUNCATE TABLE usuarios;
 
 DROP TABLE pessoas;
+
+/* BRINCANDO DE SIMULAR POSTAGEM
+INSERT INTO pessoas (titulo, postagem) VALUES ('
+Dia de praia', 
+'Dia legal na praia, lembro de quando fui com a galera e chapei de de tudo quanto que é bebida');
 */
 
-CREATE TABLE pessoas
+CREATE TABLE postagens
 (
-	numero INT
+	-- numero INT
+    -- numero DECIMAL(10,4)
+    -- titulo TINYTEXT, 
+    -- texto VARCHAR(5)
+    data_postagem DATETIME
 );
 
-INSERT INTO pessoas (numero) VALUES (505156);
+-- INSERT INTO pessoas (numero) VALUES (999.9123459);
+INSERT INTO postagens (data_postagem) VALUES ('2025-12-25 10:20:50');
 DROP TABLE pessoas;
-
