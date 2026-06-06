@@ -9,3 +9,8 @@ Só mostrou os principais tipos de dados e alguns exemplos de aplicação, exemp
 Char - É um dado do tipo fixo 
 Varchar - É um dado do tipo variável
 
+=================
+=================
+=================
+
+Criei um outro banco só pra fazer um exercício pra aplicar o que ja foi mostrado
