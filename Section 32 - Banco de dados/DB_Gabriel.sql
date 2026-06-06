@@ -14,11 +14,18 @@ DESCRIBE usuarios;
 
 DROP TABLE usuarios;
 
-*/
+
 
 CREATE TABLE usuarios 
 (
 	email VARCHAR(39),
     senha VARCHAR(8)
 );
+
+INSERT INTO usuarios ( email, senha )
+			VALUES ( 'gabriel@email.com', '12345' );
+
+*/
+
+TRUNCATE TABLE usuarios;
 
