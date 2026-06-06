@@ -2,3 +2,10 @@ Banco de dados configurado no notebook
 
 Aula 360 - O que é SQL
 Foi só um resumo da linguagem e aplicações
+
+Aula 354 - Tipos de dados da tabela - teoria
+Só mostrou os principais tipos de dados e alguns exemplos de aplicação, exemplo
+
+Char - É um dado do tipo fixo 
+Varchar - É um dado do tipo variável
+
