@@ -76,10 +76,4 @@ export default function PageIMC(){
                     <p>Seu IMC é: {result.toFixed(2)}</p>
                     <p>{message}</p>
                 </div>
-            )}
-
-        </div>
-    )
-
-
-}
+            
