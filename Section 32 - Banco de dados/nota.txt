@@ -39,3 +39,14 @@ Idealmente precisa conter somente as informações necessárias para identificá
 Obrigamtóriamente precisa ser única
 
 Padrão de aplicação no Script exemplo "chave_primária"
+
+
+===========================
+===========================
+
+AULA 377 - Introdução ao Relacionamento entre tabelas
+
+Exemplos de como criar e aplicar relacionamentos entre tabelas, exemplo:
+
+Cliente compra um produto, ao comprar o produto é gerada uma nova tabela "carinho" a partir de duas tabelas 
+A tabela "produtos" com os itens selecionados e a tabela "clientes" com qual cliente cadastrado no banco fez esses pedidos no carrinho
