@@ -50,3 +50,13 @@ Exemplos de como criar e aplicar relacionamentos entre tabelas, exemplo:
 
 Cliente compra um produto, ao comprar o produto é gerada uma nova tabela "carinho" a partir de duas tabelas 
 A tabela "produtos" com os itens selecionados e a tabela "clientes" com qual cliente cadastrado no banco fez esses pedidos no carrinho
+
+===========================
+===========================
+
+AULA 379 - Introdução aos tipos de relacionamentos
+
+Um para um
+Um para muitos
+Muitos para muitos
+Autorreferência ou auto relacionamento
