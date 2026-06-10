@@ -1,0 +1,7 @@
+CREATE TABLE produtos 
+(
+id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+titulo VARCHAR(100),
+descricao TEXT,
+PRIMARY KEY (id)
+);

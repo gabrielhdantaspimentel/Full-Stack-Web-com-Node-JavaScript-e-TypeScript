@@ -26,3 +26,16 @@ simbolos para ajudar em busca e pesquisa, exemplo:
 1° = --> Mostra tudo que for identico
 2° <> --> Mostra tudo que for de diferente
 3° palavra% --> O porcentagem busca tudo que tiver a palavra digitada e concatena com possivies relações do local selecionado
+
+
+===========================
+===========================
+
+Aula 375 - Descrição e conceitos sobre Chave Primária (PRIMARY KEY)
+
+Comportamentos padrões utilizados
+Nunca pode ficar com valor nulo
+Idealmente precisa conter somente as informações necessárias para identificá-la
+Obrigamtóriamente precisa ser única
+
+Padrão de aplicação no Script exemplo "chave_primária"
