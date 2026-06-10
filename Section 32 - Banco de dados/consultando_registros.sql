@@ -7,6 +7,10 @@ CREATE TABLE vendas
 	categoria VARCHAR(60)
 );
 
+ALTER TABLE vendas ADD COLUMN total DECIMAL(15,2);
+
+
+
 INSERT INTO vendas
 		VALUES(
 			'jamilton.damasceno', 'Notebook HP', 1200.90, 1, 'eletronicos'
@@ -98,4 +102,19 @@ DESC  -> Descendente z...a ou 100...0
 
 */
 
-SELECT * FROM vendas WHERE categoria = 'eletronicos' ORDER BY  ;
+SELECT * FROM vendas WHERE categoria = 'roupas' ORDER BY preco ASC ;
+
+SELECT * FROM vendas 
+WHERE 1=1
+ORDER BY produto ASC
+LIMIT 2;
+
+
+-- Consultas com agregações Funções SUM, MAX, MIN 
+SELECT produto AS p FROM vendas;
+SELECT produto, preco, quantidade, (preco * quantidade) AS total FROM vendas;
+
+SELECT usuario, MAX(total) AS total_vendas FROM vendas GROUP BY usuario;
+
+-- Alterando tabela para total
+UPDATE vendas SET total = preco * quantidade;
