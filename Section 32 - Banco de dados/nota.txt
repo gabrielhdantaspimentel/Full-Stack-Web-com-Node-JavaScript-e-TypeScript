@@ -60,3 +60,11 @@ Um para um
 Um para muitos
 Muitos para muitos
 Autorreferência ou auto relacionamento
+
+
+===========================
+===========================
+
+Aula 386 - Introdução as junções de dados
+
+Introdução sobre como funcionam as junções e relembrando como funcionam conjuntos em matemática
