@@ -17,7 +17,7 @@ export default function PageIMC(){
     console.log(typeof height)
 
     function calculate(){
-        let ajustHeight = height / 100
+        const ajustHeight = height / 100
         setResult ( weight / (ajustHeight ** 2) )
         if ( result < 18.5 ){
             setMessage('Está baixo')
@@ -28,12 +28,12 @@ export default function PageIMC(){
         }
     }
 
-    function changeWeight(e: any){
+    function changeWeight(e: React.ChangeEvent<HTMLInputElement>){
         setWeight ( Number(e.target.value) )        
 
     }
 
-    function changeHeight(e: any){
+    function changeHeight(e: React.ChangeEvent<HTMLInputElement>){
         setHeight ( Number(e.target.value) )
     }
 
@@ -76,4 +76,8 @@ export default function PageIMC(){
                     <p>Seu IMC é: {result.toFixed(2)}</p>
                     <p>{message}</p>
                 </div>
+            )}
             
+        </div>
+    )
+}
