@@ -25,3 +25,5 @@ CREATE TABLE IF NOT EXISTS pedidos
 
 INSERT INTO pedidos VALUES (NULL, 1, DEFAULT, 'Notebook Samsung Book', 1, 3000);
 INSERT INTO pedidos VALUES (NULL, 1, DEFAULT, 'Smart TV LED', 1, 5000);
+
+INSERT INTO pedidos VALUES (NULL, 2, DEFAULT, 'Smart TV LED', 1, 5000);
