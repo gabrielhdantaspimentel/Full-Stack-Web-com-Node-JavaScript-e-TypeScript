@@ -1,8 +1,6 @@
 create database juncoes;
 use juncoes;
 
-
-
 create table if not exists bebidas (
 	id_bebida int unsigned not null primary key auto_increment,
     bebida varchar(10),
@@ -11,24 +9,21 @@ create table if not exists bebidas (
 insert into bebidas values(null, "🧉", "Água Coco");
 insert into bebidas values(null, "🧋", "Suco");
 insert into bebidas values(null, "🥤", "Refrigerante");
-insert into bebidas values(null, "🍺", "Cerveja");
+-- insert into bebidas values(null, "🍺", "Cerveja");
 
 
 create table if not exists comidas (
 	id_comida int unsigned not null primary key auto_increment,
     comida varchar(20),
     descricao varchar(20),
-    id_bebida int unsigned,
+    id_bebida int unsigned,-- not null
     foreign key(id_bebida) references bebidas(id_bebida)
 );
 insert into comidas values(null, "🍔", "Hamburguer", 1);
 insert into comidas values(null, "🍱", "Com. Japonesa", null);
 insert into comidas values(null, "🥪", "Sanduíche", 2);
-insert into comidas values(null, "🍕", "Pizza", 2);
+-- insert into comidas values(null, "🍕", "Pizza", 2);
 
-
-select * from bebidas;
-select * from comidas;
 
 /*
 1) Cross Join -> Cruzar dados (produto cartesiano)
@@ -37,43 +32,43 @@ SELECT * FROM comidas CROSS JOIN bebidas;
 
 /*
 2) Inner Join -> Dados internos, o que é comum em dois conjuntos
+USING -> usando
 */
-select * from bebidas;
-select * from comidas;
 
 SELECT * 
-FROM comidas AS c
-INNER JOIN bebidas AS b
+FROM comidas c
+INNER JOIN bebidas b
 USING(id_bebida)
--- ON c.id_bebidas = b.id_bebida
--- WHERE c.id_bebidas = b.id_bebida
+-- ON c.id_bebida = b.id
+-- WHERE c.id_bebida = b.id_bebida NÃO É RECOMENDADO
 ;
 
 /*
-3) left (outer) join
+3) left (outer) join -> ESQUERDA EXTERNA
 Traz todos os resultados a esquerda + o que é comum nas duas tabelas
 */
 
-select * from bebidas;
-select * from comidas;
+SELECT * FROM comidas LEFT JOIN bebidas USING(id_bebida);
 
-SELECT * FROM comidas LEFT JOIN bebidas USING (id_bebida);
-UPDATE comidas SET id_bebida = 2 where id_comida = 4;
-UPDATE comidas SET id_bebida = 2 where id_comida = 3;
+update comidas set id_bebida = 2 where id_comida = 4;-- 2
+update comidas set id_bebida = 2 where id_comida = 3;-- 2
+
 
 /*
 4) right (outer) join
-Traz todos os resultados a esquerda + o que é comum nas duas tabelas
 */
 select * from bebidas;
 select * from comidas;
-SELECT * FROM comidas RiGHT JOIN bebidas USING (id_bebida);
 
+SELECT * FROM comidas RIGHT JOIN bebidas USING(id_bebida);
 
 
 /*
-4) Fulljoin (union)
+5) full join (union)
 */
 SELECT * FROM comidas LEFT JOIN bebidas USING(id_bebida)
-UNION 
+UNION
 SELECT * FROM comidas RIGHT JOIN bebidas USING(id_bebida);
+
+
+
