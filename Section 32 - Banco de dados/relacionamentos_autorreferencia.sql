@@ -1,4 +1,4 @@
-CREATE DATABASE muitos_para_muitos;
+CREATE DATABASE relacionamentos_autorreferencia;
 
 CREATE TABLE IF NOT EXISTS clientes 
 (
@@ -6,6 +6,18 @@ CREATE TABLE IF NOT EXISTS clientes
 	nome VARCHAR(100),
     sobrenome VARCHAR(100)
 );
+
+
+
+ALTER TABLE clientes ADD COLUMN id_cliente_indicacao INT UNSIGNED;
+INSERT INTO clientes VALUES (null, 'Gabriel', 'Pimentel', 1); 
+UPDATE clientes SET id_cliente_indicacao= 1 WHERE id_cliente = 3;
+UPDATE clientes SET id_cliente_indicacao= 4 WHERE id_cliente = 2; 
+
+SELECT c.nome, c.sobrenome, c2.nome nome_indicacao
+FROM clientes c LEFT JOIN clientes c2
+ON c.id_cliente_indicacao = c2.id_cliente;	
+
 INSERT INTO clientes VALUES(null, 'Maria', 'Almeida');
 INSERT INTO clientes VALUES(null, 'João', 'Silva');
 INSERT INTO clientes VALUES(null, 'Carla', 'Carvalho');
