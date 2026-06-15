@@ -1,1 +1,5 @@
 MongoDB não substitui o banco de dados relacional como MySQL
+
+
+MongoDB (NoSQL) é melhor pra consultar rápidas e não demorar tanto
+para fazer consultas
