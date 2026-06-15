@@ -1,0 +1,1 @@
+MongoDB não substitui o banco de dados relacional como MySQL

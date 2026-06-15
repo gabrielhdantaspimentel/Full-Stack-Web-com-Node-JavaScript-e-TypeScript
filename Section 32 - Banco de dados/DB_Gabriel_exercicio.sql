@@ -15,3 +15,5 @@ INSERT INTO feed (id_postagem, titulo, descricao, data_postagem) VALUES
 "Melhor que a hora do daniel churros",
 '06-06-2026 16:20:25'
 );
+
+DROP TABLE feed;
