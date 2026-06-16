@@ -3,3 +3,9 @@ MongoDB não substitui o banco de dados relacional como MySQL
 
 MongoDB (NoSQL) é melhor pra consultar rápidas e não demorar tanto
 para fazer consultas
+
+
+======================
+Intalação concluída
+MongoDB 8.0.26 - x64
+Mongosh 2.8.3 - x64
