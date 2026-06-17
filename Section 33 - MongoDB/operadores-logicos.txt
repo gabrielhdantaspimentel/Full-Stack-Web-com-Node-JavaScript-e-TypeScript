@@ -1,77 +1,100 @@
-loja> show collections
-produto
-usuarios
-loja> db.produtos.insertMany([{nome: "notebook", preco: 1200.90, categoria: "eletronicos"}, {nome: "iphone", preco: 4900.00, categoria: "eletronicos"}, {nome: "camiseta", preo: 59.90, categoria: "roupas"}, {nome: "jaqueta", preco: 89.90, categoria: "roupas"}, {nome: "quadro", preco: 100.00, categoria: "decoracao"}, {nome: "1984", preco: 64.90, categoria: "livro"}])
-{
-  acknowledged: true,
-  insertedIds: {
-    '0': ObjectId('6a32e2d66e54e3bec7abc115'),
-    '1': ObjectId('6a32e2d66e54e3bec7abc116'),
-    '2': ObjectId('6a32e2d66e54e3bec7abc117'),
-    '3': ObjectId('6a32e2d66e54e3bec7abc118'),
-    '4': ObjectId('6a32e2d66e54e3bec7abc119'),
-    '5': ObjectId('6a32e2d66e54e3bec7abc11a')
+Operadores lógicos: $and
+and -> todos os critérios precisam ser verdadeiros
+
+or -> Pelo menos um dos critérios deve ser verdadeiro
+
+nor -> Nenhum dos critérios deve ser verdadeiro
+
+RESULTADO DE BUSCA COM and
+loja> db.produtos.find( { $and: [ { categoria:"eletronicos" }, {preco:{$gt:100} }] })
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc115'),
+    nome: 'notebook',
+    preco: 1200.9,
+    categoria: 'eletronicos'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc116'),
+    nome: 'iphone',
+    preco: 4900,
+    categoria: 'eletronicos'
   }
-}
+]
 
-
-loja> db.produtos.find( {}, {nome:true, preco: true, _id:false} )
+RESULTADO DE BUSCA COM or
+loja> db.produtos.find( { $or: [ { categoria:"eletronicos" }, {preco:{$gt:100} }] })
 [
-  { nome: 'notebook', preco: 1200.9 },
-  { nome: 'iphone', preco: 4900 },
-  { nome: 'camiseta' },
-  { nome: 'jaqueta', preco: 89.9 },
-  { nome: 'quadro', preco: 100 },
-  { nome: '1984', preco: 64.9 }
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc115'),
+    nome: 'notebook',
+    preco: 1200.9,
+    categoria: 'eletronicos'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc116'),
+    nome: 'iphone',
+    preco: 4900,
+    categoria: 'eletronicos'
+  }
 ]
 
 
-FAZENDO BUSCA COM OPERADORES LÓGICOS ***
-$gt 
-$ = operador lógico
-gt = greater than
-
-loja> db.produtos.find( {preco: {$gt:100}}, {nome:true, preco: true, _id:false} )
-
-RESULTADO DA BUSCA ABAIXO ***
+RESULTADO COM nor
+loja> db.produtos.find( { $nor: [ { categoria:"eletronicos" }, {preco:{$gt:100} }] })
 [
-  { nome: 'notebook', preco: 1200.9 },
-  { nome: 'iphone', preco: 4900 }
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc117'),
+    nome: 'camiseta',
+    preo: 59.9,
+    categoria: 'roupas'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc118'),
+    nome: 'jaqueta',
+    preco: 89.9,
+    categoria: 'roupas'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc119'),
+    nome: 'quadro',
+    preco: 100,
+    categoria: 'decoracao'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc11a'),
+    nome: '1984',
+    preco: 64.9,
+    categoria: 'livro'
+  }
 ]
 
-lt = less than
-loja> db.produtos.find( {preco: {$lt:100}}, {nome:true, preco: true, _id:false} )
-[ { nome: 'jaqueta', preco: 89.9 }, { nome: '1984', preco: 64.9 } ]
+RESULTADO COM not
 
-
-lte = less than equal = menor ou igual a
-
-loja> db.produtos.find( {preco: {$lte:100}}, {nome:true, preco: true, _id:false} )
+loja> db.produtos.find( {categoria: {$not: {$eq:"eletronicos"} } } )
 [
-  { nome: 'jaqueta', preco: 89.9 },
-  { nome: 'quadro', preco: 100 },
-  { nome: '1984', preco: 64.9 }
-]
-
-
-ESSE e DA PRA USAR TANTO NO gt QUANTO NO lt
-
-ne = NOT EQUAL
-BUSCANDO CATEGORIAS DIFERENTES DE ELETRONICOS
-
-loja> db.produtos.find( {categoria: {$ne:"eletronicos}"} }, {nome:true, preco: true, _id:false} )
-[
-  { nome: 'notebook', preco: 1200.9 },
-  { nome: 'iphone', preco: 4900 },
-  { nome: 'camiseta' },
-  { nome: 'jaqueta', preco: 89.9 },
-  { nome: 'quadro', preco: 100 },
-  { nome: '1984', preco: 64.9 }
-]
-
-$in e nin = dentro de OU fora de
-loja> db.produtos.find({categoria: {$in: ["eletronicos", "livros"] }}, {nome: true, categoria:true, _id:false })
-[
-  { nome: 'notebook', categoria: 'eletronicos' },
-  { nome: 'iphone', categoria: 'eletronicos' }
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc117'),
+    nome: 'camiseta',
+    preo: 59.9,
+    categoria: 'roupas'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc118'),
+    nome: 'jaqueta',
+    preco: 89.9,
+    categoria: 'roupas'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc119'),
+    nome: 'quadro',
+    preco: 100,
+    categoria: 'decoracao'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc11a'),
+    nome: '1984',
+    preco: 64.9,
+    categoria: 'livro'
+  }
 ]
