@@ -58,3 +58,18 @@ loja> db.usuarios.find()
 CONTANDO DOCUMENTOS ***
 loja> db.usuarios.countDocuments()
 1
+
+CRINDO VARIOS DE UMA VEZ ***
+
+loja> db.produtos.insertMany([{nome: "notebook", preco: 1200.90, categoria: "eletronicos"}, {nome: "iphone", preco: 4900.00, categoria: "eletronicos"}, {nome: "camiseta", preo: 59.90, categoria: "roupas"}, {nome: "jaqueta", preco: 89.90, categoria: "roupas"}, {nome: "quadro", preco: 100.00, categoria: "decoracao"}, {nome: "1984", preco: 64.90, categoria: "livro"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6a32e2d66e54e3bec7abc115'),
+    '1': ObjectId('6a32e2d66e54e3bec7abc116'),
+    '2': ObjectId('6a32e2d66e54e3bec7abc117'),
+    '3': ObjectId('6a32e2d66e54e3bec7abc118'),
+    '4': ObjectId('6a32e2d66e54e3bec7abc119'),
+    '5': ObjectId('6a32e2d66e54e3bec7abc11a')
+  }
+}
