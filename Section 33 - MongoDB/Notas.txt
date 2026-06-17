@@ -25,3 +25,36 @@ show collections -> mostra as coleções disponíveis daquela database
 db.createCollection('teste123') -> cria uma nova coleção
 db.teste123.drop() -> deleta a coleção
 cls - > limpa o terminal
+
+======================
+======================
+LOCALIZAR DOCUMENTOS ***
+db.usuarios.find()
+
+LOCALIZAR DOCUMENTOS ESPECIFICOS ***
+loja> db.usuarios.find({nome: 'gabriel'})
+
+LOCALIZAR COM FILTROS ***
+loja> db.usuarios.find({nome:true, _id:false, email:true}) = só volta nome e email
+
+INSERINDO ITENS **** 
+loja> db.usuarios.insertOne({nome: "maria", email: "ma@gmail.com"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a32dfdf6e54e3bec7abc114')
+}
+
+RESULTADO DOS ITENS INSERIDOS ***
+loja> db.usuarios.find()
+[
+  {
+    _id: ObjectId('6a32dfdf6e54e3bec7abc114'),
+    nome: 'maria',
+    email: 'ma@gmail.com'
+  }
+]
+
+
+CONTANDO DOCUMENTOS ***
+loja> db.usuarios.countDocuments()
+1
