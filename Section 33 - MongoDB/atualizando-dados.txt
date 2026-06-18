@@ -1,0 +1,143 @@
+Atualizando dados 
+
+
+LISTA ORIGINAL
+
+loja> db.produtos.find()
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc115'),
+    nome: 'notebook',
+    preco: 1200.9,
+    categoria: 'eletronicos'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc116'),
+    nome: 'iphone',
+    preco: 4900,
+    categoria: 'eletronicos'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc117'),
+    nome: 'camiseta',
+    preo: 59.9,
+    categoria: 'roupas'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc118'),
+    nome: 'jaqueta',
+    preco: 89.9,
+    categoria: 'roupas'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc119'),
+    nome: 'quadro',
+    preco: 100,
+    categoria: 'decoracao'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc11a'),
+    nome: '1984',
+    preco: 64.9,
+    categoria: 'livro'
+  }
+]
+
+ATUALIZANDO OS DADOS
+
+loja> db.produtos.updateOne({_id:ObjectId('6a32e2d66e54e3bec7abc11a')},{$set:{nome:"1985"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+lista atualizada
+loja> db.produtos.find()
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc115'),
+    nome: 'notebook',
+    preco: 1200.9,
+    categoria: 'eletronicos'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc116'),
+    nome: 'iphone',
+    preco: 4900,
+    categoria: 'eletronicos'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc117'),
+    nome: 'camiseta',
+    preo: 59.9,
+    categoria: 'roupas'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc118'),
+    nome: 'jaqueta',
+    preco: 89.9,
+    categoria: 'roupas'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc119'),
+    nome: 'quadro',
+    preco: 100,
+    categoria: 'decoracao'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc11a'),
+    nome: '1985',
+    preco: 64.9,
+    categoria: 'livro'
+  }
+]
+
+INSERI UM A MAIS E DEPOIS FIZ A ATUALIZAÇÃO
+
+loja> db.usuarios.find()
+[
+  {
+    _id: ObjectId('6a32dfdf6e54e3bec7abc114'),
+    nome: 'maria',
+    email: 'ma@gmail.com'
+  }
+]
+loja> db.usuarios.insertOne({nome:"gabriel", email: "ghdp@gmail.com" })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a332ee05c83890d0cabc114')
+}
+loja> db.usuarios.find()
+[
+  {
+    _id: ObjectId('6a32dfdf6e54e3bec7abc114'),
+    nome: 'maria',
+    email: 'ma@gmail.com'
+  },
+  {
+    _id: ObjectId('6a332ee05c83890d0cabc114'),
+    nome: 'gabriel',
+    email: 'ghdp@gmail.com'
+  }
+]
+loja> db.usuarios.updateMany( {nome: "maria"}, {$set:{nome:"maria a"} } )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+USANDO $unset
+loja> db.usuarios.updateMany({nome: "maria"}, {$unset:{email:'ma@gmail.com'} })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
