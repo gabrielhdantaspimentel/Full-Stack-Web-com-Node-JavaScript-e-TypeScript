@@ -1,0 +1,107 @@
+Operadores de atualização
+
+
+loja> db.produtos.updateOne( { nome: 'quadro' }, { $set:{data:new Date()} } )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+BUSCANDO INFORMAÇÕES DO QUADRO
+
+loja> db.produtos.find( {nome:"quadro"} )
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc119'),
+    nome: 'quadro',
+    preco: 100,
+    categoria: 'decoracao',
+    data: ISODate('2026-06-18T00:11:06.245Z')
+  }
+]
+
+
+OPERADOR DE inc PARA INCREMENTAR (pra decrementar é só colocar -1 ou o valor que tu quer tirar)
+
+INCREMETANDO 1 REAL 
+loja> db.produtos.updateOne( {nome:"quadro"}, {$inc:{preco:1} } )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+loja> db.produtos.find({nome:"quadro"})
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc119'),
+    nome: 'quadro',
+    preco: 101,
+    categoria: 'decoracao',
+    data: ISODate('2026-06-18T00:11:06.245Z')
+  }
+]
+
+UTILIZANDO rename EM UM ITEM
+EM SEQUENCIA UTILIZANDO EM TODOS
+loja> db.produtos.updateOne( {}, { $rename:{nome:"descricao"} } )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+loja> db.produtos.updateMany( {}, { $rename:{nome:"descricao"} } )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 6,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+loja> db.produtos.find()
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc115'),
+    preco: 1200.9,
+    categoria: 'eletronicos',
+    descricao: 'notebook'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc116'),
+    preco: 4900,
+    categoria: 'eletronicos',
+    descricao: 'iphone'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc117'),
+    preo: 59.9,
+    categoria: 'roupas',
+    descricao: 'camiseta'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc118'),
+    preco: 89.9,
+    categoria: 'roupas',
+    descricao: 'jaqueta'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc119'),
+    preco: 101,
+    categoria: 'decoracao',
+    data: ISODate('2026-06-18T00:11:06.245Z'),
+    descricao: 'quadro'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc11a'),
+    preco: 64.9,
+    categoria: 'livro',
+    descricao: '1985'
+  }
+]
