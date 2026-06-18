@@ -1,0 +1,27 @@
+APAGANDO ITEM
+
+loja> db.produtos.find({descricao:'quadro'})
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc119'),
+    preco: 101,
+    categoria: 'decoracao',
+    data: ISODate('2026-06-18T00:11:06.245Z'),
+    descricao: 'quadro'
+  }
+]
+
+
+RESULTADO NÃO APARECE MAIS
+
+loja> db.produtos.find({descricao:'quadro'})
+
+loja>
+
+DELETANDO VARIOS
+
+loja> db.produtos.deleteMany({descricao:'eletronicos'})
+{ acknowledged: true, deletedCount: 0 }
+loja> db.produtos.deleteMany({descricao:'eletronicos'})
+{ acknowledged: true, deletedCount: 0 }
+loja>
