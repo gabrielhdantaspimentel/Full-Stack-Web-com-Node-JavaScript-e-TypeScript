@@ -1,0 +1,142 @@
+CONTANDO QUANTIDADE DE ITENS
+
+loja> db.produtos.count()
+DeprecationWarning: Collection.count() is deprecated. Use countDocuments or estimatedDocumentCount.
+6
+loja> db.produtos.countDocuments()
+6
+loja> db.produtos.countDocuments({categoria:'eletronicos'})
+2
+loja>
+
+USANDO limit() PARA LIMITAR A 2 RESULTADOS
+
+loja> db.produtos.find().limit(2)
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc115'),
+    preco: 1200.9,
+    categoria: 'eletronicos',
+    descricao: 'notebook'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc116'),
+    preco: 4900,
+    categoria: 'eletronicos',
+    descricao: 'iphone'
+  }
+]
+
+
+PULANDO DOIS PRIMEIROS DOCUMENTOS COM SKIP
+
+
+loja> db.produtos.find().skip(2)
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc117'),
+    preo: 59.9,
+    categoria: 'roupas',
+    descricao: 'camiseta',
+    tamanho: [
+      '0',  '0',  '1',
+      '1',  'GG', 'MM',
+      'PP'
+    ]
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc118'),
+    preco: 89.9,
+    categoria: 'roupas',
+    descricao: 'jaqueta'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc119'),
+    preco: 101,
+    categoria: 'decoracao',
+    data: ISODate('2026-06-18T00:11:06.245Z'),
+    descricao: 'quadro'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc11a'),
+    preco: 64.9,
+    categoria: 'livro',
+    descricao: '1985'
+  }
+]
+
+
+
+PULANDO E DELIMITANDO QUANTIDADE JUNTANDO
+skip E limit
+
+loja> db.produtos.find().skip(2).limit(2)
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc117'),
+    preo: 59.9,
+    categoria: 'roupas',
+    descricao: 'camiseta',
+    tamanho: [
+      '0',  '0',  '1',
+      '1',  'GG', 'MM',
+      'PP'
+    ]
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc118'),
+    preco: 89.9,
+    categoria: 'roupas',
+    descricao: 'jaqueta'
+  }
+]
+
+
+TRAZENDO DADOS EM ORDEM CRESCENTE
+
+loja> db.produtos.find().sort({preco:1})
+[
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc117'),
+    preo: 59.9,
+    categoria: 'roupas',
+    descricao: 'camiseta',
+    tamanho: [
+      '0',  '0',  '1',
+      '1',  'GG', 'MM',
+      'PP'
+    ]
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc11a'),
+    preco: 64.9,
+    categoria: 'livro',
+    descricao: '1985'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc118'),
+    preco: 89.9,
+    categoria: 'roupas',
+    descricao: 'jaqueta'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc119'),
+    preco: 101,
+    categoria: 'decoracao',
+    data: ISODate('2026-06-18T00:11:06.245Z'),
+    descricao: 'quadro'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc115'),
+    preco: 1200.9,
+    categoria: 'eletronicos',
+    descricao: 'notebook'
+  },
+  {
+    _id: ObjectId('6a32e2d66e54e3bec7abc116'),
+    preco: 4900,
+    categoria: 'eletronicos',
+    descricao: 'iphone'
+  }
+]
+
