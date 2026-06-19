@@ -1,0 +1,46 @@
+
+PARTE DO DESAFIO
+
+loja> show databases
+admin    40.00 KiB
+
+rede_social> showColletions
+ReferenceError: showColletions is not defined
+rede_social> showCollections()
+ReferenceError: showCollections is not defined
+rede_social> show collections
+postagens
+usuarios
+rede_social> db.usuarios.find()
+
+rede_social> db.usuarios.insertOne({nome:'gabriel', email:'g@email.com'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a34868da363f9f804abc114')
+}
+rede_social> db.usuarios.find()
+[
+  {
+    _id: ObjectId('6a34868da363f9f804abc114'),
+    nome: 'gabriel',
+    email: 'g@email.com'
+  }
+]
+rede_social> db.usuarios.insertOne({nome:'brenda', email:'brenda@email.com'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a3486aba363f9f804abc115')
+}
+rede_social> db.usuarios.find()
+[
+  {
+    _id: ObjectId('6a34868da363f9f804abc114'),
+    nome: 'gabriel',
+    email: 'g@email.com'
+  },
+  {
+    _id: ObjectId('6a3486aba363f9f804abc115'),
+    nome: 'brenda',
+    email: 'brenda@email.com'
+  }
+]
