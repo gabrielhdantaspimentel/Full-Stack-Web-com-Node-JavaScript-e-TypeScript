@@ -44,3 +44,25 @@ rede_social> db.usuarios.find()
     email: 'brenda@email.com'
   }
 ]
+
+
+
+PARTE 2 DESAFIO
+
+
+rede_social> db.postagens.insertOne({id:100,titutitulo:"Férias na praia", curtidas:10, autor:id:1, nome: "Amanda"},comentarios:[{texto:"Gostei", autor:{id:2,nome:"Bruno"}},{texto:"legal",autor:{id:3, nome:"Beatriz"}}] })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a34895aa363f9f804abc116')
+}
+rede_social> db.postagens.insertOne({id:102,titutitulo:"Viagem grécia", curtidas:50, autor:{id:2, nome: "Bruno"},comentarios:[{texto:"bonito", autor:{id:1,nome:"Amanda"}},{texto:"que vista",autor:{id:3, nome:"Beatriz"}}] })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a348967a363f9f804abc117')
+}
+rede_social> db.postagens.insertOne({id:101,titutitulo:"Passeio barco", curtidas:20, autor:{id:2, nome: "Bruno"},comentarios:[{texto:"show", autor:{id:1,nome:"Amanda"}},{texto:"top",autor:{id:3, nome:"Beatriz"}}] })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a348971a363f9f804abc118')
+}
+rede_social>
