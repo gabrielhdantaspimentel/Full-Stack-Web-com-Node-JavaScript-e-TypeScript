@@ -1,0 +1,65 @@
+FAZENDO SELEÇÃO DOS DADOS COM MATCH
+
+rede_social> db.postagens.aggregate( [ {$match:{'autor.nome': "Bruno"}} ] )
+[
+  {
+    _id: ObjectId('6a348967a363f9f804abc117'),
+    id: 102,
+    titulo: 'Viagem grécia',
+    curtidas: 50,
+    autor: { id: 2, nome: 'Bruno' },
+    comentarios: [
+      { texto: 'bonito', autor: { id: 1, nome: 'Amanda' } },
+      { texto: 'que vista', autor: { id: 3, nome: 'Beatriz' } }
+    ]
+  },
+  {
+    _id: ObjectId('6a348971a363f9f804abc118'),
+    id: 101,
+    titulo: 'Passeio barco',
+    curtidas: 20,
+    autor: { id: 2, nome: 'Bruno' },
+    comentarios: [
+      { texto: 'show', autor: { id: 1, nome: 'Amanda' } },
+      { texto: 'top', autor: { id: 3, nome: 'Beatriz' } }
+    ]
+  }
+]
+
+
+FAZENDO A PROJEÇÃO COM project
+
+rede_social> db.postagens.aggregate( [ {$match:{'autor.nome': "Bruno"}}, {$project:{id: true, titulo: true, curtidas: true} } ] )
+[
+  {
+    _id: ObjectId('6a348967a363f9f804abc117'),
+    id: 102,
+    titulo: 'Viagem grécia',
+    curtidas: 50
+  },
+  {
+    _id: ObjectId('6a348971a363f9f804abc118'),
+    id: 101,
+    titulo: 'Passeio barco',
+    curtidas: 20
+  }
+]
+
+
+FAZENDO ORDENAÇÃO COM sort
+
+rede_social> db.postagens.aggregate( [ {$match:{'autor.nome': "Bruno"}}, {$project:{id: true, titulo: true, curtidas: true}}, {$sort:{id: 1}} ] )
+[
+  {
+    _id: ObjectId('6a348971a363f9f804abc118'),
+    id: 101,
+    titulo: 'Passeio barco',
+    curtidas: 20
+  },
+  {
+    _id: ObjectId('6a348967a363f9f804abc117'),
+    id: 102,
+    titulo: 'Viagem grécia',
+    curtidas: 50
+  }
+]
