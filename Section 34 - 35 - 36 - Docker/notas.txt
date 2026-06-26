@@ -46,3 +46,121 @@ CLI e Docker Daemon
 Configuração e exemplos do porque configurar o Docker Sock no Linux
 
 Docker Socket no Linux normalmente significa dar ao seu usuário permissão para acessar o arquivo /var/run/docker.sock, permitindo controlar o Docker sem privilégios de administrador.
+
+
+====================
+====================
+====================
+
+
+Introdução as Images e ao Docker Hub
+
+
+Imagem - é um requisito para que seja possível, a partir da imagem, executar algo de fato. Ela guarda tudo o que é necessário para que, quando seja executada, ela atenda ao seu objetivo.
+
+
+Images são sempre baixadas do Docker Hub
+
+
+
+O Docker Hub é uma biblioteca na nuvem (um repositório público e privado) onde ficam armazenadas as imagens de containers prontas para uso.
+
+Em resumo: ele funciona como a App Store ou o GitHub do Docker, onde você pode baixar imagens oficiais (como Node.js, Ubuntu ou MySQL) ou subir as suas próprias imagens para compartilhar com outras pessoas.
+
+
+
+Images são baixadas no ambiente (Docker Host)
+
+
+Exemplo de comando que lista as images disponíveis para utilização no Docker Host (até o momento não temos nenhuma imagem disponível)
+
+
+
+BAIXANDO A IMAGEM nginx QUE VI NO DOCKER HUB POR LINHA DE COMANDO NO CMD
+
+
+
+C:\Users\gabri>docker image ls
+                            i Info →   U  In Use
+IMAGE   ID             DISK USAGE
+
+
+C:\Users\gabri>docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+1645c1e06f46: Pull complete
+e95a6c7ea7d4: Pull complete
+df68ee7e7a00: Pull complete
+acf093e7a04f: Pull complete
+cd9307c9ecd8: Pull complete
+1b30016634d5: Pull complete
+fcb6fd84b2a0: Pull complete
+e2c07e54e55a: Download complete
+1cf7d051b485: Download complete
+Digest: sha256:ec4ed8b5299e5e90694af7750eb6dffd2627317d30544d056b0371f8082f7bce
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview nginx
+
+C:\Users\gabri>docker image ls
+                            i Info →   U  In Use
+IMAGE          ID             DISK USAGE
+nginx:latest   ec4ed8b5299e        241MB
+
+C:\Users\gabri>
+
+
+
+
+BAIXANDO IMAGEM NODE E USANDO COMANDO docker image ls PARA LISTAR
+
+
+C:\Users\gabri>docker pull node
+Using default tag: latest
+latest: Pulling from library/node
+a90a67095ead: Pull complete
+aa3e9ef32f73: Pull complete
+3f59c84a7863: Pull complete
+0b8a6fde6967: Pull complete
+0252e6abaf0f: Pull complete
+a47ef1569bfb: Pull complete
+30d0db852850: Pull complete
+4d9ca9dbb25d: Download complete
+5b6d9b49d179: Download complete
+Digest: sha256:b46a10d964ad15136ebdf9012142131481caa0697d7a4d4eafe4bbabd818f876
+Status: Downloaded newer image for node:latest
+docker.io/library/node:latest
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview node
+
+C:\Users\gabri>docker image ls
+                            i Info →   U  In Use
+IMAGE          ID             DISK USAGE
+nginx:latest   ec4ed8b5299e        241MB
+node:latest    b46a10d964ad       1.79GB
+
+
+
+DELETANDO IMAGEM POR LINHA DE COMANDO
+
+
+C:\Users\gabri>docker image ls
+                            i Info →   U  In Use
+IMAGE          ID             DISK USAGE
+nginx:latest   ec4ed8b5299e        241MB
+node:latest    b46a10d964ad       1.79GB
+
+C:\Users\gabri>docker image rm b46a10d964ad
+Untagged: node:latest
+Deleted: sha256:b46a10d964ad15136ebdf9012142131481caa0697d7a4d4eafe4bbabd818f876
+
+C:\Users\gabri>docker image ls
+                            i Info →   U  In Use
+IMAGE          ID             DISK USAGE
+nginx:latest   ec4ed8b5299e        241MB
+
+
+
