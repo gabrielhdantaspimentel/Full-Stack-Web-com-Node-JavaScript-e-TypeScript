@@ -1,0 +1,52 @@
+Mostrou como baixar images de novo
+
+
+Comandos do CMD
+
+
+C:\Users\gabri>docker pull node:latest
+latest: Pulling from library/node
+a90a67095ead: Pull complete
+aa3e9ef32f73: Pull complete
+3f59c84a7863: Pull complete
+0252e6abaf0f: Pull complete
+30d0db852850: Pull complete
+0b8a6fde6967: Pull complete
+a47ef1569bfb: Pull complete
+4d9ca9dbb25d: Download complete
+5b6d9b49d179: Download complete
+Digest: sha256:b46a10d964ad15136ebdf9012142131481caa0697d7a4d4eafe4bbabd818f876
+Status: Downloaded newer image for node:latest
+docker.io/library/node:latest
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview node:latest
+
+C:\Users\gabri>docker pull node:lts
+lts: Pulling from library/node
+96c4ced53c51: Pull complete
+dab84c23da78: Pull complete
+425befdf76e5: Pull complete
+d7d06911af64: Pull complete
+ba32defd7d94: Pull complete
+f4fd7bf6f603: Pull complete
+9eb598f63f1e: Pull complete
+791c68bc2063: Pull complete
+e5303c0b5567: Download complete
+734f4f966b1c: Download complete
+Digest: sha256:fdddfb3e688158251943d52eba361de991548f6814007acba4917ae6b512d6be
+Status: Downloaded newer image for node:lts
+docker.io/library/node:lts
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview node:lts
+
+C:\Users\gabri>docker image ls
+                            i Info →   U  In Use
+IMAGE          ID             DISK USAGE
+nginx:latest   ec4ed8b5299e        241MB
+node:latest    b46a10d964ad       1.79GB
+node:lts       fdddfb3e6881       1.64GB
+
+
+Agora com o node latest e a LTS baixados
