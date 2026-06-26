@@ -1,1 +1,3 @@
 Começando módulo 
+
+Habilitando WSL nas configurações do windows e confirmando alterações com "wls --status" no powershell como ADM
