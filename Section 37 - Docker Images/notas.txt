@@ -61,3 +61,9 @@ Agora com o node latest e a LTS baixados
 Extensão Dev Containers Instalada no VSCode
 
 
+=============================================
+=============================================
+=============================================
+
+
+Exemplo de execução mesmo com a aplicação compactada em zip, o Docker deixa a image guardada
