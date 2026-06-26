@@ -1,0 +1,84 @@
+rede_social> db.postagens.aggregate( [ {$lookuprede_social> db.postagens.aggregate( [ {$lookup:{from:'usuarios',foreignField:'id', localField:'idUsuario', as:'usuario'  } } ] )
+[
+  {
+    _id: ObjectId('6a34895aa363f9f804abc116'),
+    id: 100,
+    titulo: 'Férias na praia',
+    curtidas: 10,
+    autor: { id: 1, nome: 'Amanda' },
+    comentarios: [
+      { texto: 'Gostei', autor: { id: 2, nome: 'Bruno' } },
+      { texto: 'legal', autor: { id: 3, nome: 'Beatriz' } }
+    ],
+    usuario: [
+      {
+        _id: ObjectId('6a34868da363f9f804abc114'),
+        nome: 'gabriel',
+        email: 'g@email.com'
+      },
+      {
+        _id: ObjectId('6a3486aba363f9f804abc115'),
+        nome: 'brenda',
+        email: 'brenda@email.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('6a348967a363f9f804abc117'),
+    id: 102,
+    titulo: 'Viagem grécia',
+    curtidas: 50,
+    autor: { id: 2, nome: 'Bruno' },
+    comentarios: [
+      { texto: 'bonito', autor: { id: 1, nome: 'Amanda' } },
+      { texto: 'que vista', autor: { id: 3, nome: 'Beatriz' } }
+    ],
+    usuario: [
+      {
+        _id: ObjectId('6a34868da363f9f804abc114'),
+        nome: 'gabriel',
+        email: 'g@email.com'
+      },
+      {
+        _id: ObjectId('6a3486aba363f9f804abc115'),
+        nome: 'brenda',
+        email: 'brenda@email.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('6a348971a363f9f804abc118'),
+    id: 101,
+    titulo: 'Passeio barco',
+    curtidas: 20,
+    autor: { id: 2, nome: 'Bruno' },
+    comentarios: [
+      { texto: 'show', autor: { id: 1, nome: 'Amanda' } },
+      { texto: 'top', autor: { id: 3, nome: 'Beatriz' } }
+    ],
+    usuario: [
+      {
+        _id: ObjectId('6a34868da363f9f804abc114'),
+        nome: 'gabriel',
+        email: 'g@email.com'
+      },
+      {
+        _id: ObjectId('6a3486aba363f9f804abc115'),
+        nome: 'brenda',
+        email: 'brenda@email.com'
+      }
+    ]
+  }
+]
+
+
+
+
+
+rede_social> db.postagens.aggregate( [ {$match:{idUsuario:2}}, {$lookup:{from:'usuarios',foreignField:'id', localField:'idUsuario', as:'usuario'  } } ] )
+uario', as:'usuario'  } } ] )
+
+
+rede_social> db.postagens.aggregate( [ {$match:{idUsuario:2}}, {$lookup:{from:'usuarios',foreignField:'id', localField:'idUsuario', as:'usuario'  } } ] )
+uario', as:'usuario'  } } ] )
+rede_social> db.postagens.aggregate( [ {$matcrrrede_social> db.postagens.aggregate( [ {$match:{idUsuario:2}}, {$lookup:{from:'usuarios',foreignField:'id', localField:'idUsuario', as:'usuario'  }}, {$unwind:"$usuario" } ] )
