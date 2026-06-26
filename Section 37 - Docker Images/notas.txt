@@ -67,3 +67,10 @@ Extensão Dev Containers Instalada no VSCode
 
 
 Exemplo de execução mesmo com a aplicação compactada em zip, o Docker deixa a image guardada
+
+=============================================
+=============================================
+=============================================
+
+Aula 436 
+Só exclui a image app-nodejs pelo comando rmi que ele mostrou nessa aula
