@@ -26,3 +26,13 @@ Extensões instaladas no VSCode
 
 Docker
 WSL
+
+
+====================
+====================
+====================
+
+
+Explicação sobre o que será utilizando
+
+CLI e Docker Daemon
