@@ -152,3 +152,7 @@ esse tipo de coisa
 =============================================
 =============================================
 
+Aula 439 - Inspecionando imagem
+
+
+Falou sobre o comando "docker inspect" + ID da image
