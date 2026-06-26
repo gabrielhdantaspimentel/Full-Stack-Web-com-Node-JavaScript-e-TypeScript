@@ -1,10 +1,28 @@
 Começando módulo 
-
+====================
+====================
+====================
 Habilitando WSL nas configurações do windows e confirmando alterações com "wls --status" no powershell como ADM
 
+====================
+====================
+====================
+
 Docker instalado
+
 C:\Users\gabri>docker --version
 Docker version 29.5.3, build d1c06ef
 
 C:\Users\gabri>docker compose version
 Docker Compose version v5.1.4
+
+
+====================
+====================
+====================
+
+
+Extensões instaladas no VSCode
+
+Docker
+WSL
