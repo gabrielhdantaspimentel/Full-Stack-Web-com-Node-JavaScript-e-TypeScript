@@ -1,0 +1,17 @@
+rede_social> db.createCollection("postagensRef")
+{ ok: 1 }
+rede_social> db.postagensRef.insertOne({id:100,ttitulo:"Férias na praia", curtidas:10, idUsuarioidUsuario :1,comentarios:[{texto:"Gostei", idUsuario :2},{texto:"legal",idUsuario :3}] })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a3dc46fca8ac08978abc114')
+}
+rede_social> db.postagensRef.insertOne({id:101,ttitulo:"Passeio barco", curtidas:20, idUsuario :2,comentarios:[{texto:"show", idUsuario :1},{textexto:"top",idUsuario :3}] })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a3dc47cca8ac08978abc115')
+}
+rede_social> db.postagensRef.insertOne({id:102,ttitulo:"Viagem grécia", curtidas:50, idUsuario :2,comentarios:[{texto:"bonito", idUsuario :1},{ttexto:"que vista",idUsuario :3}] })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a3dc483ca8ac08978abc116')
+}
