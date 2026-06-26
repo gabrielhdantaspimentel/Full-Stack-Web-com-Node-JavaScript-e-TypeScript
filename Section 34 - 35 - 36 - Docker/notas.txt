@@ -162,5 +162,19 @@ C:\Users\gabri>docker image ls
 IMAGE          ID             DISK USAGE
 nginx:latest   ec4ed8b5299e        241MB
 
+=========================================
+=========================================
+=========================================
+=========================================
 
+
+Introdução aos containers
+
+Uma image é uma classe e um container é um tipo um objeto
+
+
+Exemplo de como baixar uma imagem e rodar um container a partir dessa imagem
+
+
+No exemplo do video foi usado o "whale/say" a qual a versão atual do docker não presta mais suporte
 
