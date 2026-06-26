@@ -50,3 +50,14 @@ node:lts       fdddfb3e6881       1.64GB
 
 
 Agora com o node latest e a LTS baixados
+
+
+
+=============================================
+=============================================
+=============================================
+
+
+Extensão Dev Containers Instalada no VSCode
+
+
