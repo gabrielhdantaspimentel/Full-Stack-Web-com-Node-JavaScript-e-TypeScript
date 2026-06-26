@@ -74,3 +74,56 @@ Exemplo de execução mesmo com a aplicação compactada em zip, o Docker deixa 
 
 Aula 436 
 Só exclui a image app-nodejs pelo comando rmi que ele mostrou nessa aula
+
+
+=============================================
+=============================================
+=============================================
+
+
+Aula 437
+
+Container pausado e excluido
+Image excluida
+
+image criada sem nome propositalmente
+
+Com "docker build ."
+
+
+
+Na versão atual do docker a image sem nome só aparece com o comando "docker image ls -a"e fica com o nome de <untagged>
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\app-nodejs> docker image ls -a
+            
+                                                                                                                        i Info →   U  In UseIMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
+nginx:latest   ec4ed8b5299e        241MB           66MB        
+node:latest    b46a10d964ad       1.79GB          460MB        
+node:lts       fdddfb3e6881       1.64GB          425MB        
+<untagged>     a97ea95131c6        194MB         47.9MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\app-nodejs> 
+
+
+
+Passando esse comando "docker tag ID-DA-IMAGE NOME-QUE-SERA-INSERIDO" a image fica com o nome
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\app-nodejs> docker tag a97ea95131c6 app-nodejs
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\app-nodejs> docker images     
+                                                                                                                        i Info →   U  In UseIMAGE               ID             DISK USAGE   CONTENT SIZE   EXTRA
+app-nodejs:latest   a97ea95131c6        194MB         47.9MB        
+nginx:latest        ec4ed8b5299e        241MB           66MB        
+node:latest         b46a10d964ad       1.79GB          460MB        
+node:lts            fdddfb3e6881       1.64GB          425MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\app-nodejs> 
+
+
+
+Nomeando no padrao convencional
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\app-nodejs> docker tag a97ea95131c6 gabriel-company/app-nodejs:1.0.0
+
+
+=============================================
+=============================================
+=============================================
+
