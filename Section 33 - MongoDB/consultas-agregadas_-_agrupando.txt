@@ -1,0 +1,24 @@
+
+
+
+rede_social> db.postagens.aggregate( [ {$group:{ _id:"cliente" }} ] )
+[ { _id: 'cliente' } ]
+
+
+
+rede_social> db.postagens.aggregate( [ {$group:{ _id:"$cliente" }} ] )
+[ { _id: null } ]
+
+
+
+rede_social> db.postagens.aggregate( [ {$group:{ _id:"$autor.nome" }} ] )
+[ { _id: 'Bruno' }, { _id: 'Amanda' } ]
+
+
+
+rede_social> db.postagens.aggregate( [ {$group:{ _id:"$autor.nome", total:{curtidas:{$sum:"$curtidas"} } }} ] )
+
+
+
+rede_social> db.postagens.aggregate( [ {$group:{ _id:"$autor.nome", total:{$sum:"$curtidas"} } } ])
+[ { _id: 'Bruno', total: 70 }, { _id: 'Amanda', total: 10 } ]
