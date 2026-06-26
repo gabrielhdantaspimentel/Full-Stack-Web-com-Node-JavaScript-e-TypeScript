@@ -36,3 +36,13 @@ WSL
 Explicação sobre o que será utilizando
 
 CLI e Docker Daemon
+
+
+====================
+====================
+====================
+
+
+Configuração e exemplos do porque configurar o Docker Sock no Linux
+
+Docker Socket no Linux normalmente significa dar ao seu usuário permissão para acessar o arquivo /var/run/docker.sock, permitindo controlar o Docker sem privilégios de administrador.
