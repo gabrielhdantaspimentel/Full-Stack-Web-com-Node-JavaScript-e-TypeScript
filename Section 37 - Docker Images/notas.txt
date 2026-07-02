@@ -239,3 +239,55 @@ C:\Users\gabri>docker inspect a97ea95131c6
 Aula 441
 
 Falou que o as configurações da imagem ficam dentro da seção de "config" que aparece ao dar o comando anterior "docker inspect" com o id da image específica
+
+
+=============================================
+=============================================
+=============================================
+
+
+Aula 443
+
+Mostrando como acessar o container durante a inicialização via terminal interativo
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Image gabriel-company/alpine:1.0.0 .
+[+] Building 2.1s (6/6) FINISHED                                                                            
+ => [internal] load build definition from Dockerfile                                                        
+ => => transferring dockerfile: 55B                                                                         
+ => [internal] load metadata for docker.io/library/alpine:3.19.0                                            
+ => [auth] library/alpine:pull token for registry-1.docker.io                                               
+ => [internal] load .dockerignore                                                                           
+ => => transferring context: 2B                                                                             
+ => [1/1] FROM docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fda
+ => => resolve docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fda
+ => exporting to image                                                                                      
+ => => exporting layers                                                                                     
+ => => exporting manifest sha256:cb4239e13a3bbb954cc86751acc46d3e401c178e46122cf8aa1ae7c79a84197a           
+ => => exporting config sha256:f4f3f823e255c6bad82baf9f021c68994c3f432129b1ee7671aa85fc15770a6a             
+ => => exporting attestation manifest sha256:6a83311897063edf7cc0a418c03ed6fc674bb6438765da9ee644567219da83b
+ => => exporting manifest list sha256:8805a51819aa7025c1f3cf1ac434136a7a998c2c8fabf76215a940c446e5ae31      
+ => => naming to docker.io/gabriel-company/alpine:1.0.0                                                     
+ => => unpacking to docker.io/gabriel-company/alpine:1.0.0                                                  
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/tqxykhnt9t788tv2rklkdds7t
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Image
+                                                                                                            IMAGE                              ID             DISK USAGE   CONTENT SIZE   EXTRA
+app-nodejs:latest                  a97ea95131c6        194MB         47.9MB        
+gabriel-company/alpine:1.0.0       8805a51819aa       11.5MB         3.41MB        
+gabriel-company/app-nodejs:1.0.0   a97ea95131c6        194MB         47.9MB        
+nginx:latest                       ec4ed8b5299e        241MB           66MB        
+node:latest                        b46a10d964ad       1.79GB          460MB        
+node:lts                           fdddfb3e6881       1.64GB          425MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Imagea51819aa               
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Image51819aa 
+docker: 'docker ps' accepts no arguments
+
+Usage:  docker ps [OPTIONS]
+
+Run 'docker ps --help' for more information
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Image
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Image
+8805a51819aa /bin/sh
+/ # 
