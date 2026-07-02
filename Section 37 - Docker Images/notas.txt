@@ -156,3 +156,75 @@ Aula 439 - Inspecionando imagem
 
 
 Falou sobre o comando "docker inspect" + ID da image
+
+
+=============================================
+=============================================
+=============================================
+
+Como funciona o docker inspect
+
+
+C:\Users\gabri>docker inspect a97ea95131c6
+[
+    {
+        "Id": "sha256:a97ea95131c6d751be166f2536f9fc0d741ff45559845491043b9c22bd3f05c9",
+        "RepoTags": [
+            "gabriel-company/app-nodejs:1.0.0",
+            "app-nodejs:latest"
+        ],
+        "RepoDigests": [
+            "gabriel-company/app-nodejs@sha256:a97ea95131c6d751be166f2536f9fc0d741ff45559845491043b9c22bd3f05c9",
+            "app-nodejs@sha256:a97ea95131c6d751be166f2536f9fc0d741ff45559845491043b9c22bd3f05c9"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-06-26T22:23:55.959877534Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=20.10.0",
+                "YARN_VERSION=1.22.19"
+            ],
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "node /opt/app-nodejs/server.js"
+            ],
+            "WorkingDir": "/opt/app-nodejs/",
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 47856088,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:5af4f8f59b764c64c6def53f52ada809fe38d528441d08d01c206dfb3fc3b691",
+                "sha256:63247acccce3471f5d0ce3b2e27f63c216cc9575e9873897df97225e3e04be3f",
+                "sha256:6d4bec181d966e6cbe3428a6722cbf49547417c8381f96830ccd142f9340b62e",
+                "sha256:b256f2c132d9d2df3744d8e94b61742bb442b93ecac9a557eb1cd0d010baab9e",
+                "sha256:cae7e2add566865a8a6162ba6623538ef6949e36961d8fa23cce5493e90d4577",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-06-26T22:52:49.928279231Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:a97ea95131c6d751be166f2536f9fc0d741ff45559845491043b9c22bd3f05c9",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "i157iiy333qjsap410vas1z9v",
+                    "CreatedAt": "2026-06-26T22:44:33.730750278Z"
+                }
+            ]
+        }
+    }
+]
