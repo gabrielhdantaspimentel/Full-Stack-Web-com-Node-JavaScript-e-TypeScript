@@ -228,3 +228,14 @@ C:\Users\gabri>docker inspect a97ea95131c6
         }
     }
 ]
+
+
+
+=============================================
+=============================================
+=============================================
+
+
+Aula 441
+
+Falou que o as configurações da imagem ficam dentro da seção de "config" que aparece ao dar o comando anterior "docker inspect" com o id da image específica
