@@ -291,3 +291,46 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Image
 8805a51819aa /bin/sh
 / # 
+
+
+
+=============================================
+=============================================
+=============================================
+
+Aula 444 Dockerfile - RUN
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/alpine-node:1.0.0 .
+[+] Building 9.6s (8/8) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 152B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19.0                                                                       1.2s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => CACHED [1/3] FROM docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48          0.0s
+ => => resolve docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48                 0.0s
+ => [2/3] RUN apk add --no-cache nodejs                                                                                                3.2s
+ => [3/3] RUN apk add --no-cache npm                                                                                                   1.7s 
+ => exporting to image                                                                                                                 3.3s 
+ => => exporting layers                                                                                                                2.4s 
+ => => exporting manifest sha256:8f3fc5df992f586228055ea87deca592d0ef07aab487c02a392b38be6710a092                                      0.0s
+ => => exporting config sha256:cb9bdec1d7f68e64cc052477022c7757c9856e4f23817e3041c9bf5cd1fe3fff                                        0.0s
+ => => exporting attestation manifest sha256:c13293c221ab414cb5c65e2db699cb72efe535c6c04d94169012385ad7a7d80c                          0.0s
+ => => exporting manifest list sha256:ce77e700a944378cf7ce51f83309a350c77b91999cec5800e348e50af5ee7472                                 0.0s
+ => => naming to docker.io/gabriel-company/alpine-node:1.0.0                                                                           0.0s
+ => => unpacking to docker.io/gabriel-company/alpine-node:1.0.0                                                                        0.8s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/dtnpfqr7q2jmnywvlq302sg2v
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images  
+                                                                                                                        i Info →   U  In UseIMAGE                                 ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-node:1.0.0     ce77e700a944        105MB         26.4MB        
+gabriel-company/alpine-zerado:1.0.0   7970bce6f6c0       11.5MB         3.41MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run -it 
+ce77e700a944 /bin/sh 
+/ # node --version
+v20.15.1
+/ # npm --version
+10.2.5
