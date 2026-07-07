@@ -1,7 +1,4 @@
-ARG ALPINE_VERSION=3.17
-
-#FROM alpine:3.19.0
-FROM alpine:${ALPINE_VERSION}
+FROM alpine:3.19.0
 
 ENV DESENVOLVEDOR="Gabriel Company"
 
