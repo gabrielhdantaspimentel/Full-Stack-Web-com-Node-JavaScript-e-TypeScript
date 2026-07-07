@@ -334,3 +334,109 @@ ce77e700a944 /bin/sh
 v20.15.1
 / # npm --version
 10.2.5
+
+
+=============================================
+=============================================
+=============================================
+
+Aula 445 - Dockerfile - Run multilinha
+
+
+Mostrando como funciona a construção de imagem com multiliunha (configuração foi feita dentro do arquivo docker file com "&&"
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/alpine-multilinha1:1.0.0 .
+[+] Building 8.7s (6/6) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 292B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19.0                                                                       0.6s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => CACHED [1/2] FROM docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48          0.0s
+ => => resolve docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48                 0.0s
+ => [2/2] RUN apk add --no-cache nodejs && apk add --no-cache npm && apk add --no-cache npm                                            4.4s
+ => exporting to image                                                                                                                 3.5s 
+ => => exporting layers                                                                                                                2.6s 
+ => => exporting manifest sha256:358dd064e450c0d640d5e98c0a2fec71185538e461764ecc578c775808e09ebb                                      0.0s 
+ => => exporting config sha256:291ca88618347219c7305943e91ca2ae28d31357dcc0a78b7933dea21e44a23a                                        0.0s 
+ => => exporting attestation manifest sha256:8824aaf00e634cbceac7b31d6d774517996fce26bf880c6128a0bb7f4a6d5c38                          0.0s
+ => => exporting manifest list sha256:3cb1b4445cd9bfa2d04de97a5fb16cb7e85cd407fb498b17c5c2d2f12889e3cf                                 0.0s
+ => => naming to docker.io/gabriel-company/alpine-multilinha1:1.0.0                                                                    0.0s
+ => => unpacking to docker.io/gabriel-company/alpine-multilinha1:1.0.0                                                                 0.7s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/gyhgws4nhc1yg5cv9nykgbvoo
+
+
+
+
+Criando imagem com as quebras de linha com \ depois dos &&
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/alpine-multilinha2:1.0.0 .
+[+] Building 9.7s (7/7) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 307B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19.0                                                                       1.1s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => CACHED [1/2] FROM docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48          0.0s
+ => => resolve docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48                 0.0s
+ => [2/2] RUN apk add --no-cache nodejs &&     apk add --no-cache npm &&     apk add --no-cache npm                                    4.9s
+ => exporting to image                                                                                                                 3.5s 
+ => => exporting layers                                                                                                                2.7s 
+ => => exporting manifest sha256:1ae340e6221af67a2952b5213bf27c9efab108ae0fe0a43776dd37f725e1dcb5                                      0.0s 
+ => => exporting config sha256:6a40d0ad8816101743f8e09e7d8b7d7665c30e09ec558e357b389c47035eec5b                                        0.0s
+ => => exporting attestation manifest sha256:bdb7c013b90d8a47a6e933e61e39d9ac594cdcaf1e2cb78f240847e081a41191                          0.0s
+ => => exporting manifest list sha256:e98eae9333b7d830f906980eea01e62b926291358457bb8f96d9029b8f8dd1d4                                 0.0s
+ => => naming to docker.io/gabriel-company/alpine-multilinha2:1.0.0                                                                    0.0s
+ => => unpacking to docker.io/gabriel-company/alpine-multilinha2:1.0.0                                                                 0.7s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/zebqi2xnmc44k3vhbwo4g81qb
+
+
+
+
+Criando image com o EOF
+
+Tudo que está dentro de EOF será executado, exemplo:
+
+<<EOF
+	apk add --no-cache nodejs
+    	apk add --no-cache npm
+    	apk add --no-cache npm			  
+EOF
+
+Será executado
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/alpine-multilinha3:1.0.0 .
+[+] Building 8.6s (7/7) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 458B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19.0                                                                       0.8s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => CACHED [1/2] FROM docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48          0.0s
+ => => resolve docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48                 0.0s
+ => [2/2] RUN <<EOF (apk add --no-cache nodejs...)                                                                                     4.1s
+ => exporting to image                                                                                                                 3.5s 
+ => => exporting layers                                                                                                                2.6s 
+ => => exporting manifest sha256:cfa63c5e51009ad90ae494feb3462279643b0abd07889665dda717994b2a4b60                                      0.0s 
+ => => exporting config sha256:f0e90dd079eadc7c44ca3253e94d5cb35fd7c7a16d6a539d193e0db555922596                                        0.0s
+ => => exporting attestation manifest sha256:0092b105fb9f8a07b037f5c13479078ff5325944c792f5530e34696522b9be16                          0.0s
+ => => exporting manifest list sha256:c213d2b9ef3592e37fe85be321473859ca707e9c6021ef507a54c6d7c5d724c7                                 0.0s
+ => => naming to docker.io/gabriel-company/alpine-multilinha3:1.0.0                                                                    0.0s
+ => => unpacking to docker.io/gabriel-company/alpine-multilinha3:1.0.0                                                                 0.7s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/yqoj985ee2ramlg9ls415nsgr
+
+
+
+
+
+
