@@ -7,15 +7,11 @@ RUN <<EOF
 EOF
 
 
-LABEL desenvolvedor="Gabriel Company"
-LABEL descricao="Imagem criada para exemplificar utilização de Labels no Dockerfile."
-LABEL versao="1.0"
-LABEL contato="+55 11 4002-8922"
+LABEL desenvolvedor="Gabriel Company" \
+    descricao="Imagem criada para exemplificar utilização de Labels no Dockerfile." \
+    versao="1.0" \
+    contato="+55 11 4002-8922"
 
-# Daria pra fazer tudo em uma única linha com um único LABEL
-# LABEL desenvolvedor="Gabriel Company" versao="1.0" contato="+55 11 4002-8922" etc...
-
-# Também é possível  fazer utilizando múltiplas linhas colocando barras no final
-# desenvolvedor="Gabriel Company" \
-# versao="1.0" \ 
-# e etc...
+# Não pode haver espaço entre a variável, o sinal de igual, e o valor!
+ENV FRONT_PRD="https://meuapp.com.br"
+ENV BACK_PRD="https://meuapp.com.br:3002"

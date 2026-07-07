@@ -512,3 +512,36 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 {"contato":"+55 11 4002-8922","descricao":"Imagem criada para exemplificar utilização de Labels no Dockerfile.","desenvolvedor":"Gabriel Company","versao":"1.0"}
 
 
+
+=============================================
+=============================================
+=============================================
+
+
+Aula 447 - Dockerfile - ENV
+
+Mostrando as configurações da ENV
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images  
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB        
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run -it 
+8459fc421430 /bin/sh
+/ # printenv
+HOSTNAME=77615cf51dc2
+FRONT_PRD=https://meuapp.com.br
+SHLVL=1
+HOME=/root
+BACK_PRD=https://meuapp.com.br:3002
+TERM=xterm
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PWD=/
+/ # 
