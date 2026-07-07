@@ -982,4 +982,147 @@ gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           3
 
 
 
+=============================================
+=============================================
+=============================================
+
+
+Aula 452 - Dockerfile - ARG vs ENV (pularam a aula 451)
+Explicações sobre diferença de ARG e ENV e como um sobrepõe o outro, exemplo prático no código Dockerfile e nos comandos abaixo
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build --build-arg BACK_PRD="https://meuapp.com.br:8080" -t gabriel-company/dockerfile-arg5 .                                                        
+[+] Building 1.5s (8/8) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 1.20kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.17                                                                         0.9s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/3] FROM docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => => resolve docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => CACHED [2/3] RUN <<EOF (apk add --no-cache nodejs...)                                                                              0.0s
+ => [3/3] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                       0.2s
+ => exporting to image                                                                                                                 0.2s
+ => => exporting layers                                                                                                                0.1s
+ => => exporting manifest sha256:3b52f0a774888b20bb7c232fb4ec7e5ef443775a2424dfefb352bb1a2b9aa57c                                      0.0s
+ => => exporting config sha256:3c9300ecf8094b5dad9d955cffb4fa8055c6aa1f1db5349096a5997ed24f2e96                                        0.0s
+ => => exporting attestation manifest sha256:d0be6274a9582a51b355641747d130c8a002de9aa704f3dd2100a4f0ff81b598                          0.0s
+ => => exporting manifest list sha256:28746d0284f650e2dcaae174f6eb18702b4b091f22231450db98ae72e7bd7ac7                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-arg5:latest                                                                      0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-arg5:latest                                                                   0.0s
+
+ 4 warnings found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 41)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 27)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 28)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 29)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/6crpdsq6pxnhjbubwpbidckfs
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images  
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest     28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker image inspect 28746d0284f6
+[
+    {
+        "Id": "sha256:28746d0284f650e2dcaae174f6eb18702b4b091f22231450db98ae72e7bd7ac7",
+        "RepoTags": [
+            "gabriel-company/dockerfile-arg5:latest"
+        ],
+        "RepoDigests": [
+            "gabriel-company/dockerfile-arg5@sha256:28746d0284f650e2dcaae174f6eb18702b4b091f22231450db98ae72e7bd7ac7"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-07-07T23:37:19.556354282Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DESENVOLVEDOR=Gabriel Company",
+                "FRONT_PRD=https://meuapp.com.br",
+                "BACK_PRD=https://meuapp.com.br:3000",
+                "VERSAO=1.0.1",
+                "MSG=Variável de ambiente criada no Dockerfile"
+            ],
+            "Cmd": [
+                "/bin/sh"
+            ],
+            "WorkingDir": "/",
+            "Labels": {
+                "contato": "+55 11 4002-8922",
+                "descricao": "Imagem criada para exemplificar utilização de Labels no Dockerfile.",
+                "desenvolvedor": "Gabriel Company",
+                "versao": "1.0"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 27998355,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:8d78b2117a5b8bff0a001610c8e3eecb6dcfd5e82a25d23048df7a09e77d6307",
+                "sha256:d6665ce5e1457cb86842047e4e07b4ace208ba40d09a2137291865c3534fea66",
+                "sha256:450bcda5d85f751cbf8014d4c7b648a2e8ea686f96d262a7fa96595c9bf6fb0d"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-07-07T23:37:19.730772652Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:28746d0284f650e2dcaae174f6eb18702b4b091f22231450db98ae72e7bd7ac7",
+            "size": 855
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "6crpdsq6pxnhjbubwpbidckfs",
+                    "CreatedAt": "2026-07-07T23:37:19.759335407Z"
+                }
+            ]
+        }
+    }
+]
+
+
+
 

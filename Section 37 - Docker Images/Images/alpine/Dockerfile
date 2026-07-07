@@ -31,6 +31,9 @@ ENV VERSAO "1.0.1"
 # Multiplas linahs
 ARG FRONT_PRD="https://meuapp.com.br"
 ARG BACK_PRD="https://meuapp.com.br:3002"
+
+ENV BACK_PRD="https://meuapp.com.br:3000"
+
 ENV FRONT_PRD=${FRONT_PRD} \
     BACK_PRD=${BACK_PRD} \
     VERSAO="1.0.1" 
