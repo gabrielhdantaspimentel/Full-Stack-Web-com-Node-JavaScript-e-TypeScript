@@ -29,10 +29,11 @@ ENV BACK_PRD "https://meuapp.com.br:3002"
 ENV VERSAO "1.0.1"
 
 # Multiplas linahs
-ENV FRONT_PRD="https://meuapp.com.br" \
-    BACK_PRD="https://meuapp.com.br:3002" \
-    VERSAO="1.0.1" \
-    DESENVOLVEDOR="Gabriel Company"
+ARG FRONT_PRD="https://meuapp.com.br"
+ARG BACK_PRD="https://meuapp.com.br:3002"
+ENV FRONT_PRD=${FRONT_PRD} \
+    BACK_PRD=${BACK_PRD} \
+    VERSAO="1.0.1" 
 
 ENV MSG "Variável de ambiente criada no Dockerfile"
 RUN echo ${MSG} > /tmp/arquivo_criado_durante_o_build_da_imagem.txt

@@ -852,3 +852,134 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 
 View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/mlqsve3dljq42ssdv243lqdld
 PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine>  
+
+
+
+
+=============================================
+=============================================
+=============================================
+
+
+Aula 452 - Dockerfile - ARG vs ENV
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build --build-arg ALPINE_VERSION=3.19 -t gabriel-company/dockerfile-arg3 .
+[+] Building 11.9s (8/8) FINISHED                                                                                      docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 1.16kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19                                                                         1.4s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/3] FROM docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1                   0.5s
+ => => resolve docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1                   0.0s
+ => => sha256:17a39c0ba978cc27001e9c56a480f98106e1ab74bd56eb302f9fd4cf758ea43f 3.42MB / 3.42MB                                         0.3s
+ => => extracting sha256:17a39c0ba978cc27001e9c56a480f98106e1ab74bd56eb302f9fd4cf758ea43f                                              0.1s
+ => [2/3] RUN <<EOF (apk add --no-cache nodejs...)                                                                                     5.5s
+ => [3/3] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                       0.2s
+ => exporting to image                                                                                                                 4.1s
+ => => exporting layers                                                                                                                3.1s
+ => => exporting manifest sha256:fc309a178b3f8834bbba4915e57be00f819c15d03faac3012d386a0454355c49                                      0.0s
+ => => exporting config sha256:4c6fdc574841ffc2584f32a02f635e6e198d3dd927532679ed657e61f9f1bac9                                        0.0s
+ => => exporting attestation manifest sha256:db0f8545433868c4b28a392acd02e50273455676cb0d5a60962629a6e369b089                          0.0s
+ => => exporting manifest list sha256:46531a1897ff0aba7e76727708f755ff4a231f0e80c841070289653cfc220edd                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-arg3:latest                                                                      0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-arg3:latest                                                                   0.8s
+
+ 4 warnings found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 27)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 28)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 29)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 38)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/5zqh4j7dcr7mkzep6ivuskl6y
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build --build-arg ALPINE_VERSION=3.19 --build-arg FROT_PRD=https://app.com.br --build-arg BACK_PRD=https://app.com.br:3002  -t gabriel-company/dockerfile-arg4 .
+[+] Building 1.2s (7/7) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 1.16kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19                                                                         0.6s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/3] FROM docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1                   0.0s
+ => => resolve docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1                   0.0s
+ => CACHED [2/3] RUN <<EOF (apk add --no-cache nodejs...)                                                                              0.0s
+ => [3/3] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                       0.2s
+ => exporting to image                                                                                                                 0.2s
+ => => exporting layers                                                                                                                0.1s
+ => => exporting manifest sha256:8cd861078335a5cc80a80c8120dc287d5df0ad174eaca87003acfbcb9d76cd95                                      0.0s
+ => => exporting config sha256:e4502c0c3c2c7e6331385eb5a17af4e3f6063767a657a52cfc7d70576b63adf1                                        0.0s
+ => => exporting attestation manifest sha256:faf38bf31401c57555168d7ad2e5f1477efb5d45e1fcbce74cbd7c5b783d4903                          0.0s
+ => => exporting manifest list sha256:78e5c7e819008eef6ff5093a497bc8f6cd1f23018030abcb480eed251e04ae73                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-arg4:latest                                                                      0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-arg4:latest                                                                   0.0s
+
+ 4 warnings found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 28)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 29)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 38)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 27)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/h2ct41gm0pw15u59worgredks
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+
+
+
+
