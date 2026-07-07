@@ -437,6 +437,78 @@ View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux
 
 
 
+=============================================
+=============================================
+=============================================
 
+
+Aula 446 - Dockerfile - Label
+
+Tentando acessar a label de uma image com o comando
+docker image inspect --format='{{json .Config.Labels}}'
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker image inspect 029226f36eab
+[
+    {
+        "Id": "sha256:029226f36eab6242324c1d1fa3544eb92da5c197e7cebec4f112e7dcffac6d08",
+        "RepoTags": [
+            "gabriel-company/alpine-multilinha0:1.0.0"
+        ],
+        "RepoDigests": [
+            "gabriel-company/alpine-multilinha0@sha256:029226f36eab6242324c1d1fa3544eb92da5c197e7cebec4f112e7dcffac6d08"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-07-07T21:35:07.38725184Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh"
+            ]
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 31060101,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:5af4f8f59b764c64c6def53f52ada809fe38d528441d08d01c206dfb3fc3b691",
+                "sha256:ce9dd8482610eb6342ef6c076eb84d1575dcc79b37fdae8042fd064676c10feb",
+                "sha256:bc18fe3eb66957f49f52ce4a8a46d1bb250c813a93cde70af0915f931316ff83",
+                "sha256:0c66097f693ec886900eecb658269d525377d714b8c587e86e82dc4032081193"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-07-07T21:35:07.98676311Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:029226f36eab6242324c1d1fa3544eb92da5c197e7cebec4f112e7dcffac6d08",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "6hjqrpoapuc09gvny02uj8e2y",
+                    "CreatedAt": "2026-07-07T21:35:08.091753018Z"
+                }
+            ]
+        }
+    }
+]
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker image inspect --format='{{json .Config.Labels}}' 029226f36eab
+null
+
+
+
+
+
+Inspecionando labels da imagem (labels configuradas no Dockerfile (dockerfile-001 ficou como padrão das primeiras aulas)
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker image inspect --format='{{json .Config.Labels}}' e57e76ce8054
+{"contato":"+55 11 4002-8922","descricao":"Imagem criada para exemplificar utilização de Labels no Dockerfile.","desenvolvedor":"Gabriel Company","versao":"1.0"}
 
 
