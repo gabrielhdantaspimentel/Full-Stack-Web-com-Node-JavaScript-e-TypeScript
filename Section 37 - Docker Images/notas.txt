@@ -545,3 +545,230 @@ TERM=xterm
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 PWD=/
 / # 
+
+=============================================
+=============================================
+=============================================
+
+
+Aula 448 - Dockerfile - ENV reutilizando variáveis de ambiente no Dockerfile
+
+
+Criando imagens e inspecionando com os comando que estão no arquivo Dockerfile principal
+
+
+
+S C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images  
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker image inspect 66904c8278d7                                   
+[
+    {
+        "Id": "sha256:66904c8278d7191efadb0b2f16e698e32546350d44635613774b8936e6fc9338",
+        "RepoTags": [
+            "gabriel-company/dockerfile-env4:latest"
+        ],
+        "RepoDigests": [
+            "gabriel-company/dockerfile-env4@sha256:66904c8278d7191efadb0b2f16e698e32546350d44635613774b8936e6fc9338"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-07-07T22:02:19.506892529Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "FRONT_PRD=https://meuapp.com.br",
+                "BACK_PRD=https://meuapp.com.br:3002",
+                "VERSAO=1.0.1",
+                "DESENVOLVEDOR=Gabriel Company"
+            ],
+            "Cmd": [
+                "/bin/sh"
+            ],
+            "Labels": {
+                "contato": "+55 11 4002-8922",
+                "descricao": "Imagem criada para exemplificar utilização de Labels no Dockerfile.",
+                "desenvolvedor": "Gabriel Company",
+                "versao": "1.0"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 30990149,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:5af4f8f59b764c64c6def53f52ada809fe38d528441d08d01c206dfb3fc3b691",
+                "sha256:2b20007472cebd7c2e52d411e1bbd81ada9ed22a63f727fb12328f89ecc81009"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-07-07T22:34:17.608140512Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:66904c8278d7191efadb0b2f16e698e32546350d44635613774b8936e6fc9338",
+            "size": 855
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "l42tyit3jxk49pc7wms2drng8",
+                    "CreatedAt": "2026-07-07T22:34:17.623863443Z"
+                }
+            ]
+        }
+    }
+]
+
+
+
+Variavel configurada corretamente com o ENV abaixo de FROM
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker image inspect 878754c19957 
+[
+    {
+        "Id": "sha256:878754c19957195d6d00d8fadacc156a7c1f9107ae4fe5ceb09b3c464f6cc24d",
+        "RepoTags": [
+            "gabriel-company/dockerfile-env5:latest"
+        ],
+        "RepoDigests": [
+            "gabriel-company/dockerfile-env5@sha256:878754c19957195d6d00d8fadacc156a7c1f9107ae4fe5ceb09b3c464f6cc24d"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-07-07T22:38:31.464657833Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DESENVOLVEDOR=Gabriel Company",
+                "FRONT_PRD=https://meuapp.com.br",
+                "BACK_PRD=https://meuapp.com.br:3002",
+                "VERSAO=1.0.1"
+            ],
+            "Cmd": [
+                "/bin/sh"
+            ],
+            "Labels": {
+                "contato": "+55 11 4002-8922",
+                "descricao": "Imagem criada para exemplificar utilização de Labels no Dockerfile.",
+                "desenvolvedor": "Gabriel Company",
+                "versao": "1.0"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 30990221,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:5af4f8f59b764c64c6def53f52ada809fe38d528441d08d01c206dfb3fc3b691",
+                "sha256:2d107935a854c5106b43e286756c25a663ecdf35102cf297c516ab39281164c1"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-07-07T22:38:34.614777221Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:878754c19957195d6d00d8fadacc156a7c1f9107ae4fe5ceb09b3c464f6cc24d",
+            "size": 855
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "wjl12hdjkul5282ucpre8shel",
+                    "CreatedAt": "2026-07-07T22:38:35.438202531Z"
+                }
+            ]
+        }
+    }
+]
+
+
+
+
+
+Criando uma nova imagem com uma variavel de ambiente ENV MSG e criando um arquivo txt
+
+Instalando nano como dependencia no RUN (nano é um editor de texto via shell)
+
+Todos os comando executados na aula
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-env7 .
+[+] Building 10.9s (8/8) FINISHED                                                                                      docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 1.08kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19.0                                                                       0.8s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => CACHED [1/3] FROM docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48          0.0s
+ => => resolve docker.io/library/alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48                 0.0s
+ => [2/3] RUN <<EOF (apk add --no-cache nodejs...)                                                                                     5.5s
+ => [3/3] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                       0.2s 
+ => exporting to image                                                                                                                 4.1s 
+ => => exporting layers                                                                                                                3.1s 
+ => => exporting manifest sha256:6380dc6fff4f4d97a541f548bb68b6e17da8b7f524d5b77709977d16afdf68d8                                      0.0s
+ => => exporting config sha256:4553889877e7a20be18ae753006ce0fd185fe0c66eca665208a76e1a151d99bf                                        0.0s
+ => => exporting attestation manifest sha256:b22e96b3e2f677b59cb7f8c806c5137c945c571bde86ecb4d46124c405ad8d68                          0.0s
+ => => exporting manifest list sha256:19932b960287f040f1dcdfbe2ceb00e4a9ca617dfb55f94b4e315157160e27f2                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-env7:latest                                                                      0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-env7:latest                                                                   0.9s
+
+ 4 warnings found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 25)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 26)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 34)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 24)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ljoet1qf8qteysjwne615z031
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker iamges  
+docker: unknown command: docker iamges
+
+Run 'docker --help' for more information
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB        
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run - it 19932b960287 /bin/sh
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+docker: invalid reference format
+
+Run 'docker run --help' for more information
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run -it 
+19932b960287 /bin/sh 
+/ # cd /tmp/
+/tmp # ls -la
+total 12
+drwxrwxrwt    1 root     root          4096 Jul  7 22:51 .
+drwxr-xr-x    1 root     root          4096 Jul  7 22:52 ..
+-rw-r--r--    1 root     root            43 Jul  7 22:51 arquivo_criado_durante_o_build_da_imagem.txt
+/tmp # nano arquivo_criado_durante_o_build_da_imagem.txt
+/tmp # exit
+
