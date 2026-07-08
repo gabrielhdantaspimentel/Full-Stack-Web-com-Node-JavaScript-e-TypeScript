@@ -11,17 +11,22 @@ RUN <<EOF
     apk add --no-cache git
     apk add --no-cache nano
 EOF
+# Nano é um editor de texto via Shell
 
-# Adiciona um usuário no SO (Linux distro Alpine)
-RUN adduser -D gabriel
-
-# Define o usuário responsável pela execução dos próximos RUNs
-USER gabriel
-
+      # Puxando valr da configuração da ENV que está embaixo de FROM
 LABEL desenvolvedor=${DESENVOLVEDOR} \
     descricao="Imagem criada para exemplificar utilização de Labels no Dockerfile." \
     versao="1.0" \
     contato="+55 11 4002-8922"
+
+# Não pode haver espaço entre a variável, o sinal de igual, e o valor!
+# ENV FRONT_PRD="https://meuapp.com.br"
+# ENV BACK_PRD="https://meuapp.com.br:3002"
+
+# Sintaxe alternativa sem o "="
+ENV FRONT_PRD "https://meuapp.com.br"
+ENV BACK_PRD "https://meuapp.com.br:3002"
+ENV VERSAO "1.0.1"
 
 # Multiplas linahs
 ARG FRONT_PRD="https://meuapp.com.br"
