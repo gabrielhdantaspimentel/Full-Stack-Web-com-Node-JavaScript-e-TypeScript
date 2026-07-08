@@ -35,3 +35,6 @@ ENV FRONT_PRD=${FRONT_PRD} \
 
 ENV MSG "Variável de ambiente criada no Dockerfile"
 RUN echo ${MSG} > /tmp/arquivo_criado_durante_o_build_da_imagem.txt
+
+# Cada Dockerfile possui apenas um único CMD
+CMD ["/bin/sh", "-c", "echo Comando executado automaticamente quando o container é iniciado"]

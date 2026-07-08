@@ -1306,4 +1306,182 @@ drwxr-xr-x    1 root     root          4096 Jul  8 00:58 ..
 
 
 
+=============================================
+=============================================
+=============================================
 
+Aula 453 - Dockerfile - CMD
+
+Expicando como funciona o comando CMD e exemplos de execução
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest     28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest    2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest    48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-cmd1 ./alpine/
+[+] Building 0.0s (0/0)                                                                                                docker:desktop-linux
+ERROR: failed to build: unable to prepare context: path "./alpine/" not found
+
+What's next:
+    Debug this build failure with Gordon → docker ai "help me fix this build failure"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-cmd1 .
+[+] Building 1.2s (9/9) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 1.10kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.17                                                                         0.8s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/4] FROM docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => => resolve docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => CACHED [2/4] RUN <<EOF (apk add --no-cache nodejs...)                                                                              0.0s
+ => CACHED [3/4] RUN adduser -D gabriel                                                                                                0.0s
+ => CACHED [4/4] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                0.0s
+ => exporting to image                                                                                                                 0.2s
+ => => exporting layers                                                                                                                0.0s
+ => => exporting manifest sha256:7f25fc7eb14b9e7c86a2ec13770f91bb49a19f56f8601bd0f8a149ece54f67b5                                      0.0s
+ => => exporting config sha256:44314149af7d23443a70e75f015ead7834428312047cb0847d6241a1059569ff                                        0.0s
+ => => exporting attestation manifest sha256:3c3d1d98e5d530a1d5cc1a4383759b82238c5340d18b9e821caf6928ae8dc52f                          0.0s
+ => => exporting manifest list sha256:95a77bd61fc45ee55f3d853129cb0344888c4e4573d2eb29408c318b0b4b0d3d                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-cmd1:latest                                                                      0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-cmd1:latest                                                                   0.0s
+
+ 1 warning found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 36)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/7p5suvldi11ghs4bo5ptqbwjc
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest     28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest     95a77bd61fc4        109MB           28MB        
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest    2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest    48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker image inspect 95a77bd61fc4
+[
+    {
+        "Id": "sha256:95a77bd61fc45ee55f3d853129cb0344888c4e4573d2eb29408c318b0b4b0d3d",
+        "RepoTags": [
+            "gabriel-company/dockerfile-cmd1:latest"
+        ],
+        "RepoDigests": [
+            "gabriel-company/dockerfile-cmd1@sha256:95a77bd61fc45ee55f3d853129cb0344888c4e4573d2eb29408c318b0b4b0d3d"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-07-08T00:57:59.351490046Z",
+        "Config": {
+            "User": "gabriel",
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DESENVOLVEDOR=Gabriel Company",
+                "BACK_PRD=https://meuapp.com.br:3000",
+                "FRONT_PRD=https://meuapp.com.br",
+                "VERSAO=1.0.1",
+                "MSG=Variável de ambiente criada no Dockerfile"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "echo Comando executado automaticamente quando o container é iniciado"
+            ],
+            "WorkingDir": "/",
+            "Labels": {
+                "contato": "+55 11 4002-8922",
+                "descricao": "Imagem criada para exemplificar utilização de Labels no Dockerfile.",
+                "desenvolvedor": "Gabriel Company",
+                "versao": "1.0"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 28000008,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:8d78b2117a5b8bff0a001610c8e3eecb6dcfd5e82a25d23048df7a09e77d6307",
+                "sha256:d6665ce5e1457cb86842047e4e07b4ace208ba40d09a2137291865c3534fea66",
+                "sha256:67d4c5c4412e09c8824a69dc561defb2d1af8dda8f61137c964441919fba74d0",
+                "sha256:b22161168531341b2a6f0f08ad097d7ba1e3c1754945bdb7d33a89a2e09a584d"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-07-08T01:11:48.610311024Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:95a77bd61fc45ee55f3d853129cb0344888c4e4573d2eb29408c318b0b4b0d3d",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "7p5suvldi11ghs4bo5ptqbwjc",
+                    "CreatedAt": "2026-07-08T01:11:48.624568764Z"
+                }
+            ]
+        }
+    }
+]
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run 95a77bd61fc4            
+Comando executado automaticamente quando o container é iniciado
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run 95a77bd61fc4 /bin/sh - 'echo CMD do RUN sobrepõe o do Dockerfile'
+/bin/sh: can't open 'echo CMD do RUN sobrepõe o do Dockerfile': No such file or directory
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run 95a77bd61fc4 /bin/sh -c 'echo CMD do RUN sobrepõe o do Dockerfile'
+CMD do RUN sobrepõe o do Dockerfile
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run 95a77bd61fc4 whoami                                               
+gabriel
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run 95a77bd61fc4 printenv
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=9b38c7327081
+DESENVOLVEDOR=Gabriel Company
+BACK_PRD=https://meuapp.com.br:3000
+FRONT_PRD=https://meuapp.com.br
+VERSAO=1.0.1
+MSG=Variável de ambiente criada no Dockerfile
+HOME=/home/gabriel
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run 95a77bd61fc4 git --version
+git version 2.39.5
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
