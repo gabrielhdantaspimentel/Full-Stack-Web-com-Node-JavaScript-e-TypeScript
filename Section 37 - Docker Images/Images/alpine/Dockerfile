@@ -37,9 +37,14 @@ ENV FRONT_PRD=${FRONT_PRD} \
 ENV MSG "Variável de ambiente criada no Dockerfile"
 RUN echo ${MSG} > /tmp/arquivo_criado_durante_o_build_da_imagem.txt
 
-ADD ./arquivo_abc.txt /tmp/
-ADD ./arquivo_xyz.txt /tmp/
-ADD --chown=gabriel:dev --chmod=777 ./arquivo_123.txt /tmp/
+# ADD ./arquivo_abc.txt /tmp/
+# ADD ./arquivo_xyz.txt /tmp/
+# ADD --chown=gabriel:dev --chmod=777 ./arquivo_123.txt /tmp/
+
+# ADD --chown=gabriel:dev ./arquivo_* /tmp/curinga/
+# ADD --chown=gabriel:dev ./arquivo_ab?.??? /tmp/curinga/
+
+
 
 
 # Cada Dockerfile possui apenas um único CMD
