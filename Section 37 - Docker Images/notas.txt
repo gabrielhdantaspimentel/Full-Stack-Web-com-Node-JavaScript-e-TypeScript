@@ -1587,3 +1587,249 @@ drwxr-xr-x    1 root     root          4096 Jul  8 01:34 ..
 /tmp $ nano arquivo_abc.txt
 /tmp $ nano arquivo_xyz.txt
 /tmp $ exit
+
+=============================================
+=============================================
+=============================================
+
+
+Aula 456 Dockerfile - ADD ajustando permissões
+
+
+
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-add2 .
+[+] Building 1.7s (13/13) FINISHED                                                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 1.20kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.17                                                                         1.1s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/7] FROM docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => => resolve docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => [internal] load build context                                                                                                      0.0s
+ => => transferring context: 168B                                                                                                      0.0s
+ => CACHED [2/7] RUN <<EOF (apk add --no-cache nodejs...)                                                                              0.0s
+ => CACHED [3/7] RUN adduser -D gabriel                                                                                                0.0s
+ => CACHED [4/7] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                0.0s
+ => CACHED [5/7] ADD ./arquivo_abc.txt /tmp/                                                                                           0.0s
+ => CACHED [6/7] ADD ./arquivo_xyz.txt /tmp/                                                                                           0.0s
+ => [7/7] ADD --chown=gabriel ./arquivo_123.txt /tmp/                                                                                  0.0s
+ => exporting to image                                                                                                                 0.3s
+ => => exporting layers                                                                                                                0.1s
+ => => exporting manifest sha256:c23b294b99c1b7582937700fd4fe29652ae6ac83e9f9e55b264ebfb1cd67a5a6                                      0.0s
+ => => exporting config sha256:c31beba4ae0cfc90464c89fd7c768bfbdbee846ad78f0dcbf3cfe76b41a90d26                                        0.0s
+ => => exporting attestation manifest sha256:39e64740624d3effa6403693cb97a83819beda9b904567f5f63dd7c4738c9107                          0.0s
+ => => exporting manifest list sha256:bed1bb0f8ed7209984ea651abd425065e69d6f93259904ea4ee88536ee4ed652                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-add2:latest                                                                      0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-add2:latest                                                                   0.0s
+
+ 1 warning found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 36)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/loexcpg99l5ze0i165lvzmjqu
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest     bed1bb0f8ed7        109MB           28MB        
+gabriel-company/dockerfile-add:latest      7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest     28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest     95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest    2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest    48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run -it 
+bed1bb0f8ed7 /bin/sh              
+/ $ cd /tmp
+/tmp $ ls -la
+total 24
+drwxrwxrwt    1 root     root          4096 Jul  9 18:51 .
+drwxr-xr-x    1 root     root          4096 Jul  9 18:52 ..
+-rwxr-xr-x    1 gabriel  gabriel         58 Jul  9 18:47 arquivo_123.txt
+-rwxr-xr-x    1 root     root            40 Jul  8 01:29 arquivo_abc.txt
+-rw-r--r--    1 gabriel  gabriel         43 Jul  8 00:57 arquivo_criado_durante_o_build_da_imagem.txt
+-rwxr-xr-x    1 root     root            40 Jul  8 01:29 arquivo_xyz.txt
+/tmp $ exit
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-add3 .
+[+] Building 2.1s (13/13) FINISHED                                                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 1.25kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.17                                                                         0.8s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/7] FROM docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => => resolve docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => [internal] load build context                                                                                                      0.0s
+ => => transferring context: 104B                                                                                                      0.0s
+ => CACHED [2/7] RUN <<EOF (apk add --no-cache nodejs...)                                                                              0.0s
+ => [3/7] RUN adduser -D gabriel     && addgroup dev     && addgroup gabriel dev                                                       0.3s
+ => [4/7] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                       0.2s
+ => [5/7] ADD ./arquivo_abc.txt /tmp/                                                                                                  0.0s
+ => [6/7] ADD ./arquivo_xyz.txt /tmp/                                                                                                  0.0s
+ => [7/7] ADD --chown=gabriel:dev ./arquivo_123.txt /tmp/                                                                              0.1s
+ => exporting to image                                                                                                                 0.4s
+ => => exporting layers                                                                                                                0.2s
+ => => exporting manifest sha256:607c1671d4abc2b15c886ad136ed5339859a63c4674a5ae501957a324bc4dca6                                      0.0s
+ => => exporting config sha256:a3862811d505a88be6e254856c2dbbfc01b33c418c39556e6a835921d5609d0d                                        0.0s
+ => => exporting attestation manifest sha256:2580a0049d7f0f4c704f733856019180f24ef1ac901cf5881f27251cb9666512                          0.0s
+ => => exporting manifest list sha256:bfe72f6fb6c1f8b9370c732e1a46e5093fd46a2cf85f9e5018168de8ce7661a8                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-add3:latest                                                                      0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-add3:latest                                                                   0.1s
+
+ 1 warning found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 37)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/z4wanj6s06kueetpbbuwxafo7
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest     bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest     bfe72f6fb6c1        109MB           28MB        
+gabriel-company/dockerfile-add:latest      7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest     28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest     95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest    2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest    48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run -it 
+bfe72f6fb6c1 /bin/sh              
+/ $ cd /tmp
+/tmp $ ls -la
+total 24
+drwxrwxrwt    1 root     root          4096 Jul  9 18:56 .
+drwxr-xr-x    1 root     root          4096 Jul  9 18:56 ..
+-rwxr-xr-x    1 gabriel  dev             58 Jul  9 18:47 arquivo_123.txt
+-rwxr-xr-x    1 root     root            40 Jul  8 01:29 arquivo_abc.txt
+-rw-r--r--    1 gabriel  gabriel         43 Jul  9 18:56 arquivo_criado_durante_o_build_da_imagem.txt
+-rwxr-xr-x    1 root     root            40 Jul  8 01:29 arquivo_xyz.txt
+/tmp $ exit
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-add4 .
+[+] Building 1.1s (12/12) FINISHED                                                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 1.27kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.17                                                                         0.6s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/7] FROM docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => => resolve docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => [internal] load build context                                                                                                      0.0s
+ => => transferring context: 104B                                                                                                      0.0s
+ => CACHED [2/7] RUN <<EOF (apk add --no-cache nodejs...)                                                                              0.0s
+ => CACHED [3/7] RUN adduser -D gabriel     && addgroup dev     && addgroup gabriel dev                                                0.0s
+ => CACHED [4/7] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                0.0s
+ => CACHED [5/7] ADD ./arquivo_abc.txt /tmp/                                                                                           0.0s
+ => CACHED [6/7] ADD ./arquivo_xyz.txt /tmp/                                                                                           0.0s
+ => [7/7] ADD --chown=gabriel:dev --chmod=777 ./arquivo_123.txt /tmp/                                                                  0.0s
+ => exporting to image                                                                                                                 0.2s
+ => => exporting layers                                                                                                                0.1s
+ => => exporting manifest sha256:8b7e25b0c99e40634140da8f108241c804bfd8a9bbb208942b4c276c55e96870                                      0.0s
+ => => exporting config sha256:b2f32682cf1368f506cd763e51e2d8107cc7805f1c3706931297b3242a9f3253                                        0.0s
+ => => exporting attestation manifest sha256:8650e575e152c520d86b839e18eca2218630f11a7ecca9558d306bc294fd9b68                          0.0s
+ => => exporting manifest list sha256:ada2bc286d6fde571069716e7b44c2560f4113b3d8735886198a72a912f16c60                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-add4:latest                                                                      0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-add4:latest                                                                   0.0s
+
+ 1 warning found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 37)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/qpdamb49wyt0hqfif34fki6dv
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest     bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest     bfe72f6fb6c1        109MB           28MB    U   
+gabriel-company/dockerfile-add4:latest     ada2bc286d6f        109MB           28MB        
+gabriel-company/dockerfile-add:latest      7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest     28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest     95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest    2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest    48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run -it 
+ada2bc286d6f /bin/sh
+/ $ ccd /tmp
+/bin/sh: ccd: not found
+/ $ ls -la
+total 68
+drwxr-xr-x    1 root     root          4096 Jul  9 18:58 .
+drwxr-xr-x    1 root     root          4096 Jul  9 18:58 ..
+-rwxr-xr-x    1 root     root             0 Jul  9 18:58 .dockerenv
+drwxr-xr-x    2 root     root          4096 Sep  6  2024 bin
+drwxr-xr-x    5 root     root           360 Jul  9 18:58 dev
+drwxr-xr-x    1 root     root          4096 Jul  9 18:58 etc
+drwxr-xr-x    1 root     root          4096 Jul  9 18:56 home
+drwxr-xr-x    1 root     root          4096 Sep  6  2024 lib
+drwxr-xr-x    5 root     root          4096 Sep  6  2024 media
+drwxr-xr-x    2 root     root          4096 Sep  6  2024 mnt
+drwxr-xr-x    2 root     root          4096 Sep  6  2024 opt
+dr-xr-xr-x  232 root     root             0 Jul  9 18:58 proc
+drwx------    2 root     root          4096 Sep  6  2024 root
+drwxr-xr-x    2 root     root          4096 Sep  6  2024 run
+drwxr-xr-x    2 root     root          4096 Sep  6  2024 sbin
+drwxr-xr-x    2 root     root          4096 Sep  6  2024 srv
+dr-xr-xr-x   13 root     root             0 Jul  9 18:58 sys
+drwxrwxrwt    1 root     root          4096 Jul  9 18:58 tmp
+drwxr-xr-x    1 root     root          4096 Jul  7 23:06 usr
+drwxr-xr-x    1 root     root          4096 Jul  7 23:06 var
+/ $ cd /tmp/
+/tmp $ ls -la
+total 24
+drwxrwxrwt    1 root     root          4096 Jul  9 18:58 .
+drwxr-xr-x    1 root     root          4096 Jul  9 18:58 ..
+-rwxrwxrwx    1 gabriel  dev             58 Jul  9 18:47 arquivo_123.txt
+-rwxr-xr-x    1 root     root            40 Jul  8 01:29 arquivo_abc.txt
+-rw-r--r--    1 gabriel  gabriel         43 Jul  9 18:56 arquivo_criado_durante_o_build_da_imagem.txt
+-rwxr-xr-x    1 root     root            40 Jul  8 01:29 arquivo_xyz.txt
+/tmp $ 

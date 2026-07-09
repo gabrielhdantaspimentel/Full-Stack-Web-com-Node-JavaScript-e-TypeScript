@@ -13,8 +13,9 @@ RUN <<EOF
 EOF
 
 # Adiciona um usuário no SO (Linux distro Alpine)
-RUN adduser -D gabriel
-
+RUN adduser -D gabriel \
+    && addgroup dev \
+    && addgroup gabriel dev
 # Define o usuário responsável pela execução dos próximos RUNs
 USER gabriel
 
@@ -38,6 +39,7 @@ RUN echo ${MSG} > /tmp/arquivo_criado_durante_o_build_da_imagem.txt
 
 ADD ./arquivo_abc.txt /tmp/
 ADD ./arquivo_xyz.txt /tmp/
+ADD --chown=gabriel:dev --chmod=777 ./arquivo_123.txt /tmp/
 
 
 # Cada Dockerfile possui apenas um único CMD
