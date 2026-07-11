@@ -38,11 +38,7 @@ ENV MSG "Variável de ambiente criada no Dockerfile"
 RUN echo ${MSG} > /tmp/arquivo_criado_durante_o_build_da_imagem.txt
 
 # ADD ./arquivo_abc.txt /tmp/
-COPY  arquivo_abc.txt /tmp/teste_copy/
-
 # ADD ./arquivo_xyz.txt /tmp/
-COPY arquivo_xyz.txt /tmp/teste_copy/
-
 # ADD --chown=gabriel:dev --chmod=777 ./arquivo_123.txt /tmp/
 
 # ADD --chown=gabriel:dev ./arquivo_* /tmp/curinga/
