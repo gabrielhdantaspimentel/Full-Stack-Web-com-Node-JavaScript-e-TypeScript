@@ -1833,3 +1833,281 @@ drwxr-xr-x    1 root     root          4096 Jul  9 18:58 ..
 -rw-r--r--    1 gabriel  gabriel         43 Jul  9 18:56 arquivo_criado_durante_o_build_da_imagem.txt
 -rwxr-xr-x    1 root     root            40 Jul  8 01:29 arquivo_xyz.txt
 /tmp $ 
+
+
+
+=============================================
+=============================================
+=============================================
+
+
+
+Aula 459 - Dockerfile - COPY
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest     bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest     bfe72f6fb6c1        109MB           28MB    U   
+gabriel-company/dockerfile-add4:latest     ada2bc286d6f        109MB           28MB    U   
+gabriel-company/dockerfile-add5:latest     d6b7202f82d3        109MB           28MB    U   
+gabriel-company/dockerfile-add6:latest     fc21792f3cc0        109MB           28MB    U   
+gabriel-company/dockerfile-add7:latest     39119c96e576        109MB           28MB    U   
+gabriel-company/dockerfile-add8:latest     20c199ec5304        109MB           28MB    U   
+gabriel-company/dockerfile-add9:latest     c888932d897c        109MB           28MB    U   
+gabriel-company/dockerfile-add:latest      7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest     28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest     95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest    2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest    48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images> docker build -t gabriel-company/dockerfile-copy1 .
+[+] Building 0.2s (1/1) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.1s
+ => => transferring dockerfile: 2B                                                                                                     0.0s
+ERROR: failed to build: failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/bat5t4x2alzs2pz7kzujkmzas
+
+What's next:
+    Debug this build failure with Gordon → docker ai "help me fix this build failure"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images> docker build -t gabriel-company/dockerfile-copy1 .
+[+] Building 0.1s (1/1) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 2B                                                                                                     0.0s
+ERROR: failed to build: failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/nynrivd176rwyjc4ljp5johbd
+
+What's next:
+    Debug this build failure with Gordon → docker ai "help me fix this build failure"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images> cd .\alpine\
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-copy1 .
+[+] Building 3.3s (12/14)                                                                                              docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 1.66kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.17                                                                         2.9s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/8] FROM docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.1s
+ => => resolve docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.1s
+ => [internal] load build context                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => CANCELED [7/8] ADD --chown=gabriel:dev https://argus-academy.com/cursos/docker_-_dominando_a_criacao_e_o_gerenciamento_de_contain  0.2s
+ => CACHED [2/8] RUN <<EOF (apk add --no-cache nodejs...)                                                                              0.0s
+ => CACHED [3/8] RUN adduser -D gabriel     && addgroup dev     && addgroup gabriel dev                                                0.0s
+ => CACHED [4/8] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                0.0s
+ => ERROR [5/8] COPY  ./arquivos/arquivo_abc.txt /tmp/teste_copy/                                                                      0.0s
+ => ERROR [6/8] COPY ./arquivos/arquivo_xyz.txt /tmp/teste_copy/                                                                       0.0s
+------
+ > [5/8] COPY  ./arquivos/arquivo_abc.txt /tmp/teste_copy/:
+------
+------
+ > [6/8] COPY ./arquivos/arquivo_xyz.txt /tmp/teste_copy/:
+------
+
+ 1 warning found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 37)
+Dockerfile:44
+--------------------
+  42 |     
+  43 |     # ADD ./arquivo_xyz.txt /tmp/
+  44 | >>> COPY ./arquivos/arquivo_xyz.txt /tmp/teste_copy/
+  45 |     
+  46 |     # ADD --chown=gabriel:dev --chmod=777 ./arquivo_123.txt /tmp/
+--------------------
+ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref ljtc89gw4rphkf2umvih1zatb::q9qlopxmdoejtmcisj55reyyb: "/arquivos/arquivo_xyz.txt": not found
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/moi06dzu3ntbk6wz6a0dqthbg
+
+What's next:
+    Debug this build failure with Gordon → docker ai "help me fix this build failure"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-copy1 .
+[+] Building 3.8s (14/14) FINISHED                                                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 1.64kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.17                                                                         1.4s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/8] FROM docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.1s
+ => => resolve docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.1s
+ => CACHED [7/8] ADD --chown=gabriel:dev https://argus-academy.com/cursos/docker_-_dominando_a_criacao_e_o_gerenciamento_de_container  0.4s
+ => [internal] load build context                                                                                                      0.1s
+ => => transferring context: 166B                                                                                                      0.1s
+ => CACHED [2/8] RUN <<EOF (apk add --no-cache nodejs...)                                                                              0.0s
+ => CACHED [3/8] RUN adduser -D gabriel     && addgroup dev     && addgroup gabriel dev                                                0.0s
+ => CACHED [4/8] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                0.0s
+ => [5/8] COPY  arquivo_abc.txt /tmp/teste_copy/                                                                                       0.1s
+ => [6/8] COPY arquivo_xyz.txt /tmp/teste_copy/                                                                                        0.1s
+ => [7/8] ADD --chown=gabriel:dev https://argus-academy.com/cursos/docker_-_dominando_a_criacao_e_o_gerenciamento_de_containers/serve  0.1s
+ => [8/8] RUN cd /opt/app/     && tar xvzf server.tar.gz     && rm server.tar.gz                                                       0.6s
+ => exporting to image                                                                                                                 0.9s
+ => => exporting layers                                                                                                                0.3s
+ => => exporting manifest sha256:1ee3ab8c86d6d4c7f2b85264c48644f6ab73afbf166a3c6191c10675c89a7365                                      0.0s
+ => => exporting config sha256:8b30d72d054e2ccda1e58e46a21cc029f6c87ee707a32b6af41e0a4c819b2c99                                        0.0s
+ => => exporting attestation manifest sha256:60f36c16da241c41805cffceee8095cef53c5b85a0313dc3986cf159796e6c7d                          0.0s
+ => => exporting manifest list sha256:610335f296f5f653e4b1d2b96ff7c2433268c52ec9b3f4a03e8b30c90126bf56                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-copy1:latest                                                                     0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-copy1:latest                                                                  0.3s
+
+ 1 warning found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 37)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ka08uimzpej7g769pzsmlh1fp
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest     bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest     bfe72f6fb6c1        109MB           28MB    U   
+gabriel-company/dockerfile-add4:latest     ada2bc286d6f        109MB           28MB    U   
+gabriel-company/dockerfile-add5:latest     d6b7202f82d3        109MB           28MB    U   
+gabriel-company/dockerfile-add6:latest     fc21792f3cc0        109MB           28MB    U   
+gabriel-company/dockerfile-add7:latest     39119c96e576        109MB           28MB    U   
+gabriel-company/dockerfile-add8:latest     20c199ec5304        109MB           28MB    U   
+gabriel-company/dockerfile-add9:latest     c888932d897c        109MB           28MB    U   
+gabriel-company/dockerfile-add:latest      7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest     28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest     95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-copy1:latest    610335f296f5        109MB           28MB        
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest    2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest    48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
+
+
+
+=============================================
+=============================================
+=============================================
+
+Aula 459 - Dockerfile COPY multiplos arquivos
+
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-copy2 .
+[+] Building 4.3s (16/16) FINISHED                                                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.1s
+ => => transferring dockerfile: 1.70kB                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.17                                                                         2.4s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/9] FROM docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.1s
+ => => resolve docker.io/library/alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989                   0.0s
+ => [internal] load build context                                                                                                      0.0s
+ => => transferring context: 70B                                                                                                       0.0s
+ => [7/9] ADD --chown=gabriel:dev https://argus-academy.com/cursos/docker_-_dominando_a_criacao_e_o_gerenciamento_de_containers/serve  0.7s
+ => CACHED [2/9] RUN <<EOF (apk add --no-cache nodejs...)                                                                              0.0s
+ => CACHED [3/9] RUN adduser -D gabriel     && addgroup dev     && addgroup gabriel dev                                                0.0s
+ => CACHED [4/9] RUN echo Variável de ambiente criada no Dockerfile > /tmp/arquivo_criado_durante_o_build_da_imagem.txt                0.0s
+ => CACHED [5/9] COPY  arquivo_abc.txt /tmp/teste_copy/                                                                                0.0s
+ => CACHED [6/9] COPY arquivo_xyz.txt /tmp/teste_copy/                                                                                 0.0s
+ => CACHED [7/9] ADD --chown=gabriel:dev https://argus-academy.com/cursos/docker_-_dominando_a_criacao_e_o_gerenciamento_de_container  0.0s
+ => CACHED [8/9] RUN cd /opt/app/     && tar xvzf server.tar.gz     && rm server.tar.gz                                                0.0s
+ => [9/9] COPY arquivo_abc.txt arquivo_xyz.txt /tmp/copy_mult/                                                                         0.1s
+ => exporting to image                                                                                                                 0.6s
+ => => exporting layers                                                                                                                0.3s
+ => => exporting manifest sha256:510272e458ab2992a92749d36c34c56a345b9075b15fda9c28dae510ea4fd850                                      0.0s
+ => => exporting config sha256:1c64fb35732a7003973354ead18446c76c0025d0017c197a16ee8ccb1548379a                                        0.0s
+ => => exporting attestation manifest sha256:356bc735e836c0d2b6b3883a22ee7cb86ae4bff2898efd336bce3aab0fbe8769                          0.0s
+ => => exporting manifest list sha256:622e68816d86b10ef621dc3f40318e560305d96ef8229ae658fd937320381eac                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-copy2:latest                                                                     0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-copy2:latest                                                                  0.1s
+
+ 1 warning found (use docker --debug to expand):
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 37)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/lrs8svhw28s1aqsx4tgk6p9ng
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0   029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0   3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0   e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0   c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0          ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0        7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest     bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest     bfe72f6fb6c1        109MB           28MB    U   
+gabriel-company/dockerfile-add4:latest     ada2bc286d6f        109MB           28MB    U   
+gabriel-company/dockerfile-add5:latest     d6b7202f82d3        109MB           28MB    U   
+gabriel-company/dockerfile-add6:latest     fc21792f3cc0        109MB           28MB    U   
+gabriel-company/dockerfile-add7:latest     39119c96e576        109MB           28MB    U   
+gabriel-company/dockerfile-add8:latest     20c199ec5304        109MB           28MB    U   
+gabriel-company/dockerfile-add9:latest     c888932d897c        109MB           28MB    U   
+gabriel-company/dockerfile-add:latest      7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest     5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest     b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest     46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest     78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest     28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest     95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-copy1:latest    610335f296f5        109MB           28MB        
+gabriel-company/dockerfile-copy2:latest    622e68816d86        109MB           28MB        
+gabriel-company/dockerfile-env1:latest     8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest     2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest     38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest     66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest     878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest     4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest     19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest   e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest    2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest    48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run -it 
+622e68816d86 /bin/sh               
+/ $ cd /tmp/
+/tmp $ 
+/tmp $ ls -la
+total 20
+drwxrwxrwt    1 root     root          4096 Jul 11 00:10 .
+drwxr-xr-x    1 root     root          4096 Jul 11 00:12 ..
+-rw-r--r--    1 gabriel  gabriel         43 Jul  9 18:56 arquivo_criado_durante_o_build_da_imagem.txt
+drwxr-xr-x    2 root     root          4096 Jul 11 00:10 copy_mult
+drwxr-xr-x    1 root     root          4096 Jul 10 23:58 teste_copy
+/tmp $ cd copy_mult
+/tmp/copy_mult $ ls -la
+total 16
+drwxr-xr-x    2 root     root          4096 Jul 11 00:10 .
+drwxrwxrwt    1 root     root          4096 Jul 11 00:10 ..
+-rwxr-xr-x    1 root     root            40 Jul  8 01:29 arquivo_abc.txt
+-rwxr-xr-x    1 root     root            40 Jul  8 01:29 arquivo_xyz.txt
+/tmp/copy_mult $ exit
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
+
+

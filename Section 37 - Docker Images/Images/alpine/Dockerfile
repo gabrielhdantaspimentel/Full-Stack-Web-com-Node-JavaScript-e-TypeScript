@@ -54,6 +54,8 @@ RUN cd /opt/app/ \
     && tar xvzf server.tar.gz \
     && rm server.tar.gz
 
+COPY arquivo_abc.txt arquivo_xyz.txt /tmp/copy_mult/
+
 # Cada Dockerfile possui apenas um único CMD
 CMD ["/bin/sh", "-c", "cd /opt/app/ && node server.js"]
 
