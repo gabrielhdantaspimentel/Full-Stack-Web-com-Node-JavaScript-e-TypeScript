@@ -2,16 +2,31 @@ ARG ALPINE_VERSION=3.19
 
 FROM alpine:${ALPINE_VERSION}
 
-# Serviço: Imprimir um texto no terminal
-# ENTRYPOINT [ "echo", "Parâmetro 1 - Instrução via ENTRYPOINT", "\n" ]
-# CMD ["Parâmetro 2 - Instrução via CMD"]
+WORKDIR /
 
-# Serviço (processo): listar o conteúdo do diretóriuo raiz
+RUN mkdir /logs/
 
-# ENTRYPOINT ["ls"] #ls -la
+RUN echo "1 - Diretório de trabalho atual: $(pwd)" > /logs/1.txt
 
-# CMD ["-la"]
+RUN <<EOF
+    apk add --no-cache nodejs
+    apk add --no-cache npm
+EOF
 
-COPY ./dockerfile-entrypoint.sh /start/dockerfile-entrypoint.sh
+WORKDIR /opt/
+RUN echo "2 - Diretório de trabalho atual: $(pwd)" > /logs/2.txt
 
-ENTRYPOINT ["/start/dockerfile-entrypoint.sh"]
+ADD https://argus-academy.com/cursos/docker_-_dominando_a_criacao_e_o_gerenciamento_de_containers/server.tar.gz ./code/
+
+WORKDIR /opt/code/
+RUN echo "3 - Diretório de trabalho atual: $(pwd)" > /logs/3.txt
+
+WORKDIR /opt/code/
+
+RUN tar xvzf server.tar.gz \
+    && rm server.tar.gz
+ 
+# CMD ["/bin/sh", "-c", "node server.js"]
+
+ENTRYPOINT ["node"]
+CMD ["server.js"]
