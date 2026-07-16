@@ -8,6 +8,7 @@ FROM alpine:${ALPINE_VERSION}
 
 # Serviço (processo): listar o conteúdo do diretóriuo raiz
 
-ENTRYPOINT ["ls"] #ls -la
+# ENTRYPOINT ["ls"] #ls -la
 
-CMD ["-la"]
+# CMD ["-la"]
+
