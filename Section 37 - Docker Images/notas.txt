@@ -2015,6 +2015,7 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 =============================================
 =============================================
 
+
 Aula 459 - Dockerfile COPY multiplos arquivos
 
 
@@ -2756,3 +2757,126 @@ Server em execução em http://127.0.0.1:3000/
 What's next:
     Debug this container error with Gordon → docker ai "help me fix this container error"
 PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
+
+
+=============================================
+=============================================
+=============================================
+
+Aula 465 - Dockerfile - EXPOSE
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Image gabriel-company/dockerfile-expose1 . 
+[+] Building 1.3s (17/17) FINISHED                                                                          
+ => [internal] load build definition from Dockerfile                                                        
+ => => transferring dockerfile: 756B                                                                        
+ => [internal] load metadata for docker.io/library/alpine:3.19                                              
+ => [auth] library/alpine:pull token for registry-1.docker.io                                               
+ => [internal] load .dockerignore                                                                           
+ => => transferring context: 2B                                                                             
+ => [ 1/12] FROM docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3
+ => => resolve docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a314
+ => [ 7/12] ADD https://argus-academy.com/cursos/docker_-_dominando_a_criacao_e_o_gerenciamento_de_container
+ => CACHED [ 2/12] RUN mkdir /logs/                                                                         
+ => CACHED [ 3/12] RUN echo "1 - Diretório de trabalho atual: $(pwd)" > /logs/1.txt                         
+ => CACHED [ 4/12] RUN <<EOF (apk add --no-cache nodejs...)                                                 
+ => CACHED [ 5/12] WORKDIR /opt/                                                                            
+ => CACHED [ 6/12] RUN echo "2 - Diretório de trabalho atual: $(pwd)" > /logs/2.txt                         
+ => CACHED [ 7/12] ADD https://argus-academy.com/cursos/docker_-_dominando_a_criacao_e_o_gerenciamento_de_co
+ => CACHED [ 8/12] WORKDIR /opt/code/                                                                       
+ => CACHED [ 9/12] RUN echo "3 - Diretório de trabalho atual: $(pwd)" > /logs/3.txt                         
+ => CACHED [10/12] WORKDIR /opt/code/                                                                       
+ => CACHED [11/12] RUN tar xvzf server.tar.gz     && rm server.tar.gz                                       
+ => exporting to image                                                                                      
+ => => exporting layers                                                                                     
+ => => exporting manifest sha256:386bfd540b692aeffbc6d42de3b8e9218edc7bf0a3e55dd6098521c34bf5657c           
+ => => exporting config sha256:514aa2e1905996d9e6713242560707942b47a63a401503b9df8975b3220ff16b             
+ => => exporting attestation manifest sha256:3591b5c5a0212750111f600f4e12a6adae821aa5c6ac07198800dff9e3641bd
+ => => exporting manifest list sha256:3e8807b0495b3c8d409a77a4454dbbbc02827f205717b55402a4cdbb3916c66c      
+ => => naming to docker.io/gabriel-company/dockerfile-expose1:latest                                        
+ => => unpacking to docker.io/gabriel-company/dockerfile-expose1:latest                                     
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/tdx9zeisgv5lhuvcucuxj9vc5
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Image
+                                                                                                            IMAGE                                           ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0        029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0        3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0        e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0        c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0               ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0             7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest          bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest          bfe72f6fb6c1        109MB           28MB    U   
+gabriel-company/dockerfile-add4:latest          ada2bc286d6f        109MB           28MB    U   
+gabriel-company/dockerfile-add5:latest          d6b7202f82d3        109MB           28MB    U   
+gabriel-company/dockerfile-add6:latest          fc21792f3cc0        109MB           28MB    U   
+gabriel-company/dockerfile-add7:latest          39119c96e576        109MB           28MB    U   
+gabriel-company/dockerfile-add8:latest          20c199ec5304        109MB           28MB    U   
+gabriel-company/dockerfile-add9:latest          c888932d897c        109MB           28MB    U   
+gabriel-company/dockerfile-add:latest           7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest          5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest          b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest          46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest          78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest          28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest          95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-copy1:latest         610335f296f5        109MB           28MB        
+gabriel-company/dockerfile-copy2:latest         622e68816d86        109MB           28MB    U   
+gabriel-company/dockerfile-entrypoint1:latest   d3d517e6ab41       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint2:latest   c5d2899a0980       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint3:latest   0ff93979cc6f       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint4:latest   595383258e27       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint5:latest   207deaaf0df4       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint6:latest   ce40733a240c       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint7:latest   087e01a4bf0a       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint8:latest   f38e00521c76       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-env1:latest          8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest          2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest          38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest          66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest          878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest          4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest          19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-expose1:latest       3e8807b0495b        105MB         26.4MB        
+gabriel-company/dockerfile-label1:latest        e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest         2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest         48fe3b9b5234        109MB           28MB    U   
+gabriel-company/dockerfile-workdir1:latest      b0d6cd2f92f4        105MB         26.4MB    U   
+gabriel-company/dockerfile-workdir2:latest      27759c97a7df        105MB         26.4MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Image07b0495b             
+Server em execução em http://127.0.0.1:3000/
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run -p 3002:3000/tcp -p 3001:3000/udp -p 8081:3030  3e8807b0495b
+Server em execução em http://127.0.0.1:3000/
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run -P 3e8807b0495b                                             
+Server em execução em http://127.0.0.1:3000/
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine>         
+
+
+**********************************
+**********************************
+TERMINAL AUXILIAR MOSTRANDO 
+CONTAINER E COMUNICAÇÃO DAS PORTAS
+**********************************
+**********************************
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images> docker ps
+CONTAINER ID   IMAGE          COMMAND            CREATED              STATUS              PORTS          NAMES
+7a23274cc90f   3e8807b0495b   "node server.js"   About a minute ago   Up About a minute   0.0.0.0:3001->3000/udp, 0.0.0.0:3002->3000/tcp, [::]:3001->3000/udp, [::]:3002->3000/tcp, 0.0.0.0:8081->3030/tcp, [::]:8081->3030/tcp   tender_bartik
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images> 
+
+
+
+=============================================
+=============================================
+=============================================
+
+

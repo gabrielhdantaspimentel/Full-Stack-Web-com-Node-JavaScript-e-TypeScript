@@ -25,13 +25,8 @@ WORKDIR /opt/code/
 
 RUN tar xvzf server.tar.gz \
     && rm server.tar.gz
+ 
+# CMD ["/bin/sh", "-c", "node server.js"]
 
 ENTRYPOINT ["node"]
 CMD ["server.js"]
-
-#TCP ou UDP
-# EXPOSE 3000 POR PADRÂO SERÁ TCP
-EXPOSE 3000/tcp
-EXPOSE 3000/udp
-
-EXPOSE 3030
