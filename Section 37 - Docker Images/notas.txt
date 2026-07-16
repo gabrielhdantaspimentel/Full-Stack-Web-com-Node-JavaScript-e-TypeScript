@@ -2880,3 +2880,6 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 =============================================
 
 
+Aula 466 - Dockerfile - Volume
+
+Só explicou por cima e sem aplicação pratica
