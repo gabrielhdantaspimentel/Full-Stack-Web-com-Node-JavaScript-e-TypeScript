@@ -2982,5 +2982,88 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 =============================================
 =============================================
 
+Aula 468 - Camadas e cache de camada
 
 
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/camadas:1.0.0 .
+[+] Building 20.1s (9/9) FINISHED                                                      docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                   0.1s
+ => => transferring dockerfile: 163B                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:latest                                       1.6s
+ => [internal] load .dockerignore                                                                      0.1s
+ => => transferring context: 2B                                                                        0.0s
+ => [1/5] FROM docker.io/library/alpine:latest@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916  1.2s
+ => => resolve docker.io/library/alpine:latest@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916  0.1s
+ => => sha256:55afa1ecc21d2bb5e5045f32dafee56272ffd89860bac26f6c32123439af26a4 3.85MB / 3.85MB         0.6s
+ => => extracting sha256:55afa1ecc21d2bb5e5045f32dafee56272ffd89860bac26f6c32123439af26a4              0.5s
+ => [2/5] RUN apk add --no-cache nodejs                                                                3.9s
+ => [3/5] RUN apk add --no-cache npm                                                                   2.1s
+ => [4/5] RUN apk add --no-cache git                                                                   1.9s
+ => [5/5] RUN apk add --no-cache wget                                                                  1.2s
+ => exporting to image                                                                                 7.8s
+ => => exporting layers                                                                                6.5s
+ => => exporting manifest sha256:338a0503f061bdd2af269cedb41d55c0b4658af9fba4ea832460a56163c727be      0.0s
+ => => exporting config sha256:8b98b0559dbe0ebcee253b3f50f7c446378294434079dc4b4c653fe3df3d9d53        0.0s
+ => => exporting attestation manifest sha256:e0fa2ce0bbfe961ac144813ed987ed2aeb5fa4e1c2b45ca90a0b5cac  0.0s
+ => => exporting manifest list sha256:8f29425bf09352c33fba439b6c4f6f177013bbd74fd96074974ef6e2e8bcd0d  0.0s
+ => => naming to docker.io/gabriel-company/camadas:1.0.0                                               0.0s
+ => => unpacking to docker.io/gabriel-company/camadas:1.0.0                                            1.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ea6rx2ulkloprrlqtphxqnvnt
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                        i Info →   U  In UseIMAGE                           ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/camadas:1.0.0   8f29425bf093        146MB         39.1MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker image inspect 8f29425bf093           
+[
+    {
+        "Id": "sha256:8f29425bf09352c33fba439b6c4f6f177013bbd74fd96074974ef6e2e8bcd0d9",
+        "RepoTags": [
+            "gabriel-company/camadas:1.0.0"
+        ],
+        "RepoDigests": [
+            "gabriel-company/camadas@sha256:8f29425bf09352c33fba439b6c4f6f177013bbd74fd96074974ef6e2e8bcd0d9"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-07-16T23:45:02.102634016Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh"
+            ],
+            "WorkingDir": "/"
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 39050686,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:34884abbe92863fce933ed7c39c0e045631af0ed86d5cc0dfbdf9fdca426ce3c",
+                "sha256:831122c022dff25d19f4df8ab3b54761a34db8b03b36d5783dbe8fb3e261d8d5",
+                "sha256:f856cb3a7f15874865798d18f30fbb670b12bb5b72c086d5bd7b1bd20c0e07b9",
+                "sha256:f79189f7820999411bb56315e1640a21386899d16156d8d7a90c6e09aacc3ca6",
+                "sha256:868f3a4f0d69cbbb5cc1ef179dfc9dd11d3b4d26bd3c796777a9bbc463d3fc84"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-07-16T23:45:08.736936479Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:8f29425bf09352c33fba439b6c4f6f177013bbd74fd96074974ef6e2e8bcd0d9",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "ea6rx2ulkloprrlqtphxqnvnt",
+                    "CreatedAt": "2026-07-16T23:45:09.828494507Z"
+                }
+            ]
+        }
+    }
+]
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
