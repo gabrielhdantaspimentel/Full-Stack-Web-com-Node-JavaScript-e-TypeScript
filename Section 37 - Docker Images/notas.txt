@@ -2441,3 +2441,102 @@ drwxr-xr-x   12 root     root          4096 Oct  8  2025 var
 PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run --entrypoint echo 087e01a4bf0a "Texto de teste"
 Texto de teste
 PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
+
+
+
+
+=============================================
+=============================================
+=============================================
+
+Aula 464 - Dockerfile - ENTRYPOINT via arquivo externo
+
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-entrypoint8 .
+[+] Building 1.0s (7/7) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 476B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19                                                                         0.6s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [internal] load build context                                                                                                      0.0s
+ => => transferring context: 316B                                                                                                      0.0s
+ => CACHED [1/2] FROM docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1            0.0s
+ => => resolve docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1                   0.0s
+ => [2/2] COPY ./dockerfile-entrypoint.sh /start/dockerfile-entrypoint.sh                                                              0.0s
+ => exporting to image                                                                                                                 0.2s
+ => => exporting layers                                                                                                                0.1s
+ => => exporting manifest sha256:2eebd37a09e974d0be9ee6ce93896c98c1525b0d3175265a5fde489c5b167964                                      0.0s
+ => => exporting config sha256:ace704b069344825d18f989c840be55d2bf44dce80a3373ccac7dc624535b1c3                                        0.0s
+ => => exporting attestation manifest sha256:76814ea35d80c56fb60e75ad1fe2f7af96f73120b8c813e5cb8dc880d9eecb7f                          0.0s
+ => => exporting manifest list sha256:f38e00521c76123f107da7926e39b5d255e4014fe0e5051e19b844b3e79eed01                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-entrypoint8:latest                                                               0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-entrypoint8:latest                                                            0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/m0pvhcriceudgm6ecvdn2eo2d
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                           ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0        029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0        3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0        e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0        c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0               ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0             7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest          bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest          bfe72f6fb6c1        109MB           28MB    U   
+gabriel-company/dockerfile-add4:latest          ada2bc286d6f        109MB           28MB    U   
+gabriel-company/dockerfile-add5:latest          d6b7202f82d3        109MB           28MB    U   
+gabriel-company/dockerfile-add6:latest          fc21792f3cc0        109MB           28MB    U   
+gabriel-company/dockerfile-add7:latest          39119c96e576        109MB           28MB    U   
+gabriel-company/dockerfile-add8:latest          20c199ec5304        109MB           28MB    U   
+gabriel-company/dockerfile-add9:latest          c888932d897c        109MB           28MB    U   
+gabriel-company/dockerfile-add:latest           7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest          5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest          b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest          46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest          78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest          28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest          95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-copy1:latest         610335f296f5        109MB           28MB        
+gabriel-company/dockerfile-copy2:latest         622e68816d86        109MB           28MB    U   
+gabriel-company/dockerfile-entrypoint1:latest   d3d517e6ab41       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint2:latest   c5d2899a0980       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint3:latest   0ff93979cc6f       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint4:latest   595383258e27       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint5:latest   207deaaf0df4       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint6:latest   ce40733a240c       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint7:latest   087e01a4bf0a       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint8:latest   f38e00521c76       11.5MB         3.42MB        
+gabriel-company/dockerfile-env1:latest          8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest          2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest          38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest          66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest          878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest          4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest          19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest        e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest         2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest         48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run f38e00521c76
+iniciando o container
+Contador: 1
+Contador: 2
+Contador: 3
+Contador: 4
+Contador: 5
+Processos realizados, serviço em execução
+Iniciando o processos de 5 segundos
+/start/dockerfile-entrypoint.sh: line 17: COPY: not found
+5 segundos depois
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
+
+
+
+=============================================
+=============================================
+=============================================

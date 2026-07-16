@@ -12,3 +12,6 @@ FROM alpine:${ALPINE_VERSION}
 
 # CMD ["-la"]
 
+COPY ./dockerfile-entrypoint.sh /start/dockerfile-entrypoint.sh
+
+ENTRYPOINT ["/start/dockerfile-entrypoint.sh"]
