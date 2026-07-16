@@ -2111,3 +2111,265 @@ drwxrwxrwt    1 root     root          4096 Jul 11 00:10 ..
 PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
 
 
+
+
+=============================================
+=============================================
+=============================================
+
+Aula 461 - Dcokerfile - ENTRYPOINT
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-entrypoint1 .
+[+] Building 1.5s (6/6) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 202B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19                                                                         1.0s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => CACHED [1/1] FROM docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1            0.0s
+ => => resolve docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1                   0.0s
+ => exporting to image                                                                                                                 0.1s
+ => => exporting layers                                                                                                                0.0s
+ => => exporting manifest sha256:602c2142d610147b2ff928c0c5635f3ef75cdc10a582981a17ab061be73da1fe                                      0.0s
+ => => exporting config sha256:5c982d233cc83f4fa39d5efe9be65b0b37ba1407ef3429a993596fd6ef9556a8                                        0.0s
+ => => exporting attestation manifest sha256:ac22fef0b5914a5b83637df2229a27ba61314949b5e044d0e30a855be02dff5f                          0.0s
+ => => exporting manifest list sha256:d3d517e6ab410e0d7a8a30efa59d0ae2f82a7c6981760770a38c74d4863b80a3                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-entrypoint1:latest                                                               0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-entrypoint1:latest                                                            0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/xn1e16vktwz0js32vtqtciwbd
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                           ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0        029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0        3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0        e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0        c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0               ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0             7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest          bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest          bfe72f6fb6c1        109MB           28MB    U   
+gabriel-company/dockerfile-add4:latest          ada2bc286d6f        109MB           28MB    U   
+gabriel-company/dockerfile-add5:latest          d6b7202f82d3        109MB           28MB    U   
+gabriel-company/dockerfile-add6:latest          fc21792f3cc0        109MB           28MB    U   
+gabriel-company/dockerfile-add7:latest          39119c96e576        109MB           28MB    U   
+gabriel-company/dockerfile-add8:latest          20c199ec5304        109MB           28MB    U   
+gabriel-company/dockerfile-add9:latest          c888932d897c        109MB           28MB    U   
+gabriel-company/dockerfile-add:latest           7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest          5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest          b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest          46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest          78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest          28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest          95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-copy1:latest         610335f296f5        109MB           28MB        
+gabriel-company/dockerfile-copy2:latest         622e68816d86        109MB           28MB    U   
+gabriel-company/dockerfile-entrypoint1:latest   d3d517e6ab41       11.5MB         3.42MB        
+gabriel-company/dockerfile-env1:latest          8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest          2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest          38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest          66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest          878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest          4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest          19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest        e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest         2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest         48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run d3d517e6ab41            
+Parâmetro 1 - Instrução via CMD
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run d3d517e6ab41 echo Parâmetro 2 - Instrução via Terminal 
+Parâmetro 2 - Instrução via Terminal
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-entrypoint2 .         
+[+] Building 0.9s (5/5) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 270B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19                                                                         0.6s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => CACHED [1/1] FROM docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1            0.0s
+ => => resolve docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1                   0.0s
+ => exporting to image                                                                                                                 0.1s
+ => => exporting layers                                                                                                                0.0s
+ => => exporting manifest sha256:501edef1006f154753292b5ce93f6445ae5ec0f0cdbc86cd81bf8a5ebd855c56                                      0.0s
+ => => exporting config sha256:c45542d8020f9ed6804b54b289fbaf965d198a5af23dbca2ad91efcc49c9b968                                        0.0s
+ => => exporting attestation manifest sha256:4955198fa3e97210988b9df2b9b0f01e4a277476e8c1fe79b1db7cb6bbf29ba4                          0.0s
+ => => exporting manifest list sha256:c5d2899a0980c79e631a88ad465b92729edae6c3ce69d58b376977117599f489                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-entrypoint2:latest                                                               0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-entrypoint2:latest                                                            0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/cknz75mszioosgczcgkrsqfof
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                           ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0        029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0        3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0        e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0        c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0               ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0             7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest          bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest          bfe72f6fb6c1        109MB           28MB    U   
+gabriel-company/dockerfile-add4:latest          ada2bc286d6f        109MB           28MB    U   
+gabriel-company/dockerfile-add5:latest          d6b7202f82d3        109MB           28MB    U   
+gabriel-company/dockerfile-add6:latest          fc21792f3cc0        109MB           28MB    U   
+gabriel-company/dockerfile-add7:latest          39119c96e576        109MB           28MB    U   
+gabriel-company/dockerfile-add8:latest          20c199ec5304        109MB           28MB    U   
+gabriel-company/dockerfile-add9:latest          c888932d897c        109MB           28MB    U   
+gabriel-company/dockerfile-add:latest           7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest          5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest          b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest          46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest          78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest          28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest          95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-copy1:latest         610335f296f5        109MB           28MB        
+gabriel-company/dockerfile-copy2:latest         622e68816d86        109MB           28MB    U   
+gabriel-company/dockerfile-entrypoint1:latest   d3d517e6ab41       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint2:latest   c5d2899a0980       11.5MB         3.42MB        
+gabriel-company/dockerfile-env1:latest          8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest          2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest          38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest          66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest          878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest          4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest          19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest        e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest         2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest         48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run c5d2899a0980                                          
+Parâmetro 1 - Instrução via ENTRYPOINT
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-entrypoint3 .
+[+] Building 0.9s (5/5) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 248B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19                                                                         0.6s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => CACHED [1/1] FROM docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1            0.0s
+ => => resolve docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1                   0.0s
+ => exporting to image                                                                                                                 0.1s
+ => => exporting layers                                                                                                                0.0s
+ => => exporting manifest sha256:80f362e80069c75a26ef484f97a1c0773b69af30871a01237e252bde567b80d4                                      0.0s
+ => => exporting config sha256:cf32e20bf51b1fb42125aa96305ec9ed43c49fb6ccae722b42faca45e41370a1                                        0.0s
+ => => exporting attestation manifest sha256:e6892e232030eae30c2da47b19aa1aa9dc4e8651dab00377cd75779c5f743a42                          0.0s
+ => => exporting manifest list sha256:0ff93979cc6fb27ffdccadf79fcbf9db23ed76d64c315a2da00cba7ec071d04c                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-entrypoint3:latest                                                               0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-entrypoint3:latest                                                            0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/dvqwfjqjsfigh4rukahaxm3og
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                           ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0        029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0        3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0        e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0        c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0               ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0             7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest          bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest          bfe72f6fb6c1        109MB           28MB    U   
+gabriel-company/dockerfile-add4:latest          ada2bc286d6f        109MB           28MB    U   
+gabriel-company/dockerfile-add5:latest          d6b7202f82d3        109MB           28MB    U   
+gabriel-company/dockerfile-add6:latest          fc21792f3cc0        109MB           28MB    U   
+gabriel-company/dockerfile-add7:latest          39119c96e576        109MB           28MB    U   
+gabriel-company/dockerfile-add8:latest          20c199ec5304        109MB           28MB    U   
+gabriel-company/dockerfile-add9:latest          c888932d897c        109MB           28MB    U   
+gabriel-company/dockerfile-add:latest           7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest          5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest          b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest          46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest          78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest          28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest          95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-copy1:latest         610335f296f5        109MB           28MB        
+gabriel-company/dockerfile-copy2:latest         622e68816d86        109MB           28MB    U   
+gabriel-company/dockerfile-entrypoint1:latest   d3d517e6ab41       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint2:latest   c5d2899a0980       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint3:latest   0ff93979cc6f       11.5MB         3.42MB        
+gabriel-company/dockerfile-env1:latest          8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest          2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest          38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest          66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest          878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest          4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest          19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest        e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest         2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest         48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run 0ff93979cc6f
+Parâmetro 1 - Instrução via ENTRYPOINT Parâmetro 2 - Instrução via CMD
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t gabriel-company/dockerfile-entrypoint4 .
+[+] Building 1.1s (6/6) FINISHED                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 254B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19                                                                         0.8s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => CACHED [1/1] FROM docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1            0.0s
+ => => resolve docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1                   0.0s
+ => exporting to image                                                                                                                 0.1s
+ => => exporting layers                                                                                                                0.0s
+ => => exporting manifest sha256:9c60453c1084c09c10c9e3cdf826c22769397ea8bde09501b9f700ab6c304826                                      0.0s
+ => => exporting config sha256:b681bd3f2255f318059a86280d6e9bcde90ce4aee93636034932a3bca8bd8dd4                                        0.0s
+ => => exporting attestation manifest sha256:64dc2ff68f0f5ede5dbf74dc14f7a01862432e733e372d5c2652614259949147                          0.0s
+ => => exporting manifest list sha256:595383258e27fdd44bee4f3861719ad4956ea998c5e6fc3f668a98fa01ead2bf                                 0.0s
+ => => naming to docker.io/gabriel-company/dockerfile-entrypoint4:latest                                                               0.0s
+ => => unpacking to docker.io/gabriel-company/dockerfile-entrypoint4:latest                                                            0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/vlkoi4pudpqa9isnsah39rnk0
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                           ID             DISK USAGE   CONTENT SIZE   EXTRA
+gabriel-company/alpine-multilinha0:1.0.0        029226f36eab        119MB         31.1MB        
+gabriel-company/alpine-multilinha1:1.0.0        3cb1b4445cd9        105MB         26.3MB        
+gabriel-company/alpine-multilinha2:1.0.0        e98eae9333b7        105MB         26.3MB        
+gabriel-company/alpine-multilinha3:1.0.0        c213d2b9ef35        105MB         26.3MB        
+gabriel-company/alpine-node:1.0.0               ce77e700a944        105MB         26.4MB    U   
+gabriel-company/alpine-zerado:1.0.0             7970bce6f6c0       11.5MB         3.41MB    U   
+gabriel-company/dockerfile-add2:latest          bed1bb0f8ed7        109MB           28MB    U   
+gabriel-company/dockerfile-add3:latest          bfe72f6fb6c1        109MB           28MB    U   
+gabriel-company/dockerfile-add4:latest          ada2bc286d6f        109MB           28MB    U   
+gabriel-company/dockerfile-add5:latest          d6b7202f82d3        109MB           28MB    U   
+gabriel-company/dockerfile-add6:latest          fc21792f3cc0        109MB           28MB    U   
+gabriel-company/dockerfile-add7:latest          39119c96e576        109MB           28MB    U   
+gabriel-company/dockerfile-add8:latest          20c199ec5304        109MB           28MB    U   
+gabriel-company/dockerfile-add9:latest          c888932d897c        109MB           28MB    U   
+gabriel-company/dockerfile-add:latest           7b8d429628ec        109MB           28MB    U   
+gabriel-company/dockerfile-arg1:latest          5392080ac728        115MB         28.9MB        
+gabriel-company/dockerfile-arg2:latest          b13e67a088b4        109MB           28MB        
+gabriel-company/dockerfile-arg3:latest          46531a1897ff        120MB         31.3MB        
+gabriel-company/dockerfile-arg4:latest          78e5c7e81900        120MB         31.3MB        
+gabriel-company/dockerfile-arg5:latest          28746d0284f6        109MB           28MB        
+gabriel-company/dockerfile-cmd1:latest          95a77bd61fc4        109MB           28MB    U   
+gabriel-company/dockerfile-copy1:latest         610335f296f5        109MB           28MB        
+gabriel-company/dockerfile-copy2:latest         622e68816d86        109MB           28MB    U   
+gabriel-company/dockerfile-entrypoint1:latest   d3d517e6ab41       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint2:latest   c5d2899a0980       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint3:latest   0ff93979cc6f       11.5MB         3.42MB    U   
+gabriel-company/dockerfile-entrypoint4:latest   595383258e27       11.5MB         3.42MB        
+gabriel-company/dockerfile-env1:latest          8459fc421430        119MB           31MB    U   
+gabriel-company/dockerfile-env2:latest          2984bf617d76        119MB           31MB    U   
+gabriel-company/dockerfile-env3:latest          38ba80bde30f        119MB           31MB        
+gabriel-company/dockerfile-env4:latest          66904c8278d7        119MB           31MB        
+gabriel-company/dockerfile-env5:latest          878754c19957        119MB           31MB        
+gabriel-company/dockerfile-env6:latest          4dfa8b6f376f        119MB           31MB    U   
+gabriel-company/dockerfile-env7:latest          19932b960287        120MB         31.3MB    U   
+gabriel-company/dockerfile-label1:latest        e57e76ce8054        119MB           31MB        
+gabriel-company/dockerfile-user1:latest         2e16e84433cc        109MB           28MB    U   
+gabriel-company/dockerfile-user2:latest         48fe3b9b5234        109MB           28MB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run 595383258e27
+Parâmetro 1 - Instrução via ENTRYPOINT 
+ Parâmetro 2 - Instrução via CMD
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker run 595383258e27 Parametro 3 - Instrução via Terminal 
+Parâmetro 1 - Instrução via ENTRYPOINT 
+ Parametro 3 - Instrução via Terminal
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
+
+
+
+=============================================
+=============================================
+=============================================
+
+
+
+
