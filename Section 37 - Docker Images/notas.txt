@@ -3283,6 +3283,58 @@ Aula com arquivos dos códigos estava corrompido
 =============================================
 =============================================
 
-Aula 473 - Introdução ao Multi-stage build - Introdução
+Aula 474 - Introdução ao Multi-stage build - Introdução
 
 Só explicando a teoria de como funciona
+
+=============================================
+=============================================
+=============================================
+
+Aula 476 - Multi-stage Build - Criando uma Imagem multi-stage parte 2
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker build -t argus-academy/multistage:1.0.0 .
+[+] Building 45.1s (12/12) FINISHED                                                                                    docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.1s
+ => => transferring dockerfile: 236B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                       1.1s
+ => [auth] library/ubuntu:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [1/6] FROM docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df6c9df078f86e01819a13594b865c2cad47bd1bca2b7063bb                 0.1s
+ => => resolve docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df6c9df078f86e01819a13594b865c2cad47bd1bca2b7063bb                 0.1s
+ => [internal] load build context                                                                                                      0.0s
+ => => transferring context: 111B                                                                                                      0.0s
+ => CACHED [2/6] RUN apt update && apt install build-essential -y                                                                      0.0s
+ => CACHED [3/6] RUN mkdir /opt/app/                                                                                                   0.0s
+ => CACHED [4/6] WORKDIR /opt/app/                                                                                                     0.0s
+ => [5/6] COPY Main.c .                                                                                                                0.0s
+ => [6/6] RUN gcc ./Main.c -static -o Main                                                                                             0.7s
+ => exporting to image                                                                                                                42.7s
+ => => exporting layers                                                                                                               37.8s
+ => => exporting manifest sha256:d7d41692cc20f8df18bf4243cd41c7bc88395a81b02fa4aee2a63e8948c0b876                                      0.0s
+ => => exporting config sha256:69b376b0f4d3ac95fda3d842f63da092294eac8b2f31d02435870cf9cb5491c9                                        0.0s
+ => => exporting attestation manifest sha256:893c917b4e39d6a518a08aed9d1f43e1caf808f4e01c6e8871767a546b8cf43a                          0.0s
+ => => exporting manifest list sha256:40a798af535b42131fd15b7546111abbbf04a566724e9b2f7fa5ec481401bfcb                                 0.0s
+ => => naming to docker.io/argus-academy/multistage:1.0.0                                                                              0.0s
+ => => unpacking to docker.io/argus-academy/multistage:1.0.0                                                                           4.6s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/7jt2yghll6ywsgnr4ru9dcau2
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                          ID             DISK USAGE   CONTENT SIZE   EXTRA
+argus-academy/camadas-leitura-escrita:latest   cb7c137a1cdc        120MB         31.4MB    U   
+argus-academy/gera-nao-gera-camadas:latest     93a0fec6834d        120MB         31.4MB        
+argus-academy/multistage:1.0.0                 40a798af535b        711MB          193MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker run 
+40a798af535b            
+Olá Docker Multi-stage
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> 
+
+
+=============================================
+=============================================
+=============================================
