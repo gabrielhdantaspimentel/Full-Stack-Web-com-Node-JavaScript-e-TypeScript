@@ -3277,3 +3277,12 @@ Só exemplo teórico. Exemplo prático na próxima aula
 Aula 473 - Criando imagens com Scratch parte 2
 
 Aula com arquivos dos códigos estava corrompido
+
+
+=============================================
+=============================================
+=============================================
+
+Aula 473 - Introdução ao Multi-stage build - Introdução
+
+Só explicando a teoria de como funciona
