@@ -11,4 +11,8 @@ COPY Main.c .
 
 RUN gcc ./Main.c -static -o Main
 
+FROM scratch
+
+COPY --from=0 /opt/app/Main /Main
+
 CMD ["./Main"]
