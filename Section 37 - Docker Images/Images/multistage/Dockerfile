@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu as build
 
 RUN apt update && apt install build-essential -y
 
@@ -11,8 +11,8 @@ COPY Main.c .
 
 RUN gcc ./Main.c -static -o Main
 
-FROM scratch
+FROM scratch as prd
 
-COPY --from=0 /opt/app/Main /Main
+COPY --from=build /opt/app/Main /Main
 
 CMD ["./Main"]
