@@ -13,6 +13,6 @@ RUN apk add --no-cache wget
 
 WORKDIR /opt/
 
-ENTRYPOINT [ "node" ]
+# ENTRYPOINT [ "node" ]
 
-CMD [ "--version" ]
+# CMD [ "--version" ]
