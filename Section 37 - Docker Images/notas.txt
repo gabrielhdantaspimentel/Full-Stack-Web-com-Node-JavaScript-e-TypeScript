@@ -3393,3 +3393,96 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 Olá Docker Multi-stage
 What's next:
     Debug this container error with Gordon → docker ai "help me fix this container error"
+
+
+=============================================
+=============================================
+=============================================
+
+Aula 478 - Multi-stage Build - Estagios baseados em estagios anteriores ou imagens
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker build -t argus-academy/multistage:1.0.3 .
+[+] Building 1.2s (14/14) FINISHED                                                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 342B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                       0.4s
+ => [internal] load metadata for docker.io/library/alpine:latest                                                                       0.4s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [build 1/6] FROM docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df6c9df078f86e01819a13594b865c2cad47bd1bca2b7063bb           0.1s
+ => => resolve docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df6c9df078f86e01819a13594b865c2cad47bd1bca2b7063bb                 0.1s
+ => [internal] load build context                                                                                                      0.0s
+ => => transferring context: 27B                                                                                                       0.0s
+ => [prd 1/2] FROM docker.io/library/alpine:latest@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b             0.1s
+ => => resolve docker.io/library/alpine:latest@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b                 0.1s
+ => CACHED [build 2/6] RUN apt update && apt install build-essential -y                                                                0.0s
+ => CACHED [build 3/6] RUN mkdir /opt/app/                                                                                             0.0s
+ => CACHED [build 4/6] WORKDIR /opt/app/                                                                                               0.0s
+ => CACHED [build 5/6] COPY Main.c .                                                                                                   0.0s
+ => CACHED [build 6/6] RUN gcc ./Main.c -static -o Main                                                                                0.0s
+ => CACHED [prd 2/2] COPY --from=build /opt/app/Main /opt/app/Main                                                                     0.0s
+ => exporting to image                                                                                                                 0.3s
+ => => exporting layers                                                                                                                0.0s
+ => => exporting manifest sha256:24bce555a7e81a3b93b7ebccd8482963c8d7b9723b46c39a1590f2f89d655884                                      0.0s
+ => => exporting config sha256:4353a0b69da3b97c4328d036876ab6482c1243e694ff9190414f9e37a6fbabac                                        0.0s
+ => => exporting attestation manifest sha256:455de929f6b6671879d32a9b5d61b4701d88a7371507340fd7e8f307c4582ca1                          0.1s
+ => => exporting manifest list sha256:f713bd35c1190992eac8ba0430094afac37c08959d5715db8f223ef776481c24                                 0.0s
+ => => naming to docker.io/argus-academy/multistage:1.0.3                                                                              0.0s
+ => => unpacking to docker.io/argus-academy/multistage:1.0.3                                                                           0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/wiv1g33k00b7k26kbhx443lp2
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                          ID             DISK USAGE   CONTENT SIZE   EXTRA
+argus-academy/camadas-leitura-escrita:latest   cb7c137a1cdc        120MB         31.4MB    U   
+argus-academy/gera-nao-gera-camadas:latest     93a0fec6834d        120MB         31.4MB        
+argus-academy/multistage:1.0.0                 40a798af535b        711MB          193MB    U   
+argus-academy/multistage:1.0.1                 e96a702a51ec       1.19MB          368kB    U   
+argus-academy/multistage:1.0.2                 2c4e4c611222       1.19MB          368kB    U   
+argus-academy/multistage:1.0.3                 f713bd35c119       14.1MB         4.21MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker run 
+f713bd35c119
+Olá Docker Multi-stage
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> 
+
+=============================================
+=============================================
+=============================================
+
+Aula 479 - Multi-stage Build - Build até o estagio especifico
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker build --target prd -t  argus-academy/multistage:2.0.0 .
+[+] Building 2.0s (16/16) FINISHED                                                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 342B                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:latest                                                                       1.3s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                       1.3s
+ => [auth] library/ubuntu:pull token for registry-1.docker.io                                                                          0.0s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                          0.0s
+ => [internal] load .dockerignore                                                                                                      0.1s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [build 1/6] FROM docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df6c9df078f86e01819a13594b865c2cad47bd1bca2b7063bb           0.1s
+ => => resolve docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df6c9df078f86e01819a13594b865c2cad47bd1bca2b7063bb                 0.1s
+ => [internal] load build context                                                                                                      0.0s
+ => => transferring context: 27B                                                                                                       0.0s
+ => [prd 1/2] FROM docker.io/library/alpine:latest@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b             0.1s
+ => => resolve docker.io/library/alpine:latest@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b                 0.1s
+ => CACHED [build 2/6] RUN apt update && apt install build-essential -y                                                                0.0s
+ => CACHED [build 3/6] RUN mkdir /opt/app/                                                                                             0.0s
+ => CACHED [build 4/6] WORKDIR /opt/app/                                                                                               0.0s
+ => CACHED [build 5/6] COPY Main.c .                                                                                                   0.0s
+ => CACHED [build 6/6] RUN gcc ./Main.c -static -o Main                                                                                0.0s
+ => CACHED [prd 2/2] COPY --from=build /opt/app/Main /opt/app/Main                                                                     0.0s
+ => exporting to image                                                                                                                 0.2s
+ => => exporting layers                                                                                                                0.0s
+ => => exporting manifest sha256:751564d5621f9bf114a23cfb1353342b020e0f971ec5a108313c428dfbb62b30                                      0.0s
+ => => exporting config sha256:20bb301e57c09f577d0260d28a67e6c0327e69d3f180eb8a59cb9b127323ae05                                        0.0s
+ => => exporting attestation manifest sha256:415bdbbeeafdedf462b3b196bf261bfc21ab85066f405cfb06229a2ec058f0e4                          0.0s
+ => => exporting manifest list sha256:255c6bc1ceffa7ce36e993d686ae5b7cef8b586f7c2139ad24a8311a1fcfaec1                                 0.0s
+ => => naming to docker.io/argus-academy/multistage:2.0.0                                                                              0.0s
+ => => unpacking to docker.io/argus-academy/multistage:2.0.0                                                                           0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/yxf4voue4ph0udbhp8gig6g5c
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage>  
