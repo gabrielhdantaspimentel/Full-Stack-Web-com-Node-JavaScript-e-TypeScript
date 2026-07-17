@@ -3338,3 +3338,58 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 =============================================
 =============================================
 =============================================
+
+Aula 477 - Multi-stae Build - Nomeando estágios
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                          ID             DISK USAGE   CONTENT SIZE   EXTRA
+argus-academy/camadas-leitura-escrita:latest   cb7c137a1cdc        120MB         31.4MB    U   
+argus-academy/gera-nao-gera-camadas:latest     93a0fec6834d        120MB         31.4MB        
+argus-academy/multistage:1.0.0                 40a798af535b        711MB          193MB    U   
+argus-academy/multistage:1.0.1                 e96a702a51ec       1.19MB          368kB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker build -t argus-academy/multistage:1.0.2 .
+[+] Building 1.4s (12/12) FINISHED                                                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 309B                                                                                                   0.0s
+ => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                         0.0s
+ => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 14)                                                        0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                       0.9s
+ => [internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                        0.0s
+ => [internal] load build context                                                                                                      0.0s
+ => => transferring context: 27B                                                                                                       0.0s
+ => [build 1/6] FROM docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df6c9df078f86e01819a13594b865c2cad47bd1bca2b7063bb           0.1s
+ => => resolve docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df6c9df078f86e01819a13594b865c2cad47bd1bca2b7063bb                 0.1s
+ => CACHED [build 2/6] RUN apt update && apt install build-essential -y                                                                0.0s
+ => CACHED [build 3/6] RUN mkdir /opt/app/                                                                                             0.0s
+ => CACHED [build 4/6] WORKDIR /opt/app/                                                                                               0.0s
+ => CACHED [build 5/6] COPY Main.c .                                                                                                   0.0s
+ => CACHED [build 6/6] RUN gcc ./Main.c -static -o Main                                                                                0.0s
+ => CACHED [prd 1/1] COPY --from=build /opt/app/Main /Main                                                                             0.0s
+ => exporting to image                                                                                                                 0.2s
+ => => exporting layers                                                                                                                0.0s
+ => => exporting manifest sha256:9e5467d406ba37fd35a59af77901a76755450ebc5d20c4fc762fbf5a5e3cc2ce                                      0.0s
+ => => exporting config sha256:5cf8794d9596b996ccd1b79fdf16db3a0297c646d9a9ffaeae84ff85a418617a                                        0.0s
+ => => exporting attestation manifest sha256:a19e5ea53d71dfb16aa694d24670543c7b705c6d8af58c14890995474d16d182                          0.0s
+ => => exporting manifest list sha256:2c4e4c611222b99e64cbde70fcca52a0bf30120b8b0236f3bac4914e10aa2079                                 0.0s
+ => => naming to docker.io/argus-academy/multistage:1.0.2                                                                              0.0s
+ => => unpacking to docker.io/argus-academy/multistage:1.0.2                                                                           0.0s
+
+ 2 warnings found (use docker --debug to expand):
+ - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+ - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 14)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ogv0imci0txhzprmzwdef1srr
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                                          ID             DISK USAGE   CONTENT SIZE   EXTRA
+argus-academy/camadas-leitura-escrita:latest   cb7c137a1cdc        120MB         31.4MB    U   
+argus-academy/gera-nao-gera-camadas:latest     93a0fec6834d        120MB         31.4MB        
+argus-academy/multistage:1.0.0                 40a798af535b        711MB          193MB    U   
+argus-academy/multistage:1.0.1                 e96a702a51ec       1.19MB          368kB    U   
+argus-academy/multistage:1.0.2                 2c4e4c611222       1.19MB          368kB    U   
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage> docker run 
+2c4e4c611222    
+Olá Docker Multi-stage
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
