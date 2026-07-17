@@ -3264,4 +3264,11 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 =============================================
 =============================================
 
+Aula 472 - Criando imagens com FROM scratch parte 1
 
+Só exemplo teórico. Exemplo prático na próxima aula
+
+
+=============================================
+=============================================
+=============================================
