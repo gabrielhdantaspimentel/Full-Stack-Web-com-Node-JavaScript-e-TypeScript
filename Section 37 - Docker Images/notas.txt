@@ -3486,3 +3486,55 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 
 View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/yxf4voue4ph0udbhp8gig6g5c
 PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\multistage>  
+
+
+=============================================
+=============================================
+=============================================
+
+Aula 480 - Exportar, transferir e importar e importar imagens manualmente
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\exportacao> docker image save -o arquivo_imagem.tar argus-academy/multistage:1.0.0
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\exportacao> docker system prune --all                                             
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all images without at least one container associated to them
+  - all build cache
+
+Are you sure you want to continue? [y/N] y
+Deleted Images:
+untagged: argus-academy/multistage:1.0.0
+deleted: sha256:488ed58cfe3b2d5806c8f19ef5706677845b4dce3bcc0189b665d1487e750eef
+deleted: sha256:5a54e103cec73046f6fede0334f687e4a940087ed8597b423149b15df484066c
+deleted: sha256:bb8e1be42356a4e006c61a711a90a8164848b38775d4cd56f7ad00966a5227b0
+
+Deleted build cache objects:
+6ajhe1mj6avr5lgs4qgch5cnz
+hyvi7jxnpew9l0mk6pchfy9oz
+tocth9fh8u8kqa2qtuunap2en
+y6jj2oqc4supcrgnfhsr5xa5m
+inkhrh84fsz272lijoh9lt8zc
+0k8knb0bfl3souj6dn02i3goc
+wghnzgrftvlekcudltbc5kxqm
+ervivkslzlv1gtamepbawsawt
+8q7vq5rd4t9k2ffvz1487klkk
+8ww6ycq01k62esytd38km5n6o
+so1xefi2t659jkzpy2bsleouw
+rpasn5tkngla0g5qqsoxyvdiz
+
+Total reclaimed space: 574.2MB
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\exportacao> docker images
+                                                                                                                        i Info →   U  In UseIMAGE   ID             DISK USAGE   CONTENT SIZE   EXTRA
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\exportacao> docker load  -i arquivo_imagem.tar
+Loaded image: argus-academy/multistage:1.0.0
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\exportacao> docker images
+                                                                                                                        i Info →   U  In UseIMAGE                            ID             DISK USAGE   CONTENT SIZE   EXTRA
+argus-academy/multistage:1.0.0   488ed58cfe3b       14.1MB         4.21MB        
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\exportacao> docker run 
+488ed58cfe3b
+Olá Docker Multi-stage
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\exportacao> 
