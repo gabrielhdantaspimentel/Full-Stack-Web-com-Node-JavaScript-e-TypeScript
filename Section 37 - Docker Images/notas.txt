@@ -3067,3 +3067,138 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
     }
 ]
 PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
+
+
+=============================================
+=============================================
+=============================================
+
+AULA 469 - Dockerfile e as instruções que geram camadas
+
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker build -t argus-academy/gera-nao-gera-camadas .
+[+] Building 20.5s (11/11) FINISHED                                                    docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                   0.1s
+ => => transferring dockerfile: 322B                                                                   0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.19                                         1.8s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                          0.0s
+ => [internal] load .dockerignore                                                                      0.1s
+ => => transferring context: 2B                                                                        0.0s
+ => [1/6] FROM docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834  0.9s
+ => => resolve docker.io/library/alpine:3.19@sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834  0.1s
+ => => sha256:17a39c0ba978cc27001e9c56a480f98106e1ab74bd56eb302f9fd4cf758ea43f 3.42MB / 3.42MB         0.5s
+ => => extracting sha256:17a39c0ba978cc27001e9c56a480f98106e1ab74bd56eb302f9fd4cf758ea43f              0.1s
+ => [2/6] RUN apk add --no-cache nodejs                                                                3.7s
+ => [3/6] RUN apk add --no-cache npm                                                                   1.9s
+ => [4/6] RUN apk add --no-cache git                                                                   1.4s
+ => [5/6] RUN apk add --no-cache wget                                                                  2.1s
+ => [6/6] WORKDIR /opt/                                                                                0.1s
+ => exporting to image                                                                                 8.3s
+ => => exporting layers                                                                                6.0s
+ => => exporting manifest sha256:04049b9314639df6cfefc5cbbab14ed410f1b8100245e74a8682f4984a4ad0e9      0.1s
+ => => exporting config sha256:cdf82686fd0b7c8c9e6156adb98e3cc82ddc63f55b0e3f46fed706d1a759d360        0.0s
+ => => exporting attestation manifest sha256:013755e48b621568f8d7acf840bc1bacbc6e4324b046daa06b7e935b  0.1s
+ => => exporting manifest list sha256:93a0fec6834d7dd0d9d773c006a195ec0baeba0a9751de0b86e5a6d60e163b5  0.1s
+ => => naming to docker.io/argus-academy/gera-nao-gera-camadas:latest                                  0.0s
+ => => unpacking to docker.io/argus-academy/gera-nao-gera-camadas:latest                               1.9s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/3u0pviqko1v481terxo2gg51o
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker image
+Usage:  docker image COMMAND
+
+Manage images
+
+Commands:
+  build       Build an image from a Dockerfile
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Display detailed information on one or more images
+  load        Load an image from a tar archive or STDIN
+  ls          List images
+  prune       Remove unused images
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  rm          Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+Run 'docker image COMMAND --help' for more information on a command.
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker images
+                                                                                        i Info →   U  In UseIMAGE                                        ID             DISK USAGE   CONTENT SIZE   EXTRA
+argus-academy/gera-nao-gera-camadas:latest   93a0fec6834d        120MB         31.4MB
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> docker inspect 93a0fec6834d
+[
+    {
+        "Id": "sha256:93a0fec6834d7dd0d9d773c006a195ec0baeba0a9751de0b86e5a6d60e163b55",
+        "RepoTags": [
+            "argus-academy/gera-nao-gera-camadas:latest"
+        ],
+        "RepoDigests": [
+            "argus-academy/gera-nao-gera-camadas@sha256:93a0fec6834d7dd0d9d773c006a195ec0baeba0a9751de0b86e5a6d60e163b55"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-07-17T00:06:44.008514154Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "HOST=0.0.0.0"
+            ],
+            "Entrypoint": [
+                "node"
+            ],
+            "Cmd": [
+                "--version"
+            ],
+            "WorkingDir": "/opt/",
+            "Labels": {
+                "DESENVOLVEDOR": "Argus Academy"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 31355700,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:0b44b2151d78267ab6f2c76208c3be18688f49b2b0afd6852a9533f2cce121c5",
+                "sha256:583b75f6de78bb5b0dabbd84237582f96c7761bbfcdcd0163a48c58901f5ae00",
+                "sha256:d51fe31c142c1f51fbb8de7aa8d648b7b27f6d8165b621912f696503696e22c6",
+                "sha256:a78a06203fb39fe46ef4153b26e6c7e83cbe80def0f15c6a862bbff99427ddb8",
+                "sha256:2d70380f8e7a7291ce67ccb4705ff530af2e283c93840190ac3a198a3873dc66",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-07-17T00:06:50.373255136Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:93a0fec6834d7dd0d9d773c006a195ec0baeba0a9751de0b86e5a6d60e163b55",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "3u0pviqko1v481terxo2gg51o",
+                    "CreatedAt": "2026-07-17T00:06:52.243827448Z"
+                }
+            ]
+        }
+    }
+]
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 37 - Docker Images\Images\alpine> 
+
+
+
+=============================================
+=============================================
+=============================================
+
+Aula 470 - Dockerfile  e a herança de insruções entre a camadas
+
+Somente teoria e exemplos de aplicação
+
+
