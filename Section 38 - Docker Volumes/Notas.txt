@@ -1,0 +1,3 @@
+A image é estática e todas as camadas são somente leitura
+
+Container tem uma camada de escrita que sobrepõe a image
