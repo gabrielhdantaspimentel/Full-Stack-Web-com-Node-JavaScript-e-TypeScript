@@ -1,3 +1,18 @@
 A image é estática e todas as camadas são somente leitura
 
 Container tem uma camada de escrita que sobrepõe a image
+
+Depois que o container é removido a camada de escrita é removida então tudo que tem dentro dele é perdido. Por isso existe o volume.
+
+O volume é um diretório externo ao container. Eles podem ser criados em HOST ou em algum serviço de cloud.
+
+
+===========================================
+===========================================
+===========================================
+
+Aula 482 - Tipos de montagens
+
+Bind mount----->
+--------------->Armazenamento persistente na máquina Host
+Docker Volues-->
