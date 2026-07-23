@@ -26,3 +26,17 @@ Aula 483 - Bind Mount - Casos de Uso
 Coloquei a aplicação To do list do docker padrão pra rodar
 
 Ele mostrou que se alterar o HTML direto no VSCode ela não reflete a alteração na aplicação em tempo real. Pra alterar e refletir automaticamente precisa rodar o "vi" pelo terminal interativo (sh/ powershell) no la no terminal do VSCode com o caminho do docker e editar o texto por lá.
+
+===========================================
+===========================================
+===========================================
+
+Aula 484 - Bind Mount - Solucionando o problema
+
+Terminal da aula
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> docker run -d -p 127.0.0.1:3000:3000 --mount 'type=bind,source=C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main\src,target=/app/src' getting-started
+cd5b7337fd04f41111285cd90cbe542f8292d364763af30af8ea10744b693d7b
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS         PORTS                      NAMES      
+cd5b7337fd04   getting-started   "docker-entrypoint.s…"   6 seconds ago   Up 6 seconds   127.0.0.1:3000->3000/tcp   confident_colden
