@@ -40,3 +40,33 @@ cd5b7337fd04f41111285cd90cbe542f8292d364763af30af8ea10744b693d7b
 PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> docker ps
 CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS         PORTS                      NAMES      
 cd5b7337fd04   getting-started   "docker-entrypoint.s…"   6 seconds ago   Up 6 seconds   127.0.0.1:3000->3000/tcp   confident_colden
+
+===========================================
+===========================================
+===========================================
+
+Aula 485 - Bind Mount - Sintaxe alternativa
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> docker run -d -p 127.0.0.1:3000:3000 --mount 'type=bind,source=C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main\src,target=/app/src' getting-started
+cd5b7337fd04f41111285cd90cbe542f8292d364763af30af8ea10744b693d7b
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS         PORTS                      NAMES      
+cd5b7337fd04   getting-started   "docker-entrypoint.s…"   6 seconds ago   Up 6 seconds   127.0.0.1:3000->3000/tcp   confident_colden
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> docker run -d -p 3000:3000 -v "C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - 
+Docker Volumes\Volumes\Bind Mount\getting-started-app-main\src:/app/src" getting-started                                       
+2b205ea696227711ef790e4346ed28d85f2a650c88f70774609d2495c1545ffd
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint festive_wright (0aab239817b6874f1ef7160c3adfea7d2b98f713d43f62082a57b9e5f0f575c1): Bind for 127.0.0.1:3000 failed: port is already allocated
+
+Run 'docker run --help' for more information
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                      NAMES
+cd5b7337fd04   getting-started   "docker-entrypoint.s…"   12 minutes ago   Up 12 minutes   127.0.0.1:3000->3000/tcp   confident_colden
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                      NAMES
+cd5b7337fd04   getting-started   "docker-entrypoint.s…"   12 minutes ago   Up 12 minutes   127.0.0.1:3000->3000/tcp   confident_colden
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> 
+
