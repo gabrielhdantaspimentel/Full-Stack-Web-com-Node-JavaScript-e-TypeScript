@@ -324,3 +324,7 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 ===========================================
 
 
+Aula 487 - Bind Mount - Somente leitura
+
+
+Mostrou como funciona a bind com o RW:false e pra deixar configurado com o "read only"
