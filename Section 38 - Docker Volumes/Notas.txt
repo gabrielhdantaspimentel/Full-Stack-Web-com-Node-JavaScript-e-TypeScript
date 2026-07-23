@@ -507,4 +507,71 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 ===========================================
 ===========================================
 
+Aula 490 - Docker Volume - Solucionando o problema
+
+Mostrando como preservar os dados preservados em um VOLUME
+
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker run -t -p 5432:5432 --mount type=volume,source=dados-postgre,target=/var/lib/postgresql/data
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+docker: 'docker run' requires at least 1 argument
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+See 'docker run --help' for more information
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker run -d -p 5432:5432 --mount type=volume,source=dados-postgre,target=/var/lib/postgresql/data
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+docker: 'docker run' requires at least 1 argument
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+See 'docker run --help' for more information
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker run -d -p 5432:5432 --mount type=volume,source=dados-postgre,target=/var/lib/postgresql/data postgresql
+fed2224ca3ffa5c52c0710ae0474b63c6f3bcceb1fe4f6c541bd33f81bc1a130
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED             STATUS             PORTS                                         NAMES
+fed2224ca3ff   postgresql        "docker-entrypoint.s…"   4 minutes ago       Up 4 minutes       0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   compassionate_rhodes
+cd5b7337fd04   getting-started   "docker-entrypoint.s…"   About an hour ago   Up About an hour   127.0.0.1:3000->3000/tcp                      confident_colden
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker container stop fed2224ca3ff
+fed2224ca3ff
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker container rm ^C            
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker container rm fed2224ca3ff  
+fed2224ca3ff
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker run -d -p 5432:5432 --mount type=volume,source=dados-postgre,target=/var/lib/postgresql/data postgresql
+28a7a6870442c296c37c01a350149f6a82608bb46421ad7d5e822afd5d22efb8
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED             STATUS             PORTS                                         NAMES
+28a7a6870442   postgresql        "docker-entrypoint.s…"   4 seconds ago       Up 4 seconds       0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   amazing_driscoll
+cd5b7337fd04   getting-started   "docker-entrypoint.s…"   About an hour ago   Up About an hour   127.0.0.1:3000->3000/tcp                      confident_colden
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker container stop fed2224ca3ff
+Error response from daemon: No such container: fed2224ca3ff
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker container stop fed2224ca3ff
+Error response from daemon: No such container: fed2224ca3ff
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED              STATUS              PORTS                                         NAMES
+28a7a6870442   postgresql        "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   amazing_driscoll
+cd5b7337fd04   getting-started   "docker-entrypoint.s…"   About an hour ago    Up About an hour    127.0.0.1:3000->3000/tcp                      confident_colden
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> ^C
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker container stop 28a7a6870442
+28a7a6870442
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker container rm 28a7a6870442                                                                              
+28a7a6870442
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker run -d -p 5432:5432 --mount type=volume,source=dados-postgre,target=/var/lib/postgresql/data postgresql
+a1b91576d64fcdd751dbd0e2fbf2cde9b53abfeb80fe41c1e66e5b419e64cf3e
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED             STATUS             PORTS                                         NAMES
+a1b91576d64f   postgresql        "docker-entrypoint.s…"   5 seconds ago       Up 5 seconds       0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   quirky_curie
+cd5b7337fd04   getting-started   "docker-entrypoint.s…"   About an hour ago   Up About an hour   127.0.0.1:3000->3000/tcp                      confident_colden
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Volume> 
+
+
+===========================================
+===========================================
+===========================================
 
