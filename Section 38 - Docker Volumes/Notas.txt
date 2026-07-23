@@ -70,3 +70,257 @@ CONTAINER ID   IMAGE             COMMAND                  CREATED          STATU
 cd5b7337fd04   getting-started   "docker-entrypoint.s…"   12 minutes ago   Up 12 minutes   127.0.0.1:3000->3000/tcp   confident_colden
 PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> 
 
+
+
+===========================================
+===========================================
+===========================================
+
+Aula 486 - Inspecionando o container para verificar os pontos de montagem
+
+
+
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                      NAMES
+cd5b7337fd04   getting-started   "docker-entrypoint.s…"   17 minutes ago   Up 17 minutes   127.0.0.1:3000->3000/tcp   confident_colden
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> docker container inspect confident_colden
+[
+    {
+        "Id": "cd5b7337fd04f41111285cd90cbe542f8292d364763af30af8ea10744b693d7b",
+        "Created": "2026-07-23T18:22:31.240295931Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "node",
+            "src/index.js"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1198,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-07-23T18:22:31.321497391Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:c02b4f1af98f9b8375351a6a1722f861041e471cbeed63221cb4470ff2ddb009",
+        "ResolvConfPath": "/var/lib/docker/containers/cd5b7337fd04f41111285cd90cbe542f8292d364763af30af8ea10744b693d7b/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/cd5b7337fd04f41111285cd90cbe542f8292d364763af30af8ea10744b693d7b/hostname",
+        "HostsPath": "/var/lib/docker/containers/cd5b7337fd04f41111285cd90cbe542f8292d364763af30af8ea10744b693d7b/hosts",
+        "LogPath": "/var/lib/docker/containers/cd5b7337fd04f41111285cd90cbe542f8292d364763af30af8ea10744b693d7b/cd5b7337fd04f41111285cd90cbe542f8292d364763af30af8ea10744b693d7b-json.log",
+        "Name": "/confident_colden",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "bridge",
+            "PortBindings": {
+                "3000/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "3000"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                12,
+                140
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "C:\\000Gabriel000\\Estudos\\Cursos\\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\\Section 38 - Docker Volumes\\Volumes\\Bind Mount\\getting-started-app-main\\src",
+                    "Target": "/app/src"
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "C:\\000Gabriel000\\Estudos\\Cursos\\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\\Section 38 - Docker Volumes\\Volumes\\Bind Mount\\getting-started-app-main\\src",
+                "Destination": "/app/src",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "cd5b7337fd04",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "3000/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=24.18.0",
+                "YARN_VERSION=1.22.22"
+            ],
+            "Cmd": [
+                "node",
+                "src/index.js"
+            ],
+            "Image": "getting-started",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {},
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "861087742a31f8e8e5023b16519912c23cefa02f76a1c8b5d8456f356d008b3b",
+            "SandboxKey": "/var/run/docker/netns/861087742a31",
+            "Ports": {
+                "3000/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "3000"
+                    }
+                ]
+            },
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "93414495465d9a821a62c88a89c04da40a1d8e61bb60dd0f771a776243a3517d",
+                    "EndpointID": "1ba0217e074a609d16ffa6a4c31d4c67fe541b3803593fbefca9f014344e237e",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "MacAddress": "62:57:54:5d:74:43",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:3330d2018cf8bff4917f3b3e322aa0ecdee6edd78086644bb0e54a3db51fbe48",
+            "size": 1626,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]
+PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScript\Section 38 - Docker Volumes\Volumes\Bind Mount\getting-started-app-main> 
+
+
+===========================================
+===========================================
+===========================================
+
+
