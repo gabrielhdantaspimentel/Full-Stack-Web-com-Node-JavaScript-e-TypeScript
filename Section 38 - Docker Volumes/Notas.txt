@@ -16,3 +16,13 @@ Aula 482 - Tipos de montagens
 Bind mount----->
 --------------->Armazenamento persistente na máquina Host
 Docker Volues-->
+
+===========================================
+===========================================
+===========================================
+
+Aula 483 - Bind Mount - Casos de Uso
+
+Coloquei a aplicação To do list do docker padrão pra rodar
+
+Ele mostrou que se alterar o HTML direto no VSCode ela não reflete a alteração na aplicação em tempo real. Pra alterar e refletir automaticamente precisa rodar o "vi" pelo terminal interativo (sh/ powershell) no la no terminal do VSCode com o caminho do docker e editar o texto por lá.
