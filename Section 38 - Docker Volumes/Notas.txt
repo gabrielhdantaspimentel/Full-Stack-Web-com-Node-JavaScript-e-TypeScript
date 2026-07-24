@@ -604,4 +604,12 @@ só alguns exemplos de sintaxe
 docker run -d -p 5432:5432 -v dados-postgre-sintaxe-alternativa:/var/lib/postgresql/data postgresql
 
 
+===========================================
+===========================================
+===========================================
+
+Aula 493 - Docker Volume - Sintaxe alternativa parte 2
+
+praticamente a mesma coisa
+
 
