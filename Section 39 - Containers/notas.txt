@@ -91,3 +91,6 @@ docker update
 ===============================================
 ===============================================
 
+Aula 508 - Executando um container
+
+docker exec <opções> CONTAINER <comando> <args>
