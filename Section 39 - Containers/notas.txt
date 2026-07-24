@@ -40,7 +40,13 @@ Aula 502 - Docker logs
 
 só mostrou de novo o docker logs
 
+===============================================
+===============================================
+===============================================
 
+Aula 503 - Removendo automaticamente o container após a execução
+
+mostrou o comando "--rm"
 
 
 
