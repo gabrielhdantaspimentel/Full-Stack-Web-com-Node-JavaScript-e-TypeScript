@@ -133,3 +133,73 @@ resolv.conf.hash
 Aula 512 - Alterando configurações do container via hostconfig
 
 mostrou no detalhe o "hostconfig.json"
+
+===============================================
+===============================================
+===============================================
+
+Aula 513 - Definindo variáveis de ambiente (via linha de comando)
+
+mostrou de novo
+-e
+--env
+
+===============================================
+===============================================
+===============================================
+
+Aula 514 - Definindo variáveis de ambiente (via arquivo externo)
+
+--env-file
+
+===============================================
+===============================================
+===============================================
+
+515 - Transferindo arquivos do host para o container
+
+docker cp arq_host
+
+===============================================
+===============================================
+===============================================
+
+Aula 516 - Transferindo arquivos do container para o host
+
+mesma coisa da aula anterior
+
+docker cp
+
+===============================================
+===============================================
+===============================================
+
+Aula 517 - Definindo o diretório de trabalho
+
+de novo mostrando
+
+-w, --workdir
+
+===============================================
+===============================================
+===============================================
+
+Aula 518 - Mapeando volumes parte 1
+
+mostrou de novo o -v
+
+===============================================
+===============================================
+===============================================
+
+Aula 519 - Mapeando volumes parte 2
+
+de novo mostrando o --mount
+
+===============================================
+===============================================
+===============================================
+
+Aula 520 - Inspecione diferenças do file system de um container em relação a imagem
+
+docker diff Container
