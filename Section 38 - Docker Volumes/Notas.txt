@@ -575,3 +575,25 @@ PS C:\000Gabriel000\Estudos\Cursos\Full-Stack-Web-com-Node-JavaScript-e-TypeScri
 ===========================================
 ===========================================
 
+
+Aula 492 - Docker Volume - Localizando,inspecionando e manipulando os volumes
+
+Comando apresentados na aula
+
+docker volumes ls
+
+docker volume inspect xxx-nome-do-volume-xxx
+
+docker volume create
+
+docker volume rm
+
+
+---
+docker system prune --all (não deleta volumes)
+
+
+
+
+
+
