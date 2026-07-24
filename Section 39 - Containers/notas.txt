@@ -112,3 +112,16 @@ Aula 510 - Expondo portas
 mostrou de novo como fazer exposição de portas 
 
 -p
+
+===============================================
+===============================================
+===============================================
+
+Aula 511 - Localização dos arquivos de configuração do container
+
+config.v2.json
+hostconfig.json
+hostname
+hosts
+resolv.conf
+resolv.conf.hash
