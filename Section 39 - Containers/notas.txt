@@ -49,7 +49,17 @@ Aula 503 - Removendo automaticamente o container após a execução
 mostrou o comando "--rm"
 
 
+===============================================
+===============================================
+===============================================
 
+Aula 504 - Definindo capacidade computacional (memória e cpu)
+
+mostrou só a instrução
+
+--cpus
+
+-m, --memory
 
 
 
