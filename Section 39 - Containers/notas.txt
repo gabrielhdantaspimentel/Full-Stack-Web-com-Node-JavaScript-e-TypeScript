@@ -1,3 +1,20 @@
 Aula 498 - O que são containers
 
 Só apresentação do tema (o próprio apresentador disse que vai ser bem repetitivo porque muitos conceitos já foram apresentados anteriormente)
+
+
+===============================================
+===============================================
+===============================================
+
+Aula 499 - Executando, parando, iniciando e reiniciando containers
+
+docker run <opções> IMAGEM <opções>
+docker stop <opções> IMAGEM <opções>
+docker start <opções> IMAGEM <opções>
+docker restart <opções> IMAGEM <opções>
+
+===============================================
+===============================================
+===============================================
+
