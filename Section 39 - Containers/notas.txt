@@ -125,3 +125,11 @@ hostname
 hosts
 resolv.conf
 resolv.conf.hash
+
+===============================================
+===============================================
+===============================================
+
+Aula 512 - Alterando configurações do container via hostconfig
+
+mostrou no detalhe o "hostconfig.json"
