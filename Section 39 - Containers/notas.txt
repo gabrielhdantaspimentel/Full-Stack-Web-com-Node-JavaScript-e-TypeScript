@@ -102,3 +102,13 @@ docker exec <opções> CONTAINER <comando> <args>
 Aula 509 - Acessando o terminal interativo
 
 mostrou como combinar o comando "-it" com o "docker run"
+
+===============================================
+===============================================
+===============================================
+
+Aula 510 - Expondo portas
+
+mostrou de novo como fazer exposição de portas 
+
+-p
