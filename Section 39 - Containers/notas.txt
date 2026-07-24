@@ -94,3 +94,11 @@ docker update
 Aula 508 - Executando um container
 
 docker exec <opções> CONTAINER <comando> <args>
+
+===============================================
+===============================================
+===============================================
+
+Aula 509 - Acessando o terminal interativo
+
+mostrou como combinar o comando "-it" com o "docker run"
