@@ -628,3 +628,17 @@ Mostrou como criar uma execeção de um container especifico com o ro (reading o
 Aula 495 - Docker Volume - Definição no Dockerfile
 
 Apresentou conceitos de criação de volumes anônimos no dockerfile
+
+===========================================
+===========================================
+===========================================
+
+Aula 496 - Removendo volumes em massa
+
+Mostrou o comando 
+
+docker voume prune
+
+===========================================
+===========================================
+===========================================
