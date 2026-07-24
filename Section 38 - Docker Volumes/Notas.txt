@@ -593,7 +593,15 @@ docker volume rm
 docker system prune --all (não deleta volumes)
 
 
+===========================================
+===========================================
+===========================================
 
+Aula 492 - Docker Volume - Sintaxe alternativa (duplicaram o numero de novo)
+
+só alguns exemplos de sintaxe
+
+docker run -d -p 5432:5432 -v dados-postgre-sintaxe-alternativa:/var/lib/postgresql/data postgresql
 
 
 
