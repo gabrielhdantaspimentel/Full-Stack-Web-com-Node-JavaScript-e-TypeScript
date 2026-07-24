@@ -642,3 +642,9 @@ docker voume prune
 ===========================================
 ===========================================
 ===========================================
+
+Aula 497 - TMPFS - Armazenamento de dados não persistentes
+
+Montagem temp file system
+
+Os dados são armazenados de modo volátil, ficam  salvos na memória RAM
