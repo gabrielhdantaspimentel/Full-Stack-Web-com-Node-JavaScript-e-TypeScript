@@ -61,5 +61,13 @@ mostrou só a instrução
 
 -m, --memory
 
+===============================================
+===============================================
+===============================================
 
+Aula 505 - Verificando as estatisticas de um container
+
+docker stats <opções> <CONTAINER> 
+
+-a, --all
 
