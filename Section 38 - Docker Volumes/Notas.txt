@@ -613,3 +613,10 @@ Aula 493 - Docker Volume - Sintaxe alternativa parte 2
 praticamente a mesma coisa
 
 
+===========================================
+===========================================
+===========================================
+
+Aula 494 - Docker Volume - Somente leitura
+
+Mostrou como criar uma execeção de um container especifico com o ro (reading only)
