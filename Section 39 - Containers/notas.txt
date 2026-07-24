@@ -36,7 +36,9 @@ falou sobre o "detach"
 ===============================================
 ===============================================
 
+Aula 502 - Docker logs
 
+só mostrou de novo o docker logs
 
 
 
