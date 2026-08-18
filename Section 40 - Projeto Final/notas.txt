@@ -1,3 +1,29 @@
 Na aula 527 - Gerando o front-end com IA-Parte1
 
 Mostraram que a criação será feita com a ia V0
+
+=====================================================
+=====================================================
+=====================================================
+
+Na aula 528 - Gerando o front-end com IA-Parte2
+
+Ele mostrou que as IAs tem um tempo de aprendizado com as tecnologias e que não é ideal só copiar e colar justamente por não utilizar as ultimas tecnologias. 
+Aula somente teórica e projeto em produçãos somente na próxima aula
+
+---Instalado pacote de temas no projeto 
+npm i next-themes i
+
+
+---Instalação da dependência dentro do container também
+
+docker ps -a
+
+docker exec -it ID-DO-CONTAINER /bin/sh
+
+(na linha de comando dentro do container)
+
+/app # npm i
+
+instalação local
+npm i lucide-react
