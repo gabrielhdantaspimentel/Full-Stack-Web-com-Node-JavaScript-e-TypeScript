@@ -11,9 +11,12 @@ Na aula 528 - Gerando o front-end com IA-Parte2
 Ele mostrou que as IAs tem um tempo de aprendizado com as tecnologias e que não é ideal só copiar e colar justamente por não utilizar as ultimas tecnologias. 
 Aula somente teórica e projeto em produçãos somente na próxima aula
 
----Instalado pacote de temas no projeto 
+---Instalação de pacotes no projeto 
 npm i next-themes i
-
+npm i lucide-react
+npm i radix-ui
+npm i class-variance-authority
+npm i tailwind-merge
 
 ---Instalação da dependência dentro do container também
 
@@ -25,5 +28,3 @@ docker exec -it ID-DO-CONTAINER /bin/sh
 
 /app # npm i
 
-instalação local
-npm i lucide-react
