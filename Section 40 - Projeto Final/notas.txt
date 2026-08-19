@@ -1,4 +1,4 @@
-Na aula 527 - Gerando o front-end com IA-Parte1
+Aula 527 - Gerando o front-end com IA-Parte1
 
 Mostraram que a criação será feita com a ia V0
 
@@ -6,7 +6,7 @@ Mostraram que a criação será feita com a ia V0
 =====================================================
 =====================================================
 
-Na aula 528 - Gerando o front-end com IA-Parte2
+Aula 528 - Gerando o front-end com IA-Parte2
 
 Ele mostrou que as IAs tem um tempo de aprendizado com as tecnologias e que não é ideal só copiar e colar justamente por não utilizar as ultimas tecnologias. 
 Aula somente teórica e projeto em produçãos somente na próxima aula
@@ -28,3 +28,11 @@ docker exec -it ID-DO-CONTAINER /bin/sh
 
 /app # npm i
 
+
+=====================================================
+=====================================================
+=====================================================
+
+Aula 530 - Iniciando a Aplicação Spotify Backoffice
+
+Criado novo diretório spotify-backoffice
