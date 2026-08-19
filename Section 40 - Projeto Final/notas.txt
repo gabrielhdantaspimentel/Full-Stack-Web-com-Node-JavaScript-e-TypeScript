@@ -65,3 +65,15 @@ Rota dinâmica o diretório fica com "[]" e desse jeito é possível acessar IDs
 Aula 536 - Rotas de grupo
 
 Com rotas de grupo as requisições mudam de rota, por conta do uso de "()" envolvendo o nome do diretório. Agora não é mais necessário deixar "admin" na rota de acesso para acessar "tracks" e "bands" e as buscas por ID continuam funcionando da mesma maneira
+
+=====================================================
+=====================================================
+=====================================================
+
+Aula 536 - Server Component vs Client Component
+
+Só foi teoórico, em resumo:
+
+Server Component (Padrão): Roda exclusivamente no servidor. Acessa banco de dados e APIs diretamente sem expor chaves, e envia HTML pronto para o navegador (zero JavaScript no bundle final). Não aceita hooks de estado/efeito (useState, useEffect) nem eventos (onClick).
+
+Client Component ('use client'): Roda no cliente (navegador) (com pré-renderização no servidor). Usado para interatividade: suporta eventos de clique, formulários, animações e hooks do React (useState, useEffect, context).
