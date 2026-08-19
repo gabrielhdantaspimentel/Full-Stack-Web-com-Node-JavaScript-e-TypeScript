@@ -36,3 +36,32 @@ docker exec -it ID-DO-CONTAINER /bin/sh
 Aula 530 - Iniciando a Aplicação Spotify Backoffice
 
 Criado novo diretório spotify-backoffice
+
+=====================================================
+=====================================================
+=====================================================
+
+Aula 532 Adicionando o Sass - Aula 533 Adicionando o Radix UI
+
+Da pra ver no package e no lockjson qual a versão
+
+Ambos instalados no container backoffice também pelo docker compose
+
+=====================================================
+=====================================================
+=====================================================
+
+
+Aula 534 - Adicionando rotas estaticas e rotas dinamicas
+
+Rota dinâmica o diretório fica com "[]" e desse jeito é possível acessar IDs especificos da rota como está no exemplo "musica ID ..." pelo ID no diretório "bands" e a mesma coisa no "tracks"
+
+
+=====================================================
+=====================================================
+=====================================================
+
+
+Aula 536 - Rotas de grupo
+
+Com rotas de grupo as requisições mudam de rota, por conta do uso de "()" envolvendo o nome do diretório. Agora não é mais necessário deixar "admin" na rota de acesso para acessar "tracks" e "bands" e as buscas por ID continuam funcionando da mesma maneira
