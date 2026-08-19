@@ -1,6 +1,8 @@
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
 
+import Header from "./components/Header/Header";
+
 import { Theme } from "@radix-ui/themes";
 
 export default function RootLayout({
@@ -11,7 +13,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Theme appearance="dark">{children}</Theme>
+        <Header />
+        {children}
       </body>
     </html>
   );
