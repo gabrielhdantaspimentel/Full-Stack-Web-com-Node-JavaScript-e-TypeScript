@@ -18,7 +18,7 @@ export default async function Page({ params, searchParams }: Props) {
   const anotherParam = sP.anotherParam;
   return (
     <>
-      <h1>Música ID: {p.trackId}</h1>
+      <h1>Música ID: {trackId}</h1>
       <h1>mode: {mode}</h1>
       <h1>showTitle: {showTitle}</h1>
       <h1>anotherParam: {anotherParam}</h1>

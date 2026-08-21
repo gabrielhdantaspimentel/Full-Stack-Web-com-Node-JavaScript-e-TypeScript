@@ -13,7 +13,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
+        <div className="border-4 border-blue-500">
+          <Header />
+        </div>
         {children}
       </body>
     </html>
