@@ -1,9 +1,4 @@
-import "@radix-ui/themes/styles.css";
 import "./globals.css";
-
-import Header from "./components/Header/Header";
-
-import { Theme } from "@radix-ui/themes";
 
 export default function RootLayout({
   children,
@@ -12,12 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <div className="border-4 border-blue-500">
-          <Header />
-        </div>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
