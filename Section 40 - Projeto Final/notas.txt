@@ -77,3 +77,14 @@ Só foi teoórico, em resumo:
 Server Component (Padrão): Roda exclusivamente no servidor. Acessa banco de dados e APIs diretamente sem expor chaves, e envia HTML pronto para o navegador (zero JavaScript no bundle final). Não aceita hooks de estado/efeito (useState, useEffect) nem eventos (onClick).
 
 Client Component ('use client'): Roda no cliente (navegador) (com pré-renderização no servidor). Usado para interatividade: suporta eventos de clique, formulários, animações e hooks do React (useState, useEffect, context).
+
+
+=====================================================
+=====================================================
+=====================================================
+
+
+Aula 550 (a segunda com esse número porque ta duplicada) - Setup Cliente de Conexão com Banco de Dados
+
+
+Fiz a configuração, atualização da ferramenta e conexão com o banco de dados do postgresql via container do Docker 
