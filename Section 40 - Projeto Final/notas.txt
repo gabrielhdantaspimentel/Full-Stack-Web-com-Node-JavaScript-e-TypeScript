@@ -90,3 +90,13 @@ Aula 550 (a segunda com esse número porque ta duplicada) - Setup Cliente de Con
 Fiz a configuração, atualização da ferramenta e conexão com o banco de dados do postgresql via container do Docker 
 
 A FERRAMENTA É O DBEAVER
+
+
+=====================================================
+=====================================================
+=====================================================
+
+
+Aula 553 - Setup Prisma ORM Parte 2
+
+Configuração e definição do Docker network e explicação de como funciona 
