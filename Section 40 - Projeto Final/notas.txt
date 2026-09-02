@@ -100,3 +100,17 @@ A FERRAMENTA É O DBEAVER
 Aula 553 - Setup Prisma ORM Parte 2
 
 Configuração e definição do Docker network e explicação de como funciona 
+
+=====================================================
+=====================================================
+=====================================================
+
+Aula 557 - Prisma ORM - Formatação, validação e Migrações
+
+O comando "npx prisma format" formata automaticamente os models para deixar mais legível a relação dos dos valores associados aos tipos e mais semelhante a uma tabela de banco de dados
+
+npx prisma validate
+---Valida as alterações do comando anterior
+
+
+Dei um "npx prisma migrate reset" pra forçar o novo banco no DBeaver. O professor não fez isso mas como o banco só tinha duas linhas de registro com só duas colunas ta tudo certo
