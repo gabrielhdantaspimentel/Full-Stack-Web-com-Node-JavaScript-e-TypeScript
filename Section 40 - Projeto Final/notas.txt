@@ -114,3 +114,11 @@ npx prisma validate
 
 
 Dei um "npx prisma migrate reset" pra forçar o novo banco no DBeaver. O professor não fez isso mas como o banco só tinha duas linhas de registro com só duas colunas ta tudo certo
+
+=====================================================
+=====================================================
+=====================================================
+
+Aula 561 - API (Route Handlers) - Arquitetura e formatos de API
+
+Explicação de conceitos de API e rotas
