@@ -131,3 +131,12 @@ Explicação de conceitos de API e rotas
 Aula 582 - API (Route Handlers) - Implementando Route Handlers para os Métodos HTTP 
 
 Baixei e instalei o Insomnia
+
+
+=====================================================
+=====================================================
+=====================================================
+
+Aula 565 - API - (route handlers) - Content-Type - Introdução
+
+Só explicou por cima como funciona e o que é o content-type
