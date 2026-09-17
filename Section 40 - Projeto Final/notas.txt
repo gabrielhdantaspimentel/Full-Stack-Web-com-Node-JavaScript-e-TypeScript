@@ -122,3 +122,12 @@ Dei um "npx prisma migrate reset" pra forçar o novo banco no DBeaver. O profess
 Aula 561 - API (Route Handlers) - Arquitetura e formatos de API
 
 Explicação de conceitos de API e rotas
+
+=====================================================
+=====================================================
+=====================================================
+
+
+Aula 582 - API (Route Handlers) - Implementando Route Handlers para os Métodos HTTP 
+
+Baixei e instalei o Insomnia
