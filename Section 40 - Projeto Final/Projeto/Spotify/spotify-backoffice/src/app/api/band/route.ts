@@ -5,8 +5,10 @@ export async function GET() {
   return Response.json(bands);
 }
 
-export async function POST() {
-  return Response.json({ msg: "API Rest - Método POST" });
+export async function POST(request: Request) {
+  const data = await request.json();
+  console.log(data);
+  return Response.json({ msg: "Dados de banda recebidos com sucesso!", data });
 }
 
 export async function PUT() {
