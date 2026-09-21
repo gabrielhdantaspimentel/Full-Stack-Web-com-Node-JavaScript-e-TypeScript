@@ -1,12 +1,23 @@
-import path from "path";
+// import path from "path";
+import { isInt8Array } from "util/types";
 import prisma from "../../../../lib/prisma";
-import { mkdir, writeFile } from "fs/promises";
+// import { mkdir, writeFile } from "fs/promises";
+import * as z from "zod/v4";
+
+// Isso tudo ta descrito na documentação do Zod
+const BandSchema = z.object({
+  name: z.string().min(1),
+  slug: z.string().min(1),
+  description: z.string().optional(),
+  status: z.enum(["active", "inactive"]),
+});
 
 export async function GET() {
   const bands = await prisma.band.findMany();
   return Response.json(bands);
 }
 
+/* 
 export async function POST(request: Request) {
   const formData = await request.formData();
 
@@ -32,6 +43,44 @@ export async function POST(request: Request) {
     msg: "Dados recebidos com sucesso!",
     filePath: `/uploads/${file.name}`,
   });
+}
+*/
+
+export async function POST(request: Request) {
+  try {
+    const bodyText = await request.text();
+    const params = new URLSearchParams(bodyText);
+    const name = params.get("name");
+    const slug = params.get("slug");
+    const description = params.get("description");
+    const status = params.get("status");
+
+    //Validação de dados
+    const validatedData = BandSchema.parse({
+      name: name,
+      slug: slug,
+      description: description || "",
+      status: status,
+    });
+
+    return Response.json({
+      msg: "URL Enconded",
+      validatedData,
+    });
+  } catch (error: unknown) {
+    if (error instanceof z.ZodError) {
+      return Response.json(
+        { error: "Erro de validação", details: error.issues },
+        { status: 400 },
+      );
+    }
+
+    console.log("Erro desconhecido", error);
+    return Response.json(
+      { error: "Erro desconhecido (erro interno do servidor)" },
+      { status: 500 },
+    );
+  }
 }
 
 export function PUT() {

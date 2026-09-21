@@ -140,3 +140,13 @@ Baixei e instalei o Insomnia
 Aula 565 - API - (route handlers) - Content-Type - Introdução
 
 Só explicou por cima como funciona e o que é o content-type
+
+
+=====================================================
+=====================================================
+=====================================================
+
+
+Aula 569 - Zod - Validação de Dados e Tratamento de Erros em Requisições HTTP Parte 1
+
+Dei "npm i zod"
