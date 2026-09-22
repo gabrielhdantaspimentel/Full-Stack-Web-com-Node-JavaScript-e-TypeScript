@@ -1,20 +1,14 @@
-import prisma from "../../../../lib/prisma";
-import * as z from "zod/v4";
-import { BandSchema } from "@/app/schemas/band.schema";
-
-export async function GET() {
-  const bands = await prisma.band.findMany();
-  return Response.json(bands);
-}
+import z from "zod/v4";
+import { BandArraySchema } from "../../../schemas/band.schema";
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
 
-    if (typeof data === "object" && data !== null) {
-      const validatedData = BandSchema.parse(data);
+    if (Array.isArray(data)) {
+      const validatedData = BandArraySchema.parse(data);
       //TODO: Armazenar os dados no banco de dados
-      return Response.json({ msg: "JSON (único)", validatedData });
+      return Response.json({ msg: "JSON (array)", validatedData });
     } else {
       return Response.json(
         { error: "Dados encaminhados em um formato inválido" },
@@ -48,24 +42,4 @@ export async function POST(request: Request) {
       { status: 500 },
     );
   }
-}
-
-export function PUT() {
-  return Response.json({ msg: "API Rest - Método PUT" });
-}
-
-export function PATCH() {
-  return Response.json({ msg: "API Rest - Método PATCH" });
-}
-
-export function DELETE() {
-  return Response.json({ msg: "API Rest - Método DELETE" });
-}
-
-export function HEAD() {
-  return Response.json({ msg: "API Rest - Método HEAD" });
-}
-
-export function OPTIONS() {
-  return Response.json({ msg: "API Rest - Método OPTIONS" });
 }
