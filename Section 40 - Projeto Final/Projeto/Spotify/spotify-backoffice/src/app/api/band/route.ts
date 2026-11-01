@@ -38,6 +38,15 @@ export async function POST(request: Request) {
     const filePath = path.join(uploadDir, data.cover.name);
     await writeFile(filePath, buffer);
 
+    console.log(validatedData);
+    const { cover, ...dataWithouthCover } = validatedData;
+    console.log(dataWithouthCover);
+
+    // Inserir os dados no banco via Prisma
+    const insertedItem = await prisma.band.create({
+      data: dataWithouthCover,
+    });
+
     return Response.json({
       msg: "FormData",
       validatedData,
