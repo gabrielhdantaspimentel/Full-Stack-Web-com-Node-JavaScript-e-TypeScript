@@ -150,3 +150,16 @@ Só explicou por cima como funciona e o que é o content-type
 Aula 569 - Zod - Validação de Dados e Tratamento de Erros em Requisições HTTP Parte 1
 
 Dei "npm i zod"
+
+
+=====================================================
+=====================================================
+=====================================================
+
+
+Aula 576 - Upload de Arquivos vs Arquitetura
+
+Mostrou alguns pontos importantes sobre segurança e tratamento e rota comparado tipos de arquivos e arquiteturas
+
+
+diretório "/storage" criado dentro do "spotify-backoffice"
